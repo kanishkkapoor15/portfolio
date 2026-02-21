@@ -3,7 +3,7 @@
 A modern, animated personal portfolio website built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
 ## 🚀 Live Demo
-Deployed on Vercel → [your-url.vercel.app]
+**[portfolio-five-jet-74.vercel.app](https://portfolio-five-jet-74.vercel.app)**
 
 ## ✨ Features
 - 🎨 Bright, animated UI with glassmorphism design
