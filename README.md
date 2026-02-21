@@ -1,4 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kanishk Kapoor — Personal Portfolio
+
+A modern, animated personal portfolio website built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
+
+## 🚀 Live Demo
+Deployed on Vercel → [your-url.vercel.app]
+
+## ✨ Features
+- 🎨 Bright, animated UI with glassmorphism design
+- 🤖 Hero section with typewriter animation cycling through roles
+- 📊 Animated stats with CountUp
+- 🗂 Filterable projects grid (all 30+ GitHub projects)
+- 💼 Work experience timeline (IBM + Medicidiom)
+- 📬 Contact form with mailto integration
+- 📱 Fully responsive (mobile-first)
+- ⚡ Framer Motion animations & scroll-triggered reveals throughout
+
+## 🛠 Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Typewriter**: react-type-animation
+- **Counter**: react-countup
+
+## 📦 Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## 🚀 Deploy to Vercel
+
+1. Push to GitHub
+2. Import repo into [Vercel](https://vercel.com)
+3. Deploy — zero config needed (`vercel.json` included)
+
+```bash
+npm run build   # Test production build locally
+```
+
 
 ## Getting Started
 
