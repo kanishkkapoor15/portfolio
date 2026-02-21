@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github, Star, Filter, Layers } from "lucide-react";
+import {
+  ExternalLink, Github, Star, Filter, Layers,
+  Bot, Newspaper, PlaneTakeoff, ShoppingCart, Droplets,
+  ShieldAlert, HeartPulse, Store, Hospital, Zap,
+  Radiation, Map, type LucideIcon,
+} from "lucide-react";
 
 type Project = {
   title: string;
@@ -11,7 +16,7 @@ type Project = {
   longDesc: string;
   tags: string[];
   category: string;
-  emoji: string;
+  icon: LucideIcon;
   color: string;
   gradient: string;
   github: string;
@@ -27,12 +32,12 @@ const projects: Project[] = [
       "Agentic AI system that lets users query product analytics in plain English. Eliminates manual SQL or BI tool access entirely via a Model Context Protocol (MCP) server with a natural language interface.",
     tags: ["Python", "OpenAI API", "MCP", "Agentic AI", "NLQ", "FastAPI"],
     category: "AI / LLM",
-    emoji: "🤖",
+    icon: Bot,
     color: "from-violet-500 to-purple-600",
     gradient: "from-violet-50 to-purple-50",
     github: "https://github.com/kanishkkapoor15/Product-Analytics-MCP-LLM-Agent",
     featured: true,
-    highlight: "⭐ Pinned",
+    highlight: "Pinned",
   },
   {
     title: "News Intelligence Dashboard",
@@ -41,7 +46,7 @@ const projects: Project[] = [
       "Real-time data pipeline: news API → dual-model summarisation (OpenAI GPT-4 + HuggingFace DistilBART fallback) → Streamlit dashboard with smart API rate-limit handling.",
     tags: ["Python", "GPT-4", "HuggingFace", "Streamlit", "REST API", "DistilBART"],
     category: "AI / LLM",
-    emoji: "📰",
+    icon: Newspaper,
     color: "from-pink-500 to-rose-500",
     gradient: "from-pink-50 to-rose-50",
     github: "https://github.com/kanishkkapoor15/news-scrapping-llm",
@@ -55,7 +60,7 @@ const projects: Project[] = [
       "End-to-end real-time airline delay data pipeline: FastAPI producer → Apache Kafka → Azure Event Hubs → Databricks PySpark (Bronze/Silver/Gold) → Snowflake → live Snowsight KPI dashboards.",
     tags: ["Python", "Kafka", "Azure", "Databricks", "Snowflake", "PySpark"],
     category: "Data Engineering",
-    emoji: "✈️",
+    icon: PlaneTakeoff,
     color: "from-sky-500 to-blue-600",
     gradient: "from-sky-50 to-blue-50",
     github: "https://github.com/kanishkkapoor15/US-flight-delay-data-pipeline",
@@ -69,7 +74,7 @@ const projects: Project[] = [
       "Real-time order streaming pipeline: FastAPI event source → Kafka → Spark stream processing → structured JSON in AWS S3 with Airflow orchestration and Docker containerisation.",
     tags: ["Kafka", "Spark", "AWS S3", "Airflow", "Docker", "FastAPI"],
     category: "Data Engineering",
-    emoji: "🛒",
+    icon: ShoppingCart,
     color: "from-orange-500 to-amber-500",
     gradient: "from-orange-50 to-amber-50",
     github: "https://github.com/kanishkkapoor15/E-commerce-Sales-Data-Pipeline",
@@ -82,7 +87,7 @@ const projects: Project[] = [
       "Research-grade ML pipeline on 5M+ European environmental records. Spatio-temporal feature engineering, gradient boosting for nitrate/phosphate pollution risk prediction across 4 water body types.",
     tags: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Feature Engineering"],
     category: "Machine Learning",
-    emoji: "💧",
+    icon: Droplets,
     color: "from-cyan-500 to-teal-500",
     gradient: "from-cyan-50 to-teal-50",
     github: "https://github.com/kanishkkapoor15/European_Water_Quality_Modelling",
@@ -96,7 +101,7 @@ const projects: Project[] = [
       "FinTech fraud detection on 18K+ transactions with feature engineering, statistical validation (ANOVA, Mann-Whitney U), XGBoost with deliberate class-imbalance handling.",
     tags: ["Python", "XGBoost", "ANOVA", "Scikit-learn", "FinTech"],
     category: "Machine Learning",
-    emoji: "🔐",
+    icon: ShieldAlert,
     color: "from-red-500 to-pink-600",
     gradient: "from-red-50 to-pink-50",
     github: "https://github.com/kanishkkapoor15/Transaction-Fraud-Analysis",
@@ -109,7 +114,7 @@ const projects: Project[] = [
       "End-to-end statistical + ML research on 250K+ public health records. Hypothesis testing → logistic regression → XGBoost achieving 86% accuracy on BRFSS2015 dataset.",
     tags: ["Python", "XGBoost", "Pandas", "Statistical Testing", "Public Health"],
     category: "Machine Learning",
-    emoji: "🏥",
+    icon: HeartPulse,
     color: "from-emerald-500 to-green-600",
     gradient: "from-emerald-50 to-green-50",
     github: "https://github.com/kanishkkapoor15/Diabetes_Statistical_Model",
@@ -123,12 +128,12 @@ const projects: Project[] = [
       "Full-stack MERN Stack e-commerce application powered by Artificial Intelligence and Data Science libraries including TensorFlow for product recommendations.",
     tags: ["JavaScript", "React", "Node.js", "MongoDB", "TensorFlow", "Express"],
     category: "Full Stack",
-    emoji: "🛍️",
+    icon: Store,
     color: "from-yellow-500 to-orange-500",
     gradient: "from-yellow-50 to-orange-50",
     github: "https://github.com/kanishkkapoor15/G-G-ECOMMERCE",
     featured: false,
-    highlight: "⭐ 1 Star",
+    highlight: "1 Star",
   },
   {
     title: "Healthcare ELT — Snowflake",
@@ -137,7 +142,7 @@ const projects: Project[] = [
       "FastAPI backend simulating 100+ hospital records with Snowflake-based ELT pipeline for healthcare data warehousing and analytics.",
     tags: ["Python", "FastAPI", "Snowflake", "ELT", "Healthcare"],
     category: "Data Engineering",
-    emoji: "🏨",
+    icon: Hospital,
     color: "from-indigo-500 to-violet-500",
     gradient: "from-indigo-50 to-violet-50",
     github: "https://github.com/kanishkkapoor15/Healthcare-Data-Snowpipe",
@@ -150,7 +155,7 @@ const projects: Project[] = [
       "Comprehensive energy demand forecasting combining XGBoost gradient boosting with LSTM deep learning for accurate time-series predictions.",
     tags: ["Python", "XGBoost", "LSTM", "TensorFlow", "Time Series"],
     category: "Machine Learning",
-    emoji: "⚡",
+    icon: Zap,
     color: "from-yellow-400 to-amber-500",
     gradient: "from-yellow-50 to-amber-50",
     github: "https://github.com/kanishkkapoor15/Energy-Expenditure-Analysis",
@@ -163,7 +168,7 @@ const projects: Project[] = [
       "Advanced time-series analysis of radioactivity levels in Czech Republic using SARIMA, TBATS, and ETS models for accurate environmental forecasting.",
     tags: ["R", "SARIMA", "TBATS", "ETS", "Time Series", "Environmental"],
     category: "Machine Learning",
-    emoji: "☢️",
+    icon: Radiation,
     color: "from-green-500 to-teal-500",
     gradient: "from-green-50 to-teal-50",
     github: "https://github.com/kanishkkapoor15/Radioactivity_Forecasting_Czech_Republic",
@@ -176,7 +181,7 @@ const projects: Project[] = [
       "Front-end React application using data science strategies to visualise and map social challenges across India on an interactive geographical interface.",
     tags: ["JavaScript", "React", "Data Visualisation", "GIS", "D3.js"],
     category: "Full Stack",
-    emoji: "🗺️",
+    icon: Map,
     color: "from-orange-400 to-red-500",
     gradient: "from-orange-50 to-red-50",
     github: "https://github.com/kanishkkapoor15/indian-geographical-problems-analyzer",
@@ -271,9 +276,9 @@ export default function Projects() {
                 {/* Top Row */}
                 <div className="flex items-start justify-between">
                   <div
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-xl shadow-md`}
+                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center shadow-md`}
                   >
-                    {project.emoji}
+                    <project.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex items-center gap-2">
                     {project.highlight && (

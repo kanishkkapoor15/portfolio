@@ -109,7 +109,8 @@ export default function Contact() {
             className="flex flex-col gap-4"
           >
             <div className="glass rounded-3xl p-6 shadow-sm border border-white/80 mb-2">
-              <h3 className="text-lg font-bold text-slate-800 mb-2">👋 Say Hello!</h3>
+              <h3 className="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-violet-500" /> Say Hello</h3>
               <p className="text-slate-500 text-sm leading-relaxed">
                 Whether you&apos;re a recruiter, a fellow developer, or someone with an
                 interesting project — I&apos;d love to hear from you. I typically respond within

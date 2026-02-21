@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Briefcase, Calendar, MapPin, TrendingUp, Award } from "lucide-react";
+import { Briefcase, Calendar, MapPin, TrendingUp, Award, GraduationCap, BookOpen, BadgeCheck } from "lucide-react";
 
 const experiences = [
   {
@@ -45,7 +45,7 @@ const education = [
     institution: "Dublin City University",
     period: "2025 – Present",
     grade: "1:1 Expected",
-    icon: "🎓",
+    icon: GraduationCap,
     color: "from-violet-500 to-pink-500",
   },
   {
@@ -53,15 +53,15 @@ const education = [
     institution: "University of Petroleum & Energy Studies",
     period: "2020 – 2024",
     grade: "CGPA: 8.7/10",
-    icon: "🏛️",
+    icon: BookOpen,
     color: "from-cyan-500 to-blue-500",
   },
 ];
 
 const certifications = [
-  { name: "Google Data Analytics Professional Certificate", year: "2024", emoji: "📊" },
-  { name: "Forecasting in Business — Deakin University", year: "2024", emoji: "📈" },
-  { name: "Data Analytics for Investment", year: "2024", emoji: "💹" },
+  { name: "Google Data Analytics Professional Certificate", year: "2024" },
+  { name: "Forecasting in Business — Deakin University", year: "2024" },
+  { name: "Data Analytics for Investment", year: "2024" },
 ];
 
 export default function Experience() {
@@ -199,7 +199,9 @@ export default function Experience() {
                     whileHover={{ scale: 1.02 }}
                     className="glass rounded-2xl p-5 shadow-sm border border-white/80"
                   >
-                    <div className="text-2xl mb-2">{edu.icon}</div>
+                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${edu.color} flex items-center justify-center mb-3 shadow-sm`}>
+                      <edu.icon className="w-4 h-4 text-white" />
+                    </div>
                     <p className="font-bold text-slate-800 text-sm">{edu.degree}</p>
                     <p className="text-slate-600 text-sm mt-0.5">{edu.institution}</p>
                     <div className="flex justify-between items-center mt-2">
@@ -218,7 +220,7 @@ export default function Experience() {
             {/* Certifications */}
             <div>
               <h3 className="text-xl font-bold text-slate-700 mb-4 flex items-center gap-2">
-                🏅 Certifications
+                <BadgeCheck className="w-5 h-5 text-violet-500" /> Certifications
               </h3>
               <div className="flex flex-col gap-3">
                 {certifications.map((cert, i) => (
@@ -230,7 +232,9 @@ export default function Experience() {
                     whileHover={{ x: 4 }}
                     className="glass rounded-xl p-4 shadow-sm border border-white/80 flex items-start gap-3"
                   >
-                    <span className="text-xl flex-shrink-0">{cert.emoji}</span>
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <BadgeCheck className="w-3.5 h-3.5 text-white" />
+                    </div>
                     <div>
                       <p className="text-sm font-medium text-slate-700">{cert.name}</p>
                       <p className="text-xs text-slate-400 mt-0.5">{cert.year}</p>

@@ -100,15 +100,15 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
-              "AI Developer 🤖",
+              "AI Developer",
               2000,
-              "Data Engineer 🔧",
+              "Data Engineer",
               2000,
-              "LLM / Agentic AI Builder 🧠",
+              "LLM / Agentic AI Builder",
               2000,
-              "ML Engineer 📊",
+              "ML Engineer",
               2000,
-              "Software Engineer 💻",
+              "Software Engineer",
               2000,
             ]}
             wrapper="span"
@@ -146,7 +146,7 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 text-white font-semibold shadow-xl shadow-violet-200 hover:shadow-violet-300 transition-shadow animate-gradient"
           >
-            View My Work ✨
+            View My Work
           </motion.a>
           <motion.a
             href="#contact"
@@ -154,7 +154,7 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3.5 rounded-2xl glass border-2 border-violet-200 text-violet-700 font-semibold hover:border-violet-300 transition-colors"
           >
-            Get in Touch 👋
+            Get in Touch
           </motion.a>
         </motion.div>
 

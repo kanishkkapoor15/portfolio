@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { GraduationCap, MapPin, Briefcase, Heart } from "lucide-react";
+import { GraduationCap, MapPin, Briefcase, Heart, Bot, BrainCircuit, Workflow, Cloud, BarChart2, FlaskConical, Gamepad2, Globe, MapPinned, Code2, Coffee } from "lucide-react";
 
 const highlights = [
   {
@@ -36,14 +36,14 @@ const highlights = [
 ];
 
 const interests = [
-  "🤖 Agentic AI Systems",
-  "🧠 Large Language Models",
-  "⚡ Real-time Data Pipelines",
-  "☁️ Cloud Architecture",
-  "📊 Business Intelligence",
-  "🔬 ML Research",
-  "🎮 Gaming",
-  "🌍 Travelling",
+  { label: "Agentic AI Systems", icon: Bot },
+  { label: "Large Language Models", icon: BrainCircuit },
+  { label: "Real-time Data Pipelines", icon: Workflow },
+  { label: "Cloud Architecture", icon: Cloud },
+  { label: "Business Intelligence", icon: BarChart2 },
+  { label: "ML Research", icon: FlaskConical },
+  { label: "Gaming", icon: Gamepad2 },
+  { label: "Travelling", icon: Globe },
 ];
 
 export default function About() {
@@ -115,14 +115,18 @@ export default function About() {
                     Interests
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {interests.map((interest) => (
-                      <span
-                        key={interest}
-                        className="px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-50 to-pink-50 border border-violet-100 text-sm text-slate-600 font-medium"
-                      >
-                        {interest}
-                      </span>
-                    ))}
+                    {interests.map((interest) => {
+                      const Icon = interest.icon;
+                      return (
+                        <span
+                          key={interest.label}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-50 to-pink-50 border border-violet-100 text-sm text-slate-600 font-medium"
+                        >
+                          <Icon className="w-3.5 h-3.5 text-violet-500 flex-shrink-0" />
+                          {interest.label}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -167,12 +171,14 @@ export default function About() {
               transition={{ duration: 0.5, delay: 1 }}
               className="glass rounded-2xl p-5 shadow-sm border border-white/80 bg-gradient-to-r from-violet-50 to-pink-50"
             >
-              <p className="text-sm font-semibold text-violet-700 mb-2">🎯 Quick Facts</p>
+              <p className="text-sm font-semibold text-violet-700 mb-3 flex items-center gap-1.5">
+                <MapPinned className="w-4 h-4" /> Quick Facts
+              </p>
               <div className="grid grid-cols-2 gap-3 text-sm text-slate-600">
-                <div>📍 Dublin, Ireland</div>
-                <div>🇮🇳 Originally from India</div>
-                <div>🐍 Python Expert</div>
-                <div>☕ Fuelled by coffee</div>
+                <div className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-violet-400 flex-shrink-0" /> Dublin, Ireland</div>
+                <div className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" /> Originally from India</div>
+                <div className="flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" /> Python Expert</div>
+                <div className="flex items-center gap-1.5"><Coffee className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" /> Fuelled by coffee</div>
               </div>
             </motion.div>
           </motion.div>
