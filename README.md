@@ -2,8 +2,8 @@
 
 A modern, animated personal portfolio website built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
-## Live Demo
-**[kanishkkapoor](https://kanishkkapoor.com/)**
+## 🚀 Live Demo
+**[kanishkkapoor.com](https://kanishkkapoor.com)**
 
 ## ✨ Features
 - 🎨 Bright, animated UI with glassmorphism design
