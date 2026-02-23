@@ -33,8 +33,8 @@ const projects: Project[] = [
     tags: ["Python", "OpenAI API", "MCP", "Agentic AI", "NLQ", "FastAPI"],
     category: "AI / LLM",
     icon: Bot,
-    color: "from-violet-500 to-purple-600",
-    gradient: "from-violet-50 to-purple-50",
+    color: "from-[#6B2080] to-[#C57BB8]",
+    gradient: "from-[#6B2080]/5 to-[#C57BB8]/5",
     github: "https://github.com/kanishkkapoor15/Product-Analytics-MCP-LLM-Agent",
     featured: true,
     highlight: "Pinned",
@@ -47,8 +47,8 @@ const projects: Project[] = [
     tags: ["Python", "GPT-4", "HuggingFace", "Streamlit", "REST API", "DistilBART"],
     category: "AI / LLM",
     icon: Newspaper,
-    color: "from-pink-500 to-rose-500",
-    gradient: "from-pink-50 to-rose-50",
+    color: "from-[#7A1535] to-[#C57BB8]",
+    gradient: "from-[#7A1535]/5 to-[#C57BB8]/5",
     github: "https://github.com/kanishkkapoor15/news-scrapping-llm",
     featured: true,
     highlight: "Dual-model fallback",
@@ -61,8 +61,8 @@ const projects: Project[] = [
     tags: ["Python", "Kafka", "Azure", "Databricks", "Snowflake", "PySpark"],
     category: "Data Engineering",
     icon: PlaneTakeoff,
-    color: "from-sky-500 to-blue-600",
-    gradient: "from-sky-50 to-blue-50",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    gradient: "from-[#D4952A]/5 to-[#C57BB8]/5",
     github: "https://github.com/kanishkkapoor15/US-flight-delay-data-pipeline",
     featured: true,
     highlight: "Multi-layer Medallion",
@@ -75,8 +75,8 @@ const projects: Project[] = [
     tags: ["Kafka", "Spark", "AWS S3", "Airflow", "Docker", "FastAPI"],
     category: "Data Engineering",
     icon: ShoppingCart,
-    color: "from-orange-500 to-amber-500",
-    gradient: "from-orange-50 to-amber-50",
+    color: "from-[#D4952A] to-[#7A1535]",
+    gradient: "from-[#D4952A]/5 to-[#7A1535]/5",
     github: "https://github.com/kanishkkapoor15/E-commerce-Sales-Data-Pipeline",
     featured: false,
   },
@@ -88,8 +88,8 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Feature Engineering"],
     category: "Machine Learning",
     icon: Droplets,
-    color: "from-cyan-500 to-teal-500",
-    gradient: "from-cyan-50 to-teal-50",
+    color: "from-[#6B2080] to-[#D4952A]",
+    gradient: "from-[#6B2080]/5 to-[#D4952A]/5",
     github: "https://github.com/kanishkkapoor15/European_Water_Quality_Modelling",
     featured: true,
     highlight: "5M+ records",
@@ -102,8 +102,8 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "ANOVA", "Scikit-learn", "FinTech"],
     category: "Machine Learning",
     icon: ShieldAlert,
-    color: "from-red-500 to-pink-600",
-    gradient: "from-red-50 to-pink-50",
+    color: "from-[#7A1535] to-[#6B2080]",
+    gradient: "from-[#7A1535]/5 to-[#6B2080]/5",
     github: "https://github.com/kanishkkapoor15/Transaction-Fraud-Analysis",
     featured: false,
   },
@@ -115,8 +115,8 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "Pandas", "Statistical Testing", "Public Health"],
     category: "Machine Learning",
     icon: HeartPulse,
-    color: "from-emerald-500 to-green-600",
-    gradient: "from-emerald-50 to-green-50",
+    color: "from-[#6B2080] to-[#7A1535]",
+    gradient: "from-[#6B2080]/5 to-[#7A1535]/5",
     github: "https://github.com/kanishkkapoor15/Diabetes_Statistical_Model",
     featured: false,
     highlight: "86% accuracy",
@@ -129,8 +129,8 @@ const projects: Project[] = [
     tags: ["JavaScript", "React", "Node.js", "MongoDB", "TensorFlow", "Express"],
     category: "Full Stack",
     icon: Store,
-    color: "from-yellow-500 to-orange-500",
-    gradient: "from-yellow-50 to-orange-50",
+    color: "from-[#D4952A] to-[#6B2080]",
+    gradient: "from-[#D4952A]/5 to-[#6B2080]/5",
     github: "https://github.com/kanishkkapoor15/G-G-ECOMMERCE",
     featured: false,
     highlight: "1 Star",
@@ -143,8 +143,8 @@ const projects: Project[] = [
     tags: ["Python", "FastAPI", "Snowflake", "ELT", "Healthcare"],
     category: "Data Engineering",
     icon: Hospital,
-    color: "from-indigo-500 to-violet-500",
-    gradient: "from-indigo-50 to-violet-50",
+    color: "from-[#C57BB8] to-[#6B2080]",
+    gradient: "from-[#C57BB8]/5 to-[#6B2080]/5",
     github: "https://github.com/kanishkkapoor15/Healthcare-Data-Snowpipe",
     featured: false,
   },
@@ -156,8 +156,8 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "LSTM", "TensorFlow", "Time Series"],
     category: "Machine Learning",
     icon: Zap,
-    color: "from-yellow-400 to-amber-500",
-    gradient: "from-yellow-50 to-amber-50",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    gradient: "from-[#D4952A]/5 to-[#C57BB8]/5",
     github: "https://github.com/kanishkkapoor15/Energy-Expenditure-Analysis",
     featured: false,
   },
@@ -169,8 +169,8 @@ const projects: Project[] = [
     tags: ["R", "SARIMA", "TBATS", "ETS", "Time Series", "Environmental"],
     category: "Machine Learning",
     icon: Radiation,
-    color: "from-green-500 to-teal-500",
-    gradient: "from-green-50 to-teal-50",
+    color: "from-[#6B2080] to-[#D4952A]",
+    gradient: "from-[#6B2080]/5 to-[#D4952A]/5",
     github: "https://github.com/kanishkkapoor15/Radioactivity_Forecasting_Czech_Republic",
     featured: false,
   },
@@ -182,8 +182,8 @@ const projects: Project[] = [
     tags: ["JavaScript", "React", "Data Visualisation", "GIS", "D3.js"],
     category: "Full Stack",
     icon: Map,
-    color: "from-orange-400 to-red-500",
-    gradient: "from-orange-50 to-red-50",
+    color: "from-[#7A1535] to-[#D4952A]",
+    gradient: "from-[#7A1535]/5 to-[#D4952A]/5",
     github: "https://github.com/kanishkkapoor15/indian-geographical-problems-analyzer",
     featured: false,
   },
@@ -207,10 +207,10 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white via-pink-50/20 to-white"
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white via-[#7A1535]/3 to-white"
     >
-      <div className="section-blob w-80 h-80 bg-pink-300 top-0 -right-10" />
-      <div className="section-blob w-80 h-80 bg-violet-300 bottom-20 -left-10" />
+      <div className="section-blob w-80 h-80 bg-[#7A1535] top-0 -right-10" />
+      <div className="section-blob w-80 h-80 bg-[#6B2080] bottom-20 -left-10" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
@@ -220,12 +220,12 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
           className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 text-pink-700 text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#7A1535]/10 text-[#7A1535] text-sm font-semibold mb-4">
             <Layers className="w-4 h-4" /> Projects
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
             What I&apos;ve{" "}
-            <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#7A1535] to-[#6B2080] bg-clip-text text-transparent">
               Built
             </span>
           </h2>
@@ -250,8 +250,8 @@ export default function Projects() {
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-violet-500 to-pink-500 text-white shadow-md shadow-violet-200"
-                  : "glass border border-slate-200 text-slate-600 hover:border-violet-300"
+                  ? "bg-gradient-to-r from-[#6B2080] to-[#D4952A] text-white shadow-md shadow-[#6B2080]/20"
+                  : "glass border border-slate-200 text-slate-600 hover:border-[#6B2080]/40"
               }`}
             >
               {cat}
@@ -332,7 +332,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-violet-600 transition-colors group-hover:gap-3"
+                    className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-[#6B2080] transition-colors group-hover:gap-3"
                   >
                     <Github className="w-4 h-4" />
                     View on GitHub
@@ -355,7 +355,7 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3.5 rounded-2xl glass border-2 border-violet-200 text-violet-700 font-semibold hover:border-violet-400 transition-colors"
+              className="px-8 py-3.5 rounded-2xl glass border-2 border-[#6B2080]/30 text-[#6B2080] font-semibold hover:border-[#6B2080]/60 transition-colors"
             >
               {showAll ? "Show Less ↑" : `Show All ${filtered.length} Projects ↓`}
             </motion.button>

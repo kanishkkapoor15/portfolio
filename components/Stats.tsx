@@ -7,58 +7,52 @@ import { TrendingUp, Zap, Shield, BarChart3 } from "lucide-react";
 
 const stats = [
   {
-    value: 30,
-    suffix: "+",
+    value: 30, suffix: "+",
     label: "Projects Shipped",
     desc: "Spanning AI, Data Engineering, ML & Full Stack",
     icon: Zap,
-    color: "from-violet-500 to-purple-600",
-    bg: "from-violet-50 to-purple-50",
+    color: "from-[#6B2080] to-[#C57BB8]",
+    bg: "from-[#6B2080]/8 to-[#C57BB8]/8",
   },
   {
-    value: 5,
-    suffix: "M+",
+    value: 5, suffix: "M+",
     label: "Records Processed",
     desc: "Across ML pipelines and data engineering projects",
     icon: BarChart3,
-    color: "from-cyan-500 to-blue-500",
-    bg: "from-cyan-50 to-blue-50",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    bg: "from-[#D4952A]/8 to-[#C57BB8]/8",
   },
   {
-    value: 45,
-    suffix: "%",
+    value: 45, suffix: "%",
     label: "Manual Effort Reduced",
     desc: "At Medicidiom via AI automation workflows",
     icon: TrendingUp,
-    color: "from-pink-500 to-rose-500",
-    bg: "from-pink-50 to-rose-50",
+    color: "from-[#7A1535] to-[#C57BB8]",
+    bg: "from-[#7A1535]/8 to-[#C57BB8]/8",
   },
   {
-    value: 99,
-    suffix: "%+",
+    value: 99, suffix: "%+",
     label: "Pipeline Uptime",
     desc: "Production data pipelines at Medicidiom",
     icon: Shield,
-    color: "from-emerald-500 to-green-500",
-    bg: "from-emerald-50 to-green-50",
+    color: "from-[#6B2080] to-[#7A1535]",
+    bg: "from-[#6B2080]/8 to-[#7A1535]/8",
   },
   {
-    value: 22,
-    suffix: "%",
+    value: 22, suffix: "%",
     label: "Accuracy Improvement",
     desc: "ML models at IBM for threat detection",
     icon: TrendingUp,
-    color: "from-orange-500 to-amber-500",
-    bg: "from-orange-50 to-amber-50",
+    color: "from-[#D4952A] to-[#7A1535]",
+    bg: "from-[#D4952A]/8 to-[#7A1535]/8",
   },
   {
-    value: 1000,
-    suffix: "+",
+    value: 1000, suffix: "+",
     label: "Documents Processed",
     desc: "Via LLM-powered intelligence pipelines",
     icon: Zap,
-    color: "from-sky-500 to-indigo-500",
-    bg: "from-sky-50 to-indigo-50",
+    color: "from-[#C57BB8] to-[#6B2080]",
+    bg: "from-[#C57BB8]/8 to-[#6B2080]/8",
   },
 ];
 
@@ -67,7 +61,7 @@ export default function Stats() {
 
   return (
     <section className="py-20 px-4 sm:px-6 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 animate-gradient" style={{ backgroundSize: "200% 200%" }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#6B2080] via-[#7A1535] to-[#D4952A] animate-gradient" style={{ backgroundSize: "200% 200%" }} />
       <div className="absolute inset-0 opacity-20" style={{
         backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
         backgroundSize: "40px 40px",

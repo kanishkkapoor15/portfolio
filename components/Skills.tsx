@@ -8,9 +8,9 @@ const skillCategories = [
   {
     icon: Brain,
     title: "AI & LLMs",
-    color: "from-violet-500 to-purple-600",
-    bg: "from-violet-50 to-purple-50",
-    border: "border-violet-200",
+    color: "from-[#6B2080] to-[#C57BB8]",
+    bg: "from-[#6B2080]/5 to-[#C57BB8]/5",
+    border: "border-[#6B2080]/20",
     skills: [
       "OpenAI API (GPT-4)",
       "HuggingFace Transformers",
@@ -25,9 +25,9 @@ const skillCategories = [
   {
     icon: BarChart3,
     title: "ML & Deep Learning",
-    color: "from-pink-500 to-rose-500",
-    bg: "from-pink-50 to-rose-50",
-    border: "border-pink-200",
+    color: "from-[#7A1535] to-[#C57BB8]",
+    bg: "from-[#7A1535]/5 to-[#C57BB8]/5",
+    border: "border-[#7A1535]/20",
     skills: [
       "Scikit-learn",
       "XGBoost",
@@ -42,17 +42,17 @@ const skillCategories = [
   {
     icon: Code2,
     title: "Languages",
-    color: "from-cyan-500 to-blue-500",
-    bg: "from-cyan-50 to-blue-50",
-    border: "border-cyan-200",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    bg: "from-[#D4952A]/5 to-[#C57BB8]/5",
+    border: "border-[#D4952A]/20",
     skills: ["Python (Expert)", "SQL", "JavaScript", "Java", "C", "R", "TypeScript", "Bash"],
   },
   {
     icon: Database,
     title: "Data & Pipelines",
-    color: "from-emerald-500 to-green-500",
-    bg: "from-emerald-50 to-green-50",
-    border: "border-emerald-200",
+    color: "from-[#6B2080] to-[#7A1535]",
+    bg: "from-[#6B2080]/5 to-[#7A1535]/5",
+    border: "border-[#6B2080]/20",
     skills: [
       "Apache Kafka",
       "Apache Spark",
@@ -67,9 +67,9 @@ const skillCategories = [
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    color: "from-sky-500 to-indigo-500",
-    bg: "from-sky-50 to-indigo-50",
-    border: "border-sky-200",
+    color: "from-[#D4952A] to-[#7A1535]",
+    bg: "from-[#D4952A]/5 to-[#7A1535]/5",
+    border: "border-[#D4952A]/20",
     skills: [
       "Azure (ADF, Databricks)",
       "AWS (S3, Lambda)",
@@ -84,9 +84,9 @@ const skillCategories = [
   {
     icon: Wrench,
     title: "Visualisation & BI",
-    color: "from-orange-500 to-amber-500",
-    bg: "from-orange-50 to-amber-50",
-    border: "border-orange-200",
+    color: "from-[#C57BB8] to-[#6B2080]",
+    bg: "from-[#C57BB8]/5 to-[#6B2080]/5",
+    border: "border-[#C57BB8]/20",
     skills: [
       "Power BI (DAX)",
       "Streamlit",
@@ -107,10 +107,10 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white via-violet-50/30 to-white"
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white via-[#6B2080]/3 to-white"
     >
-      <div className="section-blob w-80 h-80 bg-cyan-300 top-10 -left-20" />
-      <div className="section-blob w-80 h-80 bg-pink-300 bottom-10 -right-20" />
+      <div className="section-blob w-80 h-80 bg-[#D4952A] top-10 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#C57BB8] bottom-10 -right-20" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
@@ -120,12 +120,12 @@ export default function Skills() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-100 text-cyan-700 text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4952A]/10 text-[#D4952A] text-sm font-semibold mb-4">
             <Code2 className="w-4 h-4" /> Technical Skills
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
             My{" "}
-            <span className="bg-gradient-to-r from-cyan-500 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#D4952A] to-[#6B2080] bg-clip-text text-transparent">
               Toolkit
             </span>
           </h2>
@@ -186,12 +186,12 @@ export default function Skills() {
           </h3>
           <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
             {[
-              { lang: "Python", pct: 95, color: "from-blue-400 to-cyan-400" },
-              { lang: "SQL", pct: 88, color: "from-violet-400 to-purple-500" },
-              { lang: "R", pct: 82, color: "from-pink-400 to-rose-400" },
-              { lang: "JavaScript", pct: 75, color: "from-yellow-400 to-orange-400" },
-              { lang: "Java", pct: 70, color: "from-red-400 to-pink-500" },
-              { lang: "Bash / Linux", pct: 72, color: "from-green-400 to-emerald-400" },
+              { lang: "Python",     pct: 95, color: "from-[#6B2080] to-[#C57BB8]" },
+              { lang: "SQL",        pct: 88, color: "from-[#7A1535] to-[#C57BB8]" },
+              { lang: "R",          pct: 82, color: "from-[#D4952A] to-[#C57BB8]" },
+              { lang: "JavaScript", pct: 75, color: "from-[#D4952A] to-[#7A1535]" },
+              { lang: "Java",       pct: 70, color: "from-[#7A1535] to-[#6B2080]" },
+              { lang: "Bash / Linux", pct: 72, color: "from-[#6B2080] to-[#D4952A]" },
             ].map(({ lang, pct, color }) => (
               <div key={lang}>
                 <div className="flex justify-between mb-1.5">

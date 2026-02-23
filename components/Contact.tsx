@@ -31,7 +31,7 @@ export default function Contact() {
       label: "Email",
       value: "kanishkkapoor15@gmail.com",
       href: "mailto:kanishkkapoor15@gmail.com",
-      color: "from-red-400 to-pink-500",
+      color: "from-[#7A1535] to-[#C57BB8]",
       copyable: true,
     },
     {
@@ -39,7 +39,7 @@ export default function Contact() {
       label: "Phone",
       value: "+353 899 595 536",
       href: "tel:+353899595536",
-      color: "from-green-400 to-emerald-500",
+      color: "from-[#6B2080] to-[#D4952A]",
       copyable: true,
     },
     {
@@ -55,7 +55,7 @@ export default function Contact() {
       label: "LinkedIn",
       value: "in/kanishkapoor",
       href: "https://linkedin.com/in/kanishkapoor",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-[#D4952A] to-[#C57BB8]",
       copyable: false,
     },
     {
@@ -63,7 +63,7 @@ export default function Contact() {
       label: "Location",
       value: "Dublin, Ireland 🇮🇪",
       href: "#",
-      color: "from-violet-500 to-purple-600",
+      color: "from-[#6B2080] to-[#7A1535]",
       copyable: false,
     },
   ];
@@ -72,10 +72,10 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white to-violet-50/50"
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white to-[#6B2080]/5"
     >
-      <div className="section-blob w-96 h-96 bg-violet-300 top-0 -left-20" />
-      <div className="section-blob w-80 h-80 bg-pink-300 bottom-0 right-0" />
+      <div className="section-blob w-96 h-96 bg-[#6B2080] top-0 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#D4952A] bottom-0 right-0" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
@@ -85,12 +85,12 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 text-violet-700 text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6B2080]/10 text-[#6B2080] text-sm font-semibold mb-4">
             <MessageSquare className="w-4 h-4" /> Get in Touch
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
             Let&apos;s{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6B2080] to-[#D4952A] bg-clip-text text-transparent">
               Connect
             </span>
           </h2>
@@ -110,7 +110,7 @@ export default function Contact() {
           >
             <div className="glass rounded-3xl p-6 shadow-sm border border-white/80 mb-2">
               <h3 className="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-violet-500" /> Say Hello</h3>
+                <MessageSquare className="w-4 h-4 text-[#6B2080]" /> Say Hello</h3>
               <p className="text-slate-500 text-sm leading-relaxed">
                 Whether you&apos;re a recruiter, a fellow developer, or someone with an
                 interesting project — I&apos;d love to hear from you. I typically respond within
@@ -159,7 +159,7 @@ export default function Contact() {
                         target={contact.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
-                        className="p-1.5 rounded-lg hover:bg-violet-50 text-slate-400 hover:text-violet-600 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-[#6B2080]/5 text-slate-400 hover:text-[#6B2080] transition-colors"
                       >
                         <Send className="w-4 h-4" />
                       </motion.a>
@@ -181,7 +181,7 @@ export default function Contact() {
               className="glass rounded-3xl p-8 shadow-sm border border-white/80"
             >
               <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                <Send className="w-5 h-5 text-violet-500" />
+                <Send className="w-5 h-5 text-[#6B2080]" />
                 Send a Message
               </h3>
 
@@ -197,7 +197,7 @@ export default function Contact() {
                       placeholder="John Doe"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
@@ -210,7 +210,7 @@ export default function Contact() {
                       placeholder="john@example.com"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export default function Contact() {
                     placeholder="Job Opportunity / Collaboration / ..."
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
                   />
                 </div>
 
@@ -238,7 +238,7 @@ export default function Contact() {
                     placeholder="Hi Kanishk, I'd love to discuss..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all resize-none"
                   />
                 </div>
 
@@ -249,7 +249,7 @@ export default function Contact() {
                   className={`w-full py-3.5 rounded-xl font-semibold text-white shadow-md transition-all flex items-center justify-center gap-2 ${
                     sent
                       ? "bg-green-500 shadow-green-200"
-                      : "bg-gradient-to-r from-violet-500 to-pink-500 shadow-violet-200 hover:shadow-violet-300"
+                      : "bg-gradient-to-r from-[#6B2080] to-[#D4952A] shadow-[#6B2080]/20 hover:shadow-[#6B2080]/35"
                   }`}
                 >
                   {sent ? (

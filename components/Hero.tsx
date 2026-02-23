@@ -5,19 +5,19 @@ import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Zap } from "lucide-react";
 
 const floatingElements = [
-  { label: "Python", color: "from-blue-400 to-cyan-400", delay: 0, x: "10%", y: "20%" },
-  { label: "LLM", color: "from-violet-400 to-purple-500", delay: 0.5, x: "85%", y: "15%" },
-  { label: "FastAPI", color: "from-green-400 to-emerald-500", delay: 1, x: "80%", y: "70%" },
-  { label: "Azure", color: "from-sky-400 to-blue-500", delay: 1.5, x: "5%", y: "75%" },
-  { label: "Kafka", color: "from-orange-400 to-red-400", delay: 2, x: "50%", y: "85%" },
-  { label: "AI", color: "from-pink-400 to-rose-500", delay: 0.8, x: "90%", y: "45%" },
+  { label: "Python",  color: "from-[#6B2080] to-[#C57BB8]",  delay: 0,   x: "10%", y: "20%" },
+  { label: "LLM",    color: "from-[#7A1535] to-[#C57BB8]",   delay: 0.5, x: "85%", y: "15%" },
+  { label: "FastAPI", color: "from-[#D4952A] to-[#C57BB8]",  delay: 1,   x: "80%", y: "70%" },
+  { label: "Azure",  color: "from-[#6B2080] to-[#7A1535]",   delay: 1.5, x: "5%",  y: "75%" },
+  { label: "Kafka",  color: "from-[#D4952A] to-[#7A1535]",   delay: 2,   x: "50%", y: "85%" },
+  { label: "AI",     color: "from-[#C57BB8] to-[#6B2080]",   delay: 0.8, x: "90%", y: "45%" },
 ];
 
 const stats = [
-  { value: "30+", label: "Projects", color: "text-violet-600" },
-  { value: "2", label: "Internships", color: "text-pink-500" },
-  { value: "5M+", label: "Records Processed", color: "text-cyan-500" },
-  { value: "1:1", label: "Expected MSc", color: "text-emerald-500" },
+  { value: "30+", label: "Projects",         color: "text-[#6B2080]" },
+  { value: "2",   label: "Internships",       color: "text-[#7A1535]" },
+  { value: "5M+", label: "Records Processed", color: "text-[#D4952A]" },
+  { value: "1:1", label: "Expected MSc",      color: "text-[#C57BB8]" },
 ];
 
 export default function Hero() {
@@ -27,13 +27,13 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background blobs */}
-      <div className="section-blob w-96 h-96 bg-violet-400 top-0 -left-20 animate-blob" />
+      <div className="section-blob w-96 h-96 bg-[#6B2080] top-0 -left-20 animate-blob" />
       <div
-        className="section-blob w-80 h-80 bg-pink-400 top-20 right-0 animate-blob"
+        className="section-blob w-80 h-80 bg-[#D4952A] top-20 right-0 animate-blob"
         style={{ animationDelay: "3s" }}
       />
       <div
-        className="section-blob w-72 h-72 bg-cyan-400 bottom-20 left-1/4 animate-blob"
+        className="section-blob w-72 h-72 bg-[#C57BB8] bottom-20 left-1/4 animate-blob"
         style={{ animationDelay: "6s" }}
       />
 
@@ -42,14 +42,10 @@ export default function Hero() {
         <motion.div
           key={i}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.8, scale: 1 }}
+          animate={{ opacity: 0.85, scale: 1 }}
           transition={{ delay: el.delay + 1, duration: 0.5, type: "spring" }}
           className={`hidden lg:flex absolute items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r ${el.color} text-white text-xs font-bold shadow-lg animate-float`}
-          style={{
-            left: el.x,
-            top: el.y,
-            animationDelay: `${el.delay}s`,
-          }}
+          style={{ left: el.x, top: el.y, animationDelay: `${el.delay}s` }}
         >
           <Zap className="w-3 h-3" />
           {el.label}
@@ -58,9 +54,9 @@ export default function Hero() {
 
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.035]"
         style={{
-          backgroundImage: `radial-gradient(circle, #667eea 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, #6B2080 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
       />
@@ -71,7 +67,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-violet-200 shadow-sm mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#C57BB8]/30 shadow-sm mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <span className="text-sm text-slate-600 font-medium">
@@ -100,21 +96,16 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
-              "AI Developer",
-              2000,
-              "Data Engineer",
-              2000,
-              "LLM / Agentic AI Builder",
-              2000,
-              "ML Engineer",
-              2000,
-              "Software Engineer",
-              2000,
+              "AI Developer",           2000,
+              "Data Engineer",          2000,
+              "LLM / Agentic AI Builder", 2000,
+              "ML Engineer",            2000,
+              "Software Engineer",      2000,
             ]}
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            className="bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-[#6B2080] via-[#C57BB8] to-[#D4952A] bg-clip-text text-transparent"
           />
         </motion.div>
 
@@ -144,7 +135,7 @@ export default function Hero() {
             href="#projects"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 text-white font-semibold shadow-xl shadow-violet-200 hover:shadow-violet-300 transition-shadow animate-gradient"
+            className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#6B2080] via-[#7A1535] to-[#D4952A] text-white font-semibold shadow-xl shadow-[#6B2080]/25 hover:shadow-[#6B2080]/40 transition-shadow animate-gradient"
           >
             View My Work
           </motion.a>
@@ -152,7 +143,7 @@ export default function Hero() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3.5 rounded-2xl glass border-2 border-violet-200 text-violet-700 font-semibold hover:border-violet-300 transition-colors"
+            className="px-8 py-3.5 rounded-2xl glass border-2 border-[#6B2080]/30 text-[#6B2080] font-semibold hover:border-[#6B2080]/60 transition-colors"
           >
             Get in Touch
           </motion.a>
@@ -166,24 +157,9 @@ export default function Hero() {
           className="flex items-center justify-center gap-4 mb-14"
         >
           {[
-            {
-              icon: Github,
-              href: "https://github.com/kanishkkapoor15",
-              label: "GitHub",
-              color: "hover:bg-slate-100",
-            },
-            {
-              icon: Linkedin,
-              href: "https://linkedin.com/in/kanishkapoor",
-              label: "LinkedIn",
-              color: "hover:bg-blue-50",
-            },
-            {
-              icon: Mail,
-              href: "mailto:kanishkkapoor15@gmail.com",
-              label: "Email",
-              color: "hover:bg-red-50",
-            },
+            { icon: Github,   href: "https://github.com/kanishkkapoor15",      label: "GitHub",   color: "hover:bg-slate-100" },
+            { icon: Linkedin, href: "https://linkedin.com/in/kanishkapoor",    label: "LinkedIn", color: "hover:bg-[#6B2080]/5" },
+            { icon: Mail,     href: "mailto:kanishkkapoor15@gmail.com",        label: "Email",    color: "hover:bg-[#D4952A]/10" },
           ].map(({ icon: Icon, href, label, color }) => (
             <motion.a
               key={label}

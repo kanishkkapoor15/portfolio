@@ -11,8 +11,8 @@ const experiences = [
     location: "Spain (Remote)",
     period: "Feb 2026 – Present",
     type: "Current",
-    color: "from-violet-500 to-purple-600",
-    dotColor: "bg-violet-500",
+    color: "from-[#6B2080] to-[#C57BB8]",
+    dotColor: "bg-[#6B2080]",
     highlights: [
       "Architected LLM-powered document-intelligence pipelines (Python + OpenAI API) processing 1,000+ documents — improving data accuracy ~25% and cutting manual review by 35%",
       "Built agentic AI automation workflows eliminating ~45% of manual effort and reducing analytics turnaround by 30%",
@@ -27,8 +27,8 @@ const experiences = [
     location: "India",
     period: "Jun 2023 – Sep 2023",
     type: "Past",
-    color: "from-blue-500 to-cyan-500",
-    dotColor: "bg-blue-500",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    dotColor: "bg-[#D4952A]",
     highlights: [
       "Applied ML classification models (Python, Scikit-learn) to millions of security records — improved detection accuracy by 22% and reduced false positives by 15%",
       "Built and evaluated multiple model architectures on multi-year datasets",
@@ -46,7 +46,7 @@ const education = [
     period: "2025 – Present",
     grade: "1:1 Expected",
     icon: GraduationCap,
-    color: "from-violet-500 to-pink-500",
+    color: "from-[#6B2080] to-[#C57BB8]",
   },
   {
     degree: "B.Tech Computer Science",
@@ -54,7 +54,7 @@ const education = [
     period: "2020 – 2024",
     grade: "CGPA: 8.7/10",
     icon: BookOpen,
-    color: "from-cyan-500 to-blue-500",
+    color: "from-[#D4952A] to-[#C57BB8]",
   },
 ];
 
@@ -73,8 +73,8 @@ export default function Experience() {
       ref={ref}
       className="py-24 px-4 sm:px-6 relative overflow-hidden"
     >
-      <div className="section-blob w-96 h-96 bg-blue-300 top-0 right-0" />
-      <div className="section-blob w-72 h-72 bg-violet-300 bottom-0 left-10" />
+      <div className="section-blob w-96 h-96 bg-[#D4952A] top-0 right-0" />
+      <div className="section-blob w-72 h-72 bg-[#6B2080] bottom-0 left-10" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
@@ -84,12 +84,12 @@ export default function Experience() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4952A]/10 text-[#D4952A] text-sm font-semibold mb-4">
             <Briefcase className="w-4 h-4" /> Experience & Education
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
             My{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#D4952A] to-[#6B2080] bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
@@ -102,7 +102,7 @@ export default function Experience() {
           {/* Work Experience Timeline */}
           <div className="lg:col-span-2">
             <h3 className="text-xl font-bold text-slate-700 mb-6 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-violet-500" /> Work Experience
+              <TrendingUp className="w-5 h-5 text-[#6B2080]" /> Work Experience
             </h3>
             <div className="relative">
               {/* Timeline line */}
@@ -158,7 +158,7 @@ export default function Experience() {
                       <ul className="space-y-2 mb-4">
                         {exp.highlights.map((h, j) => (
                           <li key={j} className="flex gap-2 text-sm text-slate-600">
-                            <span className="text-violet-500 mt-0.5 flex-shrink-0">▸</span>
+                            <span className="text-[#6B2080] mt-0.5 flex-shrink-0">▸</span>
                             {h}
                           </li>
                         ))}
@@ -187,7 +187,7 @@ export default function Experience() {
             {/* Education */}
             <div>
               <h3 className="text-xl font-bold text-slate-700 mb-4 flex items-center gap-2">
-                <Award className="w-5 h-5 text-pink-500" /> Education
+                <Award className="w-5 h-5 text-[#D4952A]" /> Education
               </h3>
               <div className="flex flex-col gap-4">
                 {education.map((edu, i) => (
@@ -220,7 +220,7 @@ export default function Experience() {
             {/* Certifications */}
             <div>
               <h3 className="text-xl font-bold text-slate-700 mb-4 flex items-center gap-2">
-                <BadgeCheck className="w-5 h-5 text-violet-500" /> Certifications
+                <BadgeCheck className="w-5 h-5 text-[#6B2080]" /> Certifications
               </h3>
               <div className="flex flex-col gap-3">
                 {certifications.map((cert, i) => (
@@ -232,7 +232,7 @@ export default function Experience() {
                     whileHover={{ x: 4 }}
                     className="glass rounded-xl p-4 shadow-sm border border-white/80 flex items-start gap-3"
                   >
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#6B2080] to-[#C57BB8] flex items-center justify-center flex-shrink-0 shadow-sm">
                       <BadgeCheck className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>

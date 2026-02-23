@@ -9,29 +9,29 @@ const highlights = [
     icon: GraduationCap,
     title: "MSc Computing (Data Analytics)",
     subtitle: "Dublin City University · 1:1 Expected · 2025–Present",
-    color: "from-violet-500 to-purple-600",
-    bg: "bg-violet-50",
+    color: "from-[#6B2080] to-[#C57BB8]",
+    bg: "bg-[#6B2080]/5",
   },
   {
     icon: GraduationCap,
     title: "B.Tech Computer Science",
     subtitle: "UPES · CGPA 8.7/10 · 2020–2024",
-    color: "from-pink-500 to-rose-500",
-    bg: "bg-pink-50",
+    color: "from-[#7A1535] to-[#C57BB8]",
+    bg: "bg-[#7A1535]/5",
   },
   {
     icon: Briefcase,
     title: "AI Automation Intern",
     subtitle: "Medicidiom, Spain (Remote) · Feb 2026–Present",
-    color: "from-cyan-500 to-blue-500",
-    bg: "bg-cyan-50",
+    color: "from-[#D4952A] to-[#C57BB8]",
+    bg: "bg-[#D4952A]/5",
   },
   {
     icon: MapPin,
     title: "Based in Dublin, Ireland",
     subtitle: "Open to remote & on-site opportunities",
-    color: "from-emerald-500 to-green-500",
-    bg: "bg-emerald-50",
+    color: "from-[#6B2080] to-[#7A1535]",
+    bg: "bg-[#6B2080]/5",
   },
 ];
 
@@ -51,8 +51,8 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="py-24 px-4 sm:px-6 relative overflow-hidden">
-      <div className="section-blob w-96 h-96 bg-violet-300 -top-20 -right-20" />
-      <div className="section-blob w-72 h-72 bg-pink-300 bottom-0 left-0" />
+      <div className="section-blob w-96 h-96 bg-[#6B2080] -top-20 -right-20" />
+      <div className="section-blob w-72 h-72 bg-[#D4952A] bottom-0 left-0" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -62,12 +62,12 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 text-violet-700 text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6B2080]/10 text-[#6B2080] text-sm font-semibold mb-4">
             <Heart className="w-4 h-4" /> About Me
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
             Who I{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6B2080] to-[#D4952A] bg-clip-text text-transparent">
               Am
             </span>
           </h2>
@@ -86,18 +86,18 @@ export default function About() {
           >
             <div className="relative">
               {/* Decorative card behind */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-violet-100 to-pink-100 rounded-3xl -rotate-2 opacity-60" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#6B2080]/10 to-[#D4952A]/10 rounded-3xl -rotate-2 opacity-60" />
               <div className="relative glass rounded-3xl p-8 shadow-xl border border-white/80">
                 <p className="text-slate-600 leading-relaxed text-lg mb-6">
                   I&apos;m an{" "}
-                  <span className="font-semibold text-violet-700">AI Developer & Data Engineer</span>{" "}
+                  <span className="font-semibold text-[#6B2080]">AI Developer & Data Engineer</span>{" "}
                   currently pursuing my MSc Computing (Data Analytics) at{" "}
                   <span className="font-semibold text-slate-800">Dublin City University</span>,
                   expecting a 1:1 (First Class Honours).
                 </p>
                 <p className="text-slate-600 leading-relaxed text-lg mb-6">
                   I specialise in building{" "}
-                  <span className="font-semibold text-pink-600">LLM-powered agentic systems</span>,
+                  <span className="font-semibold text-[#7A1535]">LLM-powered agentic systems</span>,
                   production ML pipelines, and real-time data infrastructure using tools like
                   OpenAI API, LangChain, Apache Kafka, Azure, and AWS. I&apos;ve shipped 30+ projects
                   spanning FinTech, healthcare, energy, and logistics.
@@ -120,9 +120,9 @@ export default function About() {
                       return (
                         <span
                           key={interest.label}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-50 to-pink-50 border border-violet-100 text-sm text-slate-600 font-medium"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#6B2080]/5 to-[#D4952A]/5 border border-[#6B2080]/15 text-sm text-slate-600 font-medium"
                         >
-                          <Icon className="w-3.5 h-3.5 text-violet-500 flex-shrink-0" />
+                          <Icon className="w-3.5 h-3.5 text-[#6B2080] flex-shrink-0" />
                           {interest.label}
                         </span>
                       );
@@ -169,16 +169,16 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 1 }}
-              className="glass rounded-2xl p-5 shadow-sm border border-white/80 bg-gradient-to-r from-violet-50 to-pink-50"
+              className="glass rounded-2xl p-5 shadow-sm border border-white/80 bg-gradient-to-r from-[#6B2080]/5 to-[#D4952A]/5"
             >
-              <p className="text-sm font-semibold text-violet-700 mb-3 flex items-center gap-1.5">
+              <p className="text-sm font-semibold text-[#6B2080] mb-3 flex items-center gap-1.5">
                 <MapPinned className="w-4 h-4" /> Quick Facts
               </p>
               <div className="grid grid-cols-2 gap-3 text-sm text-slate-600">
-                <div className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-violet-400 flex-shrink-0" /> Dublin, Ireland</div>
-                <div className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" /> Originally from India</div>
-                <div className="flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" /> Python Expert</div>
-                <div className="flex items-center gap-1.5"><Coffee className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" /> Fuelled by coffee</div>
+                <div className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-[#6B2080] flex-shrink-0" /> Dublin, Ireland</div>
+                <div className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-[#D4952A] flex-shrink-0" /> Originally from India</div>
+                <div className="flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5 text-[#7A1535] flex-shrink-0" /> Python Expert</div>
+                <div className="flex items-center gap-1.5"><Coffee className="w-3.5 h-3.5 text-[#D4952A] flex-shrink-0" /> Fuelled by coffee</div>
               </div>
             </motion.div>
           </motion.div>
