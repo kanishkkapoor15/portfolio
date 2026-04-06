@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Sparkles } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
+  { label: "Home",       href: "#home" },
+  { label: "About",      href: "#about" },
+  { label: "Skills",     href: "#skills" },
   { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Projects",   href: "#projects" },
+  { label: "Contact",    href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "glass shadow-lg shadow-[#6B2080]/10"
+          ? "glass border-b border-[#00D4FF]/10 shadow-lg shadow-black/30"
           : "bg-transparent"
       }`}
     >
@@ -54,10 +54,10 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B2080] to-[#D4952A] flex items-center justify-center shadow-lg shadow-[#6B2080]/30">
-              <Sparkles className="w-4 h-4 text-white" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center shadow-lg neon-cyan">
+              <Terminal className="w-4 h-4 text-white" />
             </div>
-            <span className="font-bold text-xl bg-gradient-to-r from-[#6B2080] to-[#D4952A] bg-clip-text text-transparent">
+            <span className="font-bold text-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent font-mono">
               KK
             </span>
           </motion.a>
@@ -68,10 +68,10 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`nav-link text-sm font-medium transition-colors ${
+                className={`nav-link text-sm font-medium font-mono transition-colors ${
                   activeSection === item.href.slice(1)
-                    ? "text-[#6B2080] active"
-                    : "text-slate-600 hover:text-[#6B2080]"
+                    ? "text-[#00D4FF] active"
+                    : "text-[#64748B] hover:text-[#00D4FF]"
                 }`}
               >
                 {item.label}
@@ -87,10 +87,10 @@ export default function Navbar() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#6B2080] to-[#D4952A] text-white text-sm font-medium shadow-md shadow-[#6B2080]/20 hover:shadow-[#6B2080]/30 transition-shadow flex items-center gap-2"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] text-white text-sm font-medium font-mono shadow-md hover:neon-cyan transition-all flex items-center gap-2"
             >
-              <Download className="w-3.5 h-3.5" />
-              Resume
+              <span className="text-xs opacity-70">~$</span>
+              GitHub
             </motion.a>
           </div>
 
@@ -98,7 +98,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-[#6B2080]/10 transition-colors"
+            className="md:hidden p-2 rounded-lg text-[#64748B] hover:text-[#00D4FF] hover:bg-[#00D4FF]/5 transition-colors border border-[#00D4FF]/10"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </motion.button>
@@ -113,7 +113,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-white/50"
+            className="md:hidden glass border-t border-[#00D4FF]/10"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
               {navItems.map((item, i) => (
@@ -124,8 +124,9 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-slate-700 font-medium py-2 hover:text-[#6B2080] transition-colors"
+                  className="text-[#94A3B8] font-medium font-mono py-2 hover:text-[#00D4FF] transition-colors"
                 >
+                  <span className="text-[#00D4FF]/40 mr-2">›</span>
                   {item.label}
                 </motion.a>
               ))}
@@ -133,7 +134,7 @@ export default function Navbar() {
                 href="https://github.com/kanishkkapoor15"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6B2080] to-[#D4952A] text-white text-sm font-medium text-center"
+                className="mt-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] text-white text-sm font-medium font-mono text-center"
               >
                 View GitHub
               </a>

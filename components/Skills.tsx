@@ -8,128 +8,109 @@ const skillCategories = [
   {
     icon: Brain,
     title: "AI & LLMs",
-    color: "from-[#6B2080] to-[#C57BB8]",
-    bg: "from-[#6B2080]/5 to-[#C57BB8]/5",
-    border: "border-[#6B2080]/20",
+    color: "from-[#00D4FF] to-[#7C3AED]",
+    glow: "rgba(0,212,255,0.15)",
+    border: "border-[#00D4FF]/15",
     skills: [
-      "OpenAI API (GPT-4)",
-      "HuggingFace Transformers",
-      "LangChain",
-      "MCP Agents",
-      "Agentic AI",
-      "Prompt Engineering",
-      "DistilBART / BERT",
-      "RAG Pipelines",
+      "OpenAI API (GPT-4)", "HuggingFace Transformers", "LangChain", "MCP Agents",
+      "Agentic AI", "Prompt Engineering", "DistilBART / BERT", "RAG Pipelines",
     ],
   },
   {
     icon: BarChart3,
     title: "ML & Deep Learning",
-    color: "from-[#7A1535] to-[#C57BB8]",
-    bg: "from-[#7A1535]/5 to-[#C57BB8]/5",
-    border: "border-[#7A1535]/20",
+    color: "from-[#7C3AED] to-[#10B981]",
+    glow: "rgba(124,58,237,0.15)",
+    border: "border-[#7C3AED]/15",
     skills: [
-      "Scikit-learn",
-      "XGBoost",
-      "LSTM (TensorFlow/Keras)",
-      "SARIMA / TBATS / ETS",
-      "SHAP",
-      "Random Forest",
-      "Logistic Regression",
-      "A/B Testing",
+      "Scikit-learn", "XGBoost", "LSTM (TensorFlow/Keras)", "SARIMA / TBATS / ETS",
+      "SHAP", "Random Forest", "Logistic Regression", "A/B Testing",
     ],
   },
   {
     icon: Code2,
     title: "Languages",
-    color: "from-[#D4952A] to-[#C57BB8]",
-    bg: "from-[#D4952A]/5 to-[#C57BB8]/5",
-    border: "border-[#D4952A]/20",
+    color: "from-[#10B981] to-[#00D4FF]",
+    glow: "rgba(16,185,129,0.15)",
+    border: "border-[#10B981]/15",
     skills: ["Python (Expert)", "SQL", "JavaScript", "Java", "C", "R", "TypeScript", "Bash"],
   },
   {
     icon: Database,
     title: "Data & Pipelines",
-    color: "from-[#6B2080] to-[#7A1535]",
-    bg: "from-[#6B2080]/5 to-[#7A1535]/5",
-    border: "border-[#6B2080]/20",
+    color: "from-[#00D4FF] to-[#7C3AED]",
+    glow: "rgba(0,212,255,0.15)",
+    border: "border-[#00D4FF]/15",
     skills: [
-      "Apache Kafka",
-      "Apache Spark",
-      "Apache Airflow",
-      "Snowflake",
-      "Delta Lake",
-      "ETL / ELT",
-      "Pandas / NumPy",
-      "PostgreSQL / MongoDB",
+      "Apache Kafka", "Apache Spark", "Apache Airflow", "Snowflake",
+      "Delta Lake", "ETL / ELT", "Pandas / NumPy", "PostgreSQL / MongoDB",
     ],
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    color: "from-[#D4952A] to-[#7A1535]",
-    bg: "from-[#D4952A]/5 to-[#7A1535]/5",
-    border: "border-[#D4952A]/20",
+    color: "from-[#7C3AED] to-[#10B981]",
+    glow: "rgba(124,58,237,0.15)",
+    border: "border-[#7C3AED]/15",
     skills: [
-      "Azure (ADF, Databricks)",
-      "AWS (S3, Lambda)",
-      "Docker",
-      "FastAPI",
-      "CI/CD",
-      "Git / GitHub",
-      "REST APIs",
-      "Linux",
+      "Azure (ADF, Databricks)", "AWS (S3, Lambda)", "Docker", "FastAPI",
+      "CI/CD", "Git / GitHub", "REST APIs", "Linux",
     ],
   },
   {
     icon: Wrench,
     title: "Visualisation & BI",
-    color: "from-[#C57BB8] to-[#6B2080]",
-    bg: "from-[#C57BB8]/5 to-[#6B2080]/5",
-    border: "border-[#C57BB8]/20",
+    color: "from-[#10B981] to-[#00D4FF]",
+    glow: "rgba(16,185,129,0.15)",
+    border: "border-[#10B981]/15",
     skills: [
-      "Power BI (DAX)",
-      "Streamlit",
-      "Snowsight",
-      "Matplotlib / Seaborn",
-      "Plotly",
-      "Excel (Power Query)",
-      "MERN Stack",
-      "React",
+      "Power BI (DAX)", "Streamlit", "Snowsight", "Matplotlib / Seaborn",
+      "Plotly", "Excel (Power Query)", "MERN Stack", "React",
     ],
   },
 ];
 
+const proficiency = [
+  { lang: "Python",       pct: 95, color: "from-[#00D4FF] to-[#7C3AED]" },
+  { lang: "SQL",          pct: 88, color: "from-[#7C3AED] to-[#10B981]" },
+  { lang: "R",            pct: 82, color: "from-[#10B981] to-[#00D4FF]" },
+  { lang: "JavaScript",  pct: 75, color: "from-[#00D4FF] to-[#7C3AED]" },
+  { lang: "Java",         pct: 70, color: "from-[#7C3AED] to-[#10B981]" },
+  { lang: "Bash / Linux", pct: 72, color: "from-[#10B981] to-[#00D4FF]" },
+];
+
 export default function Skills() {
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
+  const [barsRef, barsInView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   return (
     <section
       id="skills"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white via-[#6B2080]/3 to-white"
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
     >
-      <div className="section-blob w-80 h-80 bg-[#D4952A] top-10 -left-20" />
-      <div className="section-blob w-80 h-80 bg-[#C57BB8] bottom-10 -right-20" />
+      <div className="section-blob w-80 h-80 bg-[#00D4FF] top-10 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-10 -right-20" />
+      <div className="absolute inset-0 data-grid opacity-50" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4952A]/10 text-[#D4952A] text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#10B981]/25 text-[#10B981] text-sm font-semibold font-mono mb-4">
             <Code2 className="w-4 h-4" /> Technical Skills
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
             My{" "}
-            <span className="bg-gradient-to-r from-[#D4952A] to-[#6B2080] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#10B981] to-[#00D4FF] bg-clip-text text-transparent">
               Toolkit
             </span>
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-lg">
+          <p className="text-[#64748B] max-w-xl mx-auto text-lg">
             A comprehensive stack spanning AI, data engineering, cloud, and full-stack development.
           </p>
         </motion.div>
@@ -141,20 +122,22 @@ export default function Skills() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className={`gradient-border glass rounded-2xl p-6 shadow-sm border ${category.border} transition-all duration-300 bg-gradient-to-br ${category.bg}`}
+                transition={{ duration: 0.5, delay: i * 0.1, type: "spring", stiffness: 80 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className={`gradient-border glass rounded-2xl p-6 border ${category.border} transition-all duration-300 cursor-default`}
+                style={{ boxShadow: `0 4px 30px rgba(0,0,0,0.3)` }}
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-5">
                   <div
-                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-md`}
+                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-lg`}
+                    style={{ boxShadow: `0 0 20px ${category.glow}` }}
                   >
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-bold text-slate-800 text-lg">{category.title}</h3>
+                  <h3 className="font-bold text-[#F0F6FF] text-lg">{category.title}</h3>
                 </div>
 
                 {/* Skills */}
@@ -176,34 +159,31 @@ export default function Skills() {
 
         {/* Proficiency bars */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-12 glass rounded-3xl p-8 shadow-sm border border-white/80"
+          ref={barsRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={barsInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
+          className="mt-12 glass rounded-3xl p-8 border border-[#00D4FF]/10"
         >
-          <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">
+          <h3 className="text-xl font-bold text-[#F0F6FF] mb-2 text-center font-mono">
             Core Language Proficiency
           </h3>
-          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
-            {[
-              { lang: "Python",     pct: 95, color: "from-[#6B2080] to-[#C57BB8]" },
-              { lang: "SQL",        pct: 88, color: "from-[#7A1535] to-[#C57BB8]" },
-              { lang: "R",          pct: 82, color: "from-[#D4952A] to-[#C57BB8]" },
-              { lang: "JavaScript", pct: 75, color: "from-[#D4952A] to-[#7A1535]" },
-              { lang: "Java",       pct: 70, color: "from-[#7A1535] to-[#6B2080]" },
-              { lang: "Bash / Linux", pct: 72, color: "from-[#6B2080] to-[#D4952A]" },
-            ].map(({ lang, pct, color }) => (
+          <p className="text-center text-[#475569] text-sm mb-8 font-mono">
+            // self-assessed skill levels
+          </p>
+          <div className="grid sm:grid-cols-2 gap-x-14 gap-y-6">
+            {proficiency.map(({ lang, pct, color }) => (
               <div key={lang}>
-                <div className="flex justify-between mb-1.5">
-                  <span className="text-sm font-semibold text-slate-700">{lang}</span>
-                  <span className="text-sm text-slate-500">{pct}%</span>
+                <div className="flex justify-between mb-2">
+                  <span className="text-sm font-semibold text-[#94A3B8] font-mono">{lang}</span>
+                  <span className="text-sm text-[#00D4FF] font-mono font-bold">{pct}%</span>
                 </div>
-                <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 bg-[#111D2E] rounded-full overflow-visible relative">
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={inView ? { width: `${pct}%` } : {}}
-                    transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-                    className={`h-full bg-gradient-to-r ${color} rounded-full`}
+                    animate={barsInView ? { width: `${pct}%` } : {}}
+                    transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className={`h-full bg-gradient-to-r ${color} rounded-full progress-bar-glow`}
                   />
                 </div>
               </div>

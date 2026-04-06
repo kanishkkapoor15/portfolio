@@ -31,7 +31,8 @@ export default function Contact() {
       label: "Email",
       value: "kanishkkapoor15@gmail.com",
       href: "mailto:kanishkkapoor15@gmail.com",
-      color: "from-[#7A1535] to-[#C57BB8]",
+      color: "from-[#00D4FF] to-[#7C3AED]",
+      glow: "rgba(0,212,255,0.25)",
       copyable: true,
     },
     {
@@ -39,7 +40,8 @@ export default function Contact() {
       label: "Phone",
       value: "+353 899 595 536",
       href: "tel:+353899595536",
-      color: "from-[#6B2080] to-[#D4952A]",
+      color: "from-[#7C3AED] to-[#10B981]",
+      glow: "rgba(124,58,237,0.25)",
       copyable: true,
     },
     {
@@ -47,7 +49,8 @@ export default function Contact() {
       label: "GitHub",
       value: "kanishkkapoor15",
       href: "https://github.com/kanishkkapoor15",
-      color: "from-slate-600 to-slate-800",
+      color: "from-[#94A3B8] to-[#64748B]",
+      glow: "rgba(148,163,184,0.2)",
       copyable: false,
     },
     {
@@ -55,7 +58,8 @@ export default function Contact() {
       label: "LinkedIn",
       value: "in/kanishkapoor",
       href: "https://linkedin.com/in/kanishkapoor",
-      color: "from-[#D4952A] to-[#C57BB8]",
+      color: "from-[#10B981] to-[#00D4FF]",
+      glow: "rgba(16,185,129,0.25)",
       copyable: false,
     },
     {
@@ -63,7 +67,8 @@ export default function Contact() {
       label: "Location",
       value: "Dublin, Ireland 🇮🇪",
       href: "#",
-      color: "from-[#6B2080] to-[#7A1535]",
+      color: "from-[#7C3AED] to-[#00D4FF]",
+      glow: "rgba(124,58,237,0.2)",
       copyable: false,
     },
   ];
@@ -72,49 +77,51 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-b from-white to-[#6B2080]/5"
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
     >
-      <div className="section-blob w-96 h-96 bg-[#6B2080] top-0 -left-20" />
-      <div className="section-blob w-80 h-80 bg-[#D4952A] bottom-0 right-0" />
+      <div className="section-blob w-96 h-96 bg-[#00D4FF] top-0 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-0 right-0" />
+      <div className="absolute inset-0 data-grid opacity-40" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6B2080]/10 text-[#6B2080] text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
             <MessageSquare className="w-4 h-4" /> Get in Touch
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-800 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
             Let&apos;s{" "}
-            <span className="bg-gradient-to-r from-[#6B2080] to-[#D4952A] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent">
               Connect
             </span>
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-lg">
+          <p className="text-[#64748B] max-w-xl mx-auto text-lg">
             Open to internships, graduate roles, and exciting project collaborations.
-            Let&apos;s build something great together!
+            Let&apos;s build something great together.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
             className="flex flex-col gap-4"
           >
-            <div className="glass rounded-3xl p-6 shadow-sm border border-white/80 mb-2">
-              <h3 className="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-[#6B2080]" /> Say Hello</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
+            <div className="glass rounded-3xl p-6 border border-[#00D4FF]/12 mb-2">
+              <h3 className="text-lg font-bold text-[#F0F6FF] mb-2 flex items-center gap-2 font-mono">
+                <MessageSquare className="w-4 h-4 text-[#00D4FF]" /> Say Hello
+              </h3>
+              <p className="text-[#64748B] text-sm leading-relaxed">
                 Whether you&apos;re a recruiter, a fellow developer, or someone with an
-                interesting project — I&apos;d love to hear from you. I typically respond within
-                24 hours.
+                interesting project — I&apos;d love to hear from you. I typically respond
+                within 24 hours.
               </p>
             </div>
 
@@ -127,27 +134,28 @@ export default function Contact() {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                   whileHover={{ x: 4, scale: 1.01 }}
-                  className="glass rounded-2xl p-4 shadow-sm border border-white/80 flex items-center gap-4"
+                  className="glass rounded-2xl p-4 border border-[#00D4FF]/10 hover:border-[#00D4FF]/30 flex items-center gap-4 transition-all"
                 >
                   <div
                     className={`w-10 h-10 rounded-xl bg-gradient-to-br ${contact.color} flex items-center justify-center flex-shrink-0`}
+                    style={{ boxShadow: `0 0 16px ${contact.glow}` }}
                   >
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-slate-400 font-medium">{contact.label}</p>
-                    <p className="text-sm font-semibold text-slate-700 truncate">{contact.value}</p>
+                    <p className="text-xs text-[#475569] font-medium font-mono">{contact.label}</p>
+                    <p className="text-sm font-semibold text-[#94A3B8] truncate">{contact.value}</p>
                   </div>
                   <div className="flex gap-2">
                     {contact.copyable && (
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={() => handleCopy(contact.value, contact.label)}
-                        className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-[#00D4FF]/8 text-[#475569] hover:text-[#00D4FF] transition-colors"
                         title="Copy"
                       >
                         {copied === contact.label ? (
-                          <CheckCheck className="w-4 h-4 text-green-500" />
+                          <CheckCheck className="w-4 h-4 text-[#10B981]" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -159,7 +167,7 @@ export default function Contact() {
                         target={contact.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
-                        className="p-1.5 rounded-lg hover:bg-[#6B2080]/5 text-slate-400 hover:text-[#6B2080] transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-[#00D4FF]/8 text-[#475569] hover:text-[#00D4FF] transition-colors"
                       >
                         <Send className="w-4 h-4" />
                       </motion.a>
@@ -172,23 +180,23 @@ export default function Contact() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.4, type: "spring", stiffness: 70 }}
           >
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-3xl p-8 shadow-sm border border-white/80"
+              className="glass rounded-3xl p-8 border border-[#00D4FF]/12"
             >
-              <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                <Send className="w-5 h-5 text-[#6B2080]" />
+              <h3 className="text-xl font-bold text-[#F0F6FF] mb-6 flex items-center gap-2 font-mono">
+                <Send className="w-5 h-5 text-[#00D4FF]" />
                 Send a Message
               </h3>
 
               <div className="flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1.5">
+                    <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
                       Your Name
                     </label>
                     <input
@@ -197,11 +205,11 @@ export default function Contact() {
                       placeholder="John Doe"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
+                      className="input-dark w-full px-4 py-3 rounded-xl text-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1.5">
+                    <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
                       Email Address
                     </label>
                     <input
@@ -210,13 +218,13 @@ export default function Contact() {
                       placeholder="john@example.com"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
+                      className="input-dark w-full px-4 py-3 rounded-xl text-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-600 mb-1.5">
+                  <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
                     Subject
                   </label>
                   <input
@@ -224,12 +232,12 @@ export default function Contact() {
                     placeholder="Job Opportunity / Collaboration / ..."
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all"
+                    className="input-dark w-full px-4 py-3 rounded-xl text-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-600 mb-1.5">
+                  <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
                     Message
                   </label>
                   <textarea
@@ -238,7 +246,7 @@ export default function Contact() {
                     placeholder="Hi Kanishk, I'd love to discuss..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/80 text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#6B2080]/30 focus:border-transparent transition-all resize-none"
+                    className="input-dark w-full px-4 py-3 rounded-xl text-sm resize-none"
                   />
                 </div>
 
@@ -246,10 +254,10 @@ export default function Contact() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-3.5 rounded-xl font-semibold text-white shadow-md transition-all flex items-center justify-center gap-2 ${
+                  className={`w-full py-3.5 rounded-xl font-semibold text-white shadow-lg transition-all flex items-center justify-center gap-2 font-mono ${
                     sent
-                      ? "bg-green-500 shadow-green-200"
-                      : "bg-gradient-to-r from-[#6B2080] to-[#D4952A] shadow-[#6B2080]/20 hover:shadow-[#6B2080]/35"
+                      ? "bg-[#10B981] shadow-[#10B981]/20"
+                      : "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] neon-cyan hover:opacity-90"
                   }`}
                 >
                   {sent ? (

@@ -11,73 +11,105 @@ const stats = [
     label: "Projects Shipped",
     desc: "Spanning AI, Data Engineering, ML & Full Stack",
     icon: Zap,
-    color: "from-[#6B2080] to-[#C57BB8]",
-    bg: "from-[#6B2080]/8 to-[#C57BB8]/8",
+    color: "from-[#00D4FF] to-[#7C3AED]",
+    glow: "rgba(0,212,255,0.3)",
+    numberColor: "text-[#00D4FF]",
   },
   {
     value: 5, suffix: "M+",
     label: "Records Processed",
     desc: "Across ML pipelines and data engineering projects",
     icon: BarChart3,
-    color: "from-[#D4952A] to-[#C57BB8]",
-    bg: "from-[#D4952A]/8 to-[#C57BB8]/8",
+    color: "from-[#7C3AED] to-[#10B981]",
+    glow: "rgba(124,58,237,0.3)",
+    numberColor: "text-[#7C3AED]",
   },
   {
     value: 45, suffix: "%",
     label: "Manual Effort Reduced",
     desc: "At Medicidiom via AI automation workflows",
     icon: TrendingUp,
-    color: "from-[#7A1535] to-[#C57BB8]",
-    bg: "from-[#7A1535]/8 to-[#C57BB8]/8",
+    color: "from-[#10B981] to-[#00D4FF]",
+    glow: "rgba(16,185,129,0.3)",
+    numberColor: "text-[#10B981]",
   },
   {
     value: 99, suffix: "%+",
     label: "Pipeline Uptime",
     desc: "Production data pipelines at Medicidiom",
     icon: Shield,
-    color: "from-[#6B2080] to-[#7A1535]",
-    bg: "from-[#6B2080]/8 to-[#7A1535]/8",
+    color: "from-[#00D4FF] to-[#7C3AED]",
+    glow: "rgba(0,212,255,0.3)",
+    numberColor: "text-[#00D4FF]",
   },
   {
     value: 22, suffix: "%",
     label: "Accuracy Improvement",
     desc: "ML models at IBM for threat detection",
     icon: TrendingUp,
-    color: "from-[#D4952A] to-[#7A1535]",
-    bg: "from-[#D4952A]/8 to-[#7A1535]/8",
+    color: "from-[#7C3AED] to-[#10B981]",
+    glow: "rgba(124,58,237,0.3)",
+    numberColor: "text-[#7C3AED]",
   },
   {
     value: 1000, suffix: "+",
     label: "Documents Processed",
     desc: "Via LLM-powered intelligence pipelines",
     icon: Zap,
-    color: "from-[#C57BB8] to-[#6B2080]",
-    bg: "from-[#C57BB8]/8 to-[#6B2080]/8",
+    color: "from-[#10B981] to-[#00D4FF]",
+    glow: "rgba(16,185,129,0.3)",
+    numberColor: "text-[#10B981]",
   },
 ];
 
 export default function Stats() {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
 
   return (
-    <section className="py-20 px-4 sm:px-6 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#6B2080] via-[#7A1535] to-[#D4952A] animate-gradient" style={{ backgroundSize: "200% 200%" }} />
-      <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-        backgroundSize: "40px 40px",
-      }} />
+    <section className="py-20 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]" ref={ref}>
+      {/* Animated gradient background */}
+      <div
+        className="absolute inset-0 animate-gradient opacity-60"
+        style={{
+          background: "linear-gradient(135deg, rgba(0,212,255,0.04) 0%, rgba(124,58,237,0.06) 50%, rgba(16,185,129,0.04) 100%)",
+          backgroundSize: "200% 200%",
+        }}
+      />
+
+      {/* Data grid */}
+      <div className="absolute inset-0 data-grid" />
+
+      {/* Horizontal scan line */}
+      <div
+        className="absolute left-0 right-0 h-px opacity-20"
+        style={{
+          background: "linear-gradient(90deg, transparent, #00D4FF, transparent)",
+          animation: "scan 4s linear infinite",
+          top: "50%",
+        }}
+      />
+
+      {/* Ambient blobs */}
+      <div className="section-blob w-96 h-96 bg-[#00D4FF] top-0 left-0" />
+      <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-0 right-0" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+            Live Metrics
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F0F6FF] mb-3">
             Impact by the Numbers
           </h2>
-          <p className="text-white/70 text-lg">Real results from real production systems</p>
+          <p className="text-[#64748B] text-lg font-mono">
+            // real results from real production systems
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -86,31 +118,32 @@ export default function Stats() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
                 animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className={`bg-gradient-to-br ${stat.bg} rounded-2xl p-6 border border-white/50 shadow-lg shadow-black/10 backdrop-blur-sm`}
+                transition={{ duration: 0.5, delay: i * 0.1, type: "spring", stiffness: 80 }}
+                whileHover={{ scale: 1.04, y: -4 }}
+                className="glass rounded-2xl p-6 border border-[#00D4FF]/10 hover:border-[#00D4FF]/30 transition-all cursor-default"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    className={`w-9 h-9 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}
+                    style={{ boxShadow: `0 0 20px ${stat.glow}` }}
+                  >
                     <Icon className="w-4 h-4 text-white" />
                   </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-[#00D4FF]/20 to-transparent" />
                 </div>
-                <div className="text-4xl font-extrabold text-slate-800 mb-1">
+                <div className={`text-4xl font-extrabold font-mono mb-1 ${stat.numberColor}`}
+                  style={{ textShadow: `0 0 20px ${stat.glow}` }}
+                >
                   {inView ? (
-                    <CountUp
-                      end={stat.value}
-                      duration={2}
-                      suffix={stat.suffix}
-                      delay={i * 0.1}
-                    />
+                    <CountUp end={stat.value} duration={2} suffix={stat.suffix} delay={i * 0.1} />
                   ) : (
                     "0"
                   )}
                 </div>
-                <p className="font-bold text-slate-700 text-sm mb-1">{stat.label}</p>
-                <p className="text-xs text-slate-500">{stat.desc}</p>
+                <p className="font-bold text-[#94A3B8] text-sm mb-1">{stat.label}</p>
+                <p className="text-xs text-[#475569]">{stat.desc}</p>
               </motion.div>
             );
           })}
