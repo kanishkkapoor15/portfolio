@@ -196,8 +196,7 @@ export const metadata: Metadata = {
   verification: {
     // Add your Google Search Console verification code here:
     // google: "your-google-verification-code",
-    // Add Bing Webmaster Tools code here:
-    // other: { "msvalidate.01": "your-bing-code" },
+    other: { "msvalidate.01": "D3DC06D162624BCE8DEB4263D1AE52B1" },
   },
 };
 
