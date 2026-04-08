@@ -133,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-5xl sm:text-7xl font-extrabold mb-4 leading-tight tracking-tight text-[#F0F6FF]"
+          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight tracking-tight text-[#F0F6FF]"
         >
           Hi, I&apos;m{" "}
           <span className="shimmer-text">Kanishk Kapoor</span>
@@ -144,7 +144,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="text-2xl sm:text-3xl font-semibold mb-6 h-12 flex items-center justify-center font-mono"
+          className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 h-10 sm:h-12 flex items-center justify-center font-mono"
         >
           <span className="text-[#00D4FF]/50 mr-2">$</span>
           <TypeAnimation
@@ -182,13 +182,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.75 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
         >
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981] text-white font-semibold shadow-xl neon-cyan animate-gradient"
+            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981] text-white font-semibold shadow-xl neon-cyan animate-gradient text-sm sm:text-base"
           >
             View My Work
           </motion.a>
@@ -196,7 +196,7 @@ export default function Hero() {
             href="#contact"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3.5 rounded-xl glass border border-[#00D4FF]/30 text-[#00D4FF] font-semibold hover:border-[#00D4FF]/60 hover:bg-[#00D4FF]/5 transition-all"
+            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl glass border border-[#00D4FF]/30 text-[#00D4FF] font-semibold hover:border-[#00D4FF]/60 hover:bg-[#00D4FF]/5 transition-all text-sm sm:text-base"
           >
             Get in Touch
           </motion.a>
@@ -207,7 +207,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.95 }}
-          className="flex items-center justify-center gap-4 mb-14"
+          className="flex items-center justify-center gap-4 mb-10 sm:mb-14"
         >
           {[
             { icon: Github,   href: "https://github.com/kanishkkapoor15",   label: "GitHub"   },

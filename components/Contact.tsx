@@ -77,7 +77,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
     >
       <div className="section-blob w-96 h-96 bg-[#00D4FF] top-0 -left-20" />
       <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-0 right-0" />
@@ -89,7 +89,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
             <MessageSquare className="w-4 h-4" /> Get in Touch
@@ -186,7 +186,7 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-3xl p-8 border border-[#00D4FF]/12"
+              className="glass rounded-3xl p-5 sm:p-8 border border-[#00D4FF]/12"
             >
               <h3 className="text-xl font-bold text-[#F0F6FF] mb-6 flex items-center gap-2 font-mono">
                 <Send className="w-5 h-5 text-[#00D4FF]" />

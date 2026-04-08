@@ -428,7 +428,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
     >
       <div className="section-blob w-80 h-80 bg-[#7C3AED] top-0 -right-10" />
       <div className="section-blob w-80 h-80 bg-[#00D4FF] bottom-20 -left-10" />

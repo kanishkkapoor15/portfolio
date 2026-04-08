@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           {/* Nav */}
-          <div className="flex items-center gap-6 text-sm text-[#475569] font-mono">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-[#475569] font-mono">
             {["#home", "#about", "#skills", "#experience", "#projects", "#contact"].map(
               (href) => (
                 <a

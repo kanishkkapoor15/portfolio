@@ -78,7 +78,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
     >
       <div className="section-blob w-96 h-96 bg-[#10B981] top-0 right-0" />
       <div className="section-blob w-72 h-72 bg-[#7C3AED] bottom-0 left-10" />
@@ -90,7 +90,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#7C3AED]/25 text-[#7C3AED] text-sm font-semibold font-mono mb-4">
             <Briefcase className="w-4 h-4" /> Experience & Education
@@ -136,13 +136,13 @@ export default function Experience() {
 
                     <motion.div
                       whileHover={{ x: 6 }}
-                      className="glass rounded-2xl p-6 border border-[#00D4FF]/10 hover:border-[#00D4FF]/30 transition-all"
+                      className="glass rounded-2xl p-4 sm:p-6 border border-[#00D4FF]/10 hover:border-[#00D4FF]/30 transition-all"
                     >
                       {/* Header */}
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <h4 className="font-bold text-[#F0F6FF] text-lg">{exp.role}</h4>
+                            <h4 className="font-bold text-[#F0F6FF] text-base sm:text-lg">{exp.role}</h4>
                             {exp.type === "Current" && (
                               <span className="px-2 py-0.5 rounded-full bg-[#10B981]/15 text-[#10B981] text-xs font-bold font-mono border border-[#10B981]/25 animate-pulse">
                                 ● LIVE

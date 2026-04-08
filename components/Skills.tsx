@@ -87,7 +87,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
     >
       <div className="section-blob w-80 h-80 bg-[#00D4FF] top-10 -left-20" />
       <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-10 -right-20" />
@@ -99,7 +99,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#10B981]/25 text-[#10B981] text-sm font-semibold font-mono mb-4">
             <Code2 className="w-4 h-4" /> Technical Skills
@@ -163,7 +163,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 40 }}
           animate={barsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
-          className="mt-12 glass rounded-3xl p-8 border border-[#00D4FF]/10"
+          className="mt-12 glass rounded-3xl p-5 sm:p-8 border border-[#00D4FF]/10"
         >
           <h3 className="text-xl font-bold text-[#F0F6FF] mb-2 text-center font-mono">
             Core Language Proficiency
@@ -171,7 +171,7 @@ export default function Skills() {
           <p className="text-center text-[#475569] text-sm mb-8 font-mono">
             // self-assessed skill levels
           </p>
-          <div className="grid sm:grid-cols-2 gap-x-14 gap-y-6">
+          <div className="grid sm:grid-cols-2 gap-x-8 sm:gap-x-14 gap-y-6">
             {proficiency.map(({ lang, pct, color }) => (
               <div key={lang}>
                 <div className="flex justify-between mb-2">

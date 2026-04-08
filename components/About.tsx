@@ -57,7 +57,7 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
     >
       <div className="section-blob w-96 h-96 bg-[#7C3AED] -top-20 -right-20" />
       <div className="section-blob w-72 h-72 bg-[#00D4FF] bottom-0 left-0" />
@@ -71,7 +71,7 @@ export default function About() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
             <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
@@ -97,22 +97,22 @@ export default function About() {
           >
             <div className="relative">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-[#00D4FF]/20 to-[#7C3AED]/20" />
-              <div className="relative glass rounded-3xl p-8 shadow-xl border border-[#00D4FF]/12">
-                <p className="text-[#94A3B8] leading-relaxed text-lg mb-6">
+              <div className="relative glass rounded-3xl p-5 sm:p-8 shadow-xl border border-[#00D4FF]/12">
+                <p className="text-[#94A3B8] leading-relaxed text-base sm:text-lg mb-6">
                   I&apos;m an{" "}
                   <span className="font-semibold text-[#00D4FF]">AI Developer & Data Engineer</span>{" "}
                   currently pursuing my MSc Computing (Data Analytics) at{" "}
                   <span className="font-semibold text-[#F0F6FF]">Dublin City University</span>,
                   expecting a 1:1 (First Class Honours).
                 </p>
-                <p className="text-[#94A3B8] leading-relaxed text-lg mb-6">
+                <p className="text-[#94A3B8] leading-relaxed text-base sm:text-lg mb-6">
                   I specialise in building{" "}
                   <span className="font-semibold text-[#7C3AED]">LLM-powered agentic systems</span>,
                   production ML pipelines, and real-time data infrastructure using OpenAI API,
                   LangChain, Apache Kafka, Azure, and AWS. I&apos;ve shipped 30+ projects across
                   FinTech, healthcare, energy, and logistics.
                 </p>
-                <p className="text-[#94A3B8] leading-relaxed text-lg">
+                <p className="text-[#94A3B8] leading-relaxed text-base sm:text-lg">
                   Currently interning at{" "}
                   <span className="font-semibold text-[#F0F6FF]">Medicidiom (Spain, Remote)</span>{" "}
                   — building production AI automation workflows that process 1,000+ documents with
