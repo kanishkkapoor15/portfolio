@@ -13,6 +13,7 @@ import {
   GitBranch, Wind, TrendingUp, Globe,
   type LucideIcon,
 } from "lucide-react";
+import KineticHeading from "./KineticHeading";
 
 type Project = {
   title: string;
@@ -445,12 +446,13 @@ export default function Projects() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#7C3AED]/25 text-[#7C3AED] text-sm font-semibold font-mono mb-4">
             <Layers className="w-4 h-4" /> Projects
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            What I&apos;ve{" "}
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#00D4FF] bg-clip-text text-transparent">
-              Built
-            </span>
-          </h2>
+          <KineticHeading
+            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            parts={[
+              { text: "What I\u2019ve " },
+              { text: "Built", className: "bg-gradient-to-r from-[#7C3AED] to-[#00D4FF] bg-clip-text text-transparent" },
+            ]}
+          />
           <p className="text-[#64748B] max-w-xl mx-auto text-lg">
             30+ projects spanning AI, data engineering, machine learning, and full-stack development.
           </p>

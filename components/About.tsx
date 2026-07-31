@@ -7,6 +7,7 @@ import {
   Workflow, Cloud, BarChart2, FlaskConical, Gamepad2,
   Globe, MapPinned, Code2, Coffee,
 } from "lucide-react";
+import KineticHeading from "./KineticHeading";
 
 const highlights = [
   {
@@ -77,12 +78,13 @@ export default function About() {
             <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
             About Me
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            Who I{" "}
-            <span className="bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent">
-              Am
-            </span>
-          </h2>
+          <KineticHeading
+            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            parts={[
+              { text: "Who I " },
+              { text: "Am", className: "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent" },
+            ]}
+          />
           <p className="text-[#64748B] max-w-2xl mx-auto text-lg">
             A technologist bridging cutting-edge AI research and production-grade engineering.
           </p>

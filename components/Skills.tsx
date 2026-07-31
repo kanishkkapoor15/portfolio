@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Code2, Database, Cloud, Brain, BarChart3, Wrench } from "lucide-react";
+import KineticHeading from "./KineticHeading";
 
 const skillCategories = [
   {
@@ -104,12 +105,13 @@ export default function Skills() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#10B981]/25 text-[#10B981] text-sm font-semibold font-mono mb-4">
             <Code2 className="w-4 h-4" /> Technical Skills
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            My{" "}
-            <span className="bg-gradient-to-r from-[#10B981] to-[#00D4FF] bg-clip-text text-transparent">
-              Toolkit
-            </span>
-          </h2>
+          <KineticHeading
+            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            parts={[
+              { text: "My " },
+              { text: "Toolkit", className: "bg-gradient-to-r from-[#10B981] to-[#00D4FF] bg-clip-text text-transparent" },
+            ]}
+          />
           <p className="text-[#64748B] max-w-xl mx-auto text-lg">
             A comprehensive stack spanning AI, data engineering, cloud, and full-stack development.
           </p>

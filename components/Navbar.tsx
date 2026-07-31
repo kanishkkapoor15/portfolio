@@ -115,6 +115,13 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Read progress — pure CSS, driven by the scroll timeline on the
+          compositor. No scroll listener, no re-render. */}
+      <div
+        className="scroll-progress absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981]"
+        aria-hidden
+      />
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (

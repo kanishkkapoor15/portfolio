@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, Phone, Copy, CheckCheck } from "lucide-react";
+import KineticHeading from "./KineticHeading";
 
 export default function Contact() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -94,12 +95,13 @@ export default function Contact() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
             <MessageSquare className="w-4 h-4" /> Get in Touch
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            Let&apos;s{" "}
-            <span className="bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent">
-              Connect
-            </span>
-          </h2>
+          <KineticHeading
+            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            parts={[
+              { text: "Let\u2019s " },
+              { text: "Connect", className: "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent" },
+            ]}
+          />
           <p className="text-[#64748B] max-w-xl mx-auto text-lg">
             Open to internships, graduate roles, and exciting project collaborations.
             Let&apos;s build something great together.

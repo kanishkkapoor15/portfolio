@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Radar, Building2, Cpu, MousePointer2 } from "lucide-react";
 import AgentTrace from "./twin/AgentTrace";
+import KineticHeading from "./KineticHeading";
 
 const LidarScan = dynamic(() => import("./twin/LidarScan"), { ssr: false, loading: () => null });
 
@@ -47,12 +48,13 @@ export default function DigitalTwin() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
             <Radar className="w-4 h-4" /> Digital Twin
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            Agents that work on{" "}
-            <span className="bg-gradient-to-r from-[#00D4FF] to-[#10B981] bg-clip-text text-transparent">
-              buildings
-            </span>
-          </h2>
+          <KineticHeading
+            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            parts={[
+              { text: "Agents that work on " },
+              { text: "buildings", className: "bg-gradient-to-r from-[#00D4FF] to-[#10B981] bg-clip-text text-transparent" },
+            ]}
+          />
           <p className="text-[#64748B] max-w-2xl mx-auto text-lg">
             I build AI agents for built-environment companies across Ireland and the UK —
             reading the models, manuals and sensor streams that real estate actually runs on.
