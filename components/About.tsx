@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
-  GraduationCap, MapPin, Briefcase, Bot, BrainCircuit,
+  GraduationCap, MapPin, Bot, BrainCircuit, Building2, BookOpen,
   Workflow, Cloud, BarChart2, FlaskConical, Gamepad2,
   Globe, MapPinned, Code2, Coffee,
 } from "lucide-react";
@@ -11,30 +11,37 @@ import KineticHeading from "./KineticHeading";
 
 const highlights = [
   {
-    icon: GraduationCap,
-    title: "MSc Computing (Data Analytics)",
-    subtitle: "Dublin City University · 1:1 Expected · 2025–Present",
+    icon: Building2,
+    title: "Technical Accounts Manager",
+    subtitle: "AI Institute · Dublin · Full-time · 2026–Present",
     color: "from-[#1F6B3B] to-[#B0512E]",
     glow: "rgba(47,139,79,0.2)",
   },
   {
-    icon: GraduationCap,
-    title: "B.Tech Computer Science",
-    subtitle: "UPES · CGPA 8.7/10 · 2020–2024",
-    color: "from-[#B0512E] to-[#1E7A8C]",
-    glow: "rgba(176,81,46,0.2)",
-  },
-  {
-    icon: Briefcase,
-    title: "AI Automation Intern",
+    icon: Bot,
+    title: "Agentic AI Engineer (Contract)",
     subtitle: "Medicidiom, Spain (Remote) · Feb 2026–Present",
     color: "from-[#1E7A8C] to-[#1F6B3B]",
     glow: "rgba(30,122,140,0.2)",
   },
   {
+    icon: GraduationCap,
+    title: "MSc Computing (Data Analytics)",
+    subtitle: "Dublin City University · Graduated · 2025–2026",
+    color: "from-[#B0512E] to-[#1E7A8C]",
+    glow: "rgba(176,81,46,0.2)",
+  },
+  {
+    icon: BookOpen,
+    title: "B.Tech Computer Science",
+    subtitle: "UPES · CGPA 8.7/10 · 2020–2024",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
+    glow: "rgba(47,139,79,0.2)",
+  },
+  {
     icon: MapPin,
     title: "Based in Dublin, Ireland",
-    subtitle: "Open to remote & on-site opportunities",
+    subtitle: "Working across Ireland and the UK",
     color: "from-[#1F6B3B] to-[#B0512E]",
     glow: "rgba(47,139,79,0.2)",
   },
@@ -101,24 +108,26 @@ export default function About() {
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-[#1F6B3B]/20 to-[#B0512E]/20" />
               <div className="relative glass rounded-3xl p-5 sm:p-8 shadow-xl border border-[#1F6B3B]/12">
                 <p className="text-[#6B5F54] leading-relaxed text-base sm:text-lg mb-6">
-                  I&apos;m an{" "}
-                  <span className="font-semibold text-[#1F6B3B]">AI Developer & Data Engineer</span>{" "}
-                  currently pursuing my MSc Computing (Data Analytics) at{" "}
-                  <span className="font-semibold text-[#3A2E26]">Dublin City University</span>,
-                  expecting a 1:1 (First Class Honours).
+                  I&apos;m a{" "}
+                  <span className="font-semibold text-[#1F6B3B]">Technical Accounts Manager at AI Institute</span>{" "}
+                  in Dublin, working directly with built-environment professionals across
+                  Ireland and the UK — architects, engineers, contractors and facilities teams.
                 </p>
                 <p className="text-[#6B5F54] leading-relaxed text-base sm:text-lg mb-6">
-                  I specialise in building{" "}
-                  <span className="font-semibold text-[#B0512E]">LLM-powered agentic systems</span>,
-                  production ML pipelines, and real-time data infrastructure using OpenAI API,
-                  LangChain, Apache Kafka, Azure, and AWS. I&apos;ve shipped 30+ projects across
-                  FinTech, healthcare, energy, and logistics.
+                  My work is building{" "}
+                  <span className="font-semibold text-[#B0512E]">AI agents that do real jobs</span>{" "}
+                  inside the systems buildings already run on — model data, O&amp;M documentation
+                  and building telemetry — using the OpenAI API, LangChain, Apache Kafka, Azure
+                  and AWS. I&apos;ve shipped 30+ projects across the built environment, FinTech,
+                  healthcare, energy and logistics.
                 </p>
                 <p className="text-[#6B5F54] leading-relaxed text-base sm:text-lg">
-                  Currently interning at{" "}
-                  <span className="font-semibold text-[#3A2E26]">Medicidiom (Spain, Remote)</span>{" "}
-                  — building production AI automation workflows that process 1,000+ documents with
-                  25% accuracy gains and 35% reduction in manual review.
+                  I graduated with an{" "}
+                  <span className="font-semibold text-[#3A2E26]">MSc in Computing (Data Analytics)
+                  from Dublin City University</span>, and alongside my role at AI Institute I
+                  work on contract as an Agentic AI Engineer with Medicidiom (Spain, Remote),
+                  building production automation that processes 1,000+ documents with 25%
+                  accuracy gains and a 35% reduction in manual review.
                 </p>
 
                 {/* Interests */}

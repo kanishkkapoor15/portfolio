@@ -16,7 +16,7 @@ const AgentSwarm = dynamic(() => import("./twin/AgentSwarm"), {
 
 /* ─── Constants ──────────────────────────────────────────────── */
 const STREAM_TEXT =
-  "Building production LLM pipelines, agentic AI systems, and real-time data infrastructure at scale.";
+  "Building AI agents for built-environment companies across Ireland and the UK.";
 
 const metrics = [
   { label: "Model",       value: "GPT-4o",  color: "text-[#1F6B3B]", pulse: false, delay: 1.6 },
@@ -26,10 +26,10 @@ const metrics = [
 ];
 
 const stats = [
-  { value: "30+", label: "Projects",         color: "text-[#1F6B3B]" },
-  { value: "2",   label: "Internships",       color: "text-[#B0512E]" },
-  { value: "5M+", label: "Records Processed", color: "text-[#1E7A8C]" },
-  { value: "1:1", label: "Expected MSc",      color: "text-[#1F6B3B]" },
+  { value: "30+",   label: "Projects",         color: "text-[#1F6B3B]" },
+  { value: "IE/UK", label: "Client Base",      color: "text-[#B0512E]" },
+  { value: "5M+",   label: "Records Processed", color: "text-[#1E7A8C]" },
+  { value: "MSc",   label: "DCU Graduate",     color: "text-[#1F6B3B]" },
 ];
 
 /* ─── Component ──────────────────────────────────────────────── */
@@ -152,7 +152,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-[#1E7A8C] animate-pulse" />
           <span className="text-sm text-[#6B5F54] font-medium font-mono">
-            Available for opportunities · Dublin, Ireland
+            Technical Accounts Manager · AI Institute, Dublin
           </span>
           <MapPin className="w-3.5 h-3.5 text-[#776959]" />
         </motion.div>

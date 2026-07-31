@@ -103,8 +103,8 @@ export default function Contact() {
             ]}
           />
           <p className="text-[#6B5F54] max-w-xl mx-auto text-lg">
-            Open to internships, graduate roles, and exciting project collaborations.
-            Let&apos;s build something great together.
+            Working on AI in the built environment, or just want to compare notes?
+            I&apos;d be glad to hear from you.
           </p>
         </motion.div>
 

@@ -10,11 +10,28 @@ import KineticHeading from "./KineticHeading";
 
 const experiences = [
   {
-    role: "AI Automation & Operations Intern",
+    role: "Technical Accounts Manager",
+    company: "AI Institute",
+    location: "Dublin, Ireland",
+    period: "2026 – Present",
+    type: "Current",
+    color: "from-[#1F6B3B] to-[#B0512E]",
+    dotColor: "bg-[#1F6B3B]",
+    glowColor: "rgba(47,139,79,0.4)",
+    highlights: [
+      "Own the technical relationship with built-environment clients across Ireland and the UK — architecture, engineering, construction and facilities management",
+      "Build and deploy AI agents against the systems buildings already run on: model data, O&M documentation and building telemetry",
+      "Work directly alongside built-environment professionals to turn operational problems into scoped, evaluated agent deployments",
+      "Bridge client teams and engineering through requirements, technical validation and rollout",
+    ],
+    tags: ["Agentic AI", "LLMs", "Solution Architecture", "Built Environment", "Python", "Client Delivery"],
+  },
+  {
+    role: "Agentic AI Engineer",
     company: "Medicidiom",
     location: "Spain (Remote)",
     period: "Feb 2026 – Present",
-    type: "Current",
+    type: "Contract",
     color: "from-[#1F6B3B] to-[#B0512E]",
     dotColor: "bg-[#1F6B3B]",
     glowColor: "rgba(47,139,79,0.4)",
@@ -49,8 +66,8 @@ const education = [
   {
     degree: "M.Sc. Computing (Data Analytics)",
     institution: "Dublin City University",
-    period: "2025 – Present",
-    grade: "1:1 Expected",
+    period: "2025 – 2026",
+    grade: "Graduated",
     icon: GraduationCap,
     color: "from-[#1F6B3B] to-[#B0512E]",
     glow: "rgba(47,139,79,0.25)",
@@ -104,7 +121,7 @@ export default function Experience() {
             ]}
           />
           <p className="text-[#6B5F54] max-w-xl mx-auto text-lg">
-            From classrooms to production systems at IBM and beyond.
+            From classrooms to production agents, deployed with clients.
           </p>
         </motion.div>
 
@@ -148,6 +165,11 @@ export default function Experience() {
                             {exp.type === "Current" && (
                               <span className="px-2 py-0.5 rounded-full bg-[#1E7A8C]/15 text-[#1E7A8C] text-xs font-bold font-mono border border-[#1E7A8C]/25 animate-pulse">
                                 ● LIVE
+                              </span>
+                            )}
+                            {exp.type === "Contract" && (
+                              <span className="px-2 py-0.5 rounded-full bg-[#8A6A15]/15 text-[#8A6A15] text-xs font-bold font-mono border border-[#8A6A15]/25">
+                                CONTRACT
                               </span>
                             )}
                           </div>
