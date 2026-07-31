@@ -3,14 +3,18 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
+import { setSwarmTarget } from "@/lib/swarmTarget";
 
+/* `room` maps each nav item to a room in the hero floor plan. Hovering a link
+   re-targets the whole agent swarm at that room — the building responds to
+   where you are about to go. */
 const navItems = [
-  { label: "Home",       href: "#home" },
-  { label: "About",      href: "#about" },
-  { label: "Skills",     href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects",   href: "#projects" },
-  { label: "Contact",    href: "#contact" },
+  { label: "Home",       href: "#home",       room: 0  },
+  { label: "About",      href: "#about",      room: 3  },
+  { label: "Skills",     href: "#skills",     room: 6  },
+  { label: "Experience", href: "#experience", room: 9  },
+  { label: "Projects",   href: "#projects",   room: 12 },
+  { label: "Contact",    href: "#contact",    room: 15 },
 ];
 
 export default function Navbar() {
@@ -63,11 +67,17 @@ export default function Navbar() {
           </motion.a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div
+            className="hidden md:flex items-center gap-8"
+            onMouseLeave={() => setSwarmTarget(null)}
+          >
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
+                onMouseEnter={() => setSwarmTarget(item.room)}
+                onFocus={() => setSwarmTarget(item.room)}
+                onBlur={() => setSwarmTarget(null)}
                 className={`nav-link text-sm font-medium font-mono transition-colors ${
                   activeSection === item.href.slice(1)
                     ? "text-[#00D4FF] active"

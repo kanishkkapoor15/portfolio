@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Activity } from "lucide-react";
 
-/* Load Three.js scene only on client (no SSR) */
-const NeuralSphere = dynamic(() => import("./NeuralSphere"), {
+/* Load the WebGL swarm only on the client, and only after the headline has
+   painted — the hero text is the LCP and must never wait on a shader. */
+const AgentSwarm = dynamic(() => import("./twin/AgentSwarm"), {
   ssr: false,
   loading: () => null,
 });
@@ -34,7 +35,9 @@ const stats = [
 export default function Hero() {
   const [displayed, setDisplayed]   = useState("");
   const [streamDone, setStreamDone] = useState(false);
+  const [swarmReady, setSwarmReady] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
 
   /* Cinematic parallax on scroll */
   const { scrollYProgress } = useScroll({
@@ -46,8 +49,19 @@ export default function Hero() {
   const sphereScale    = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const sphereOpacity  = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  /* Defer the canvas past first paint so it never competes with the LCP. */
+  useEffect(() => {
+    const id = window.setTimeout(() => setSwarmReady(true), 200);
+    return () => window.clearTimeout(id);
+  }, []);
+
   /* LLM-style token streaming */
   useEffect(() => {
+    if (reduceMotion) {
+      setDisplayed(STREAM_TEXT);
+      setStreamDone(true);
+      return;
+    }
     let i = 0;
     let timeout: ReturnType<typeof setTimeout>;
     const type = () => {
@@ -61,7 +75,7 @@ export default function Hero() {
     };
     timeout = setTimeout(type, 1200);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <section
@@ -69,13 +83,23 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050A14]"
     >
-      {/* ── Three.js Neural Sphere ── */}
+      {/* ── Agent swarm over a procedural floor plan ── */}
       <motion.div
         style={{ scale: sphereScale, opacity: sphereOpacity }}
         className="absolute inset-0"
+        aria-hidden
       >
-        <NeuralSphere />
+        {swarmReady && <AgentSwarm paused={!!reduceMotion} />}
       </motion.div>
+
+      {/* Vignette so the headline always wins against the trails behind it */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 45%, rgba(5,10,20,0.92) 0%, rgba(5,10,20,0.65) 45%, rgba(5,10,20,0) 100%)",
+        }}
+      />
 
       {/* ── Ambient glow blobs (show through transparent canvas) ── */}
       <div className="section-blob w-[700px] h-[700px] bg-[#00D4FF] -top-60 -left-60 opacity-[0.05]" />
