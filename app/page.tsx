@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import DigitalTwin from "@/components/DigitalTwin";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Stats from "@/components/Stats";
@@ -10,10 +11,11 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#fafbff]">
+    <main className="min-h-screen bg-[#050A14]">
       <Navbar />
       <Hero />
       <About />
+      <DigitalTwin />
       <Stats />
       <Skills />
       <Experience />

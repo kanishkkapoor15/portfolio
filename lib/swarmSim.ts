@@ -4,7 +4,7 @@
  * the position buffer this module writes.
  */
 
-import type { FloorPlan } from "./floorplan";
+import type { FloorPlan } from "./floorplan.ts";
 
 export type Agent = {
   x: number;

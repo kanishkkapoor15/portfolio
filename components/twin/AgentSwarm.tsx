@@ -302,13 +302,13 @@ export default function AgentSwarm({
   });
 
   return (
-    <div className={className}>
+    <div className={className} style={{ width: "100%", height: "100%" }}>
       <Canvas
         orthographic
         camera={{ position: [0, 0, 10], zoom: 1 }}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, profile.dpr]}
-        style={{ background: "transparent" }}
+        style={{ background: "transparent", width: "100%", height: "100%" }}
       >
         <SwarmField
           agentCount={profile.agents}
