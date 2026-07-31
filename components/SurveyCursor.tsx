@@ -101,7 +101,7 @@ export default function SurveyCursor() {
         snapped = el;
         const label = el ? labelFor(el) : "";
         readout.dataset.label = label;
-        frame.style.borderColor = el ? "rgba(0,212,255,0.85)" : "rgba(0,212,255,0.42)";
+        frame.style.borderColor = el ? "rgba(47,139,79,0.85)" : "rgba(47,139,79,0.42)";
       }
       setTarget();
 
@@ -163,32 +163,32 @@ export default function SurveyCursor() {
       <div
         ref={hLineRef}
         className="absolute left-0 top-0 w-full h-px opacity-0 transition-opacity duration-300"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(0,212,255,0.18) 30%, rgba(0,212,255,0.18) 70%, transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(47,139,79,0.18) 30%, rgba(47,139,79,0.18) 70%, transparent)" }}
       />
       <div
         ref={vLineRef}
         className="absolute left-0 top-0 h-full w-px opacity-0 transition-opacity duration-300"
-        style={{ background: "linear-gradient(180deg, transparent, rgba(0,212,255,0.18) 30%, rgba(0,212,255,0.18) 70%, transparent)" }}
+        style={{ background: "linear-gradient(180deg, transparent, rgba(47,139,79,0.18) 30%, rgba(47,139,79,0.18) 70%, transparent)" }}
       />
 
       {/* Magnetic frame */}
       <div
         ref={frameRef}
         className="absolute left-0 top-0 border opacity-0 transition-[opacity,border-color] duration-300"
-        style={{ borderColor: "rgba(0,212,255,0.42)", willChange: "transform,width,height" }}
+        style={{ borderColor: "rgba(47,139,79,0.42)", willChange: "transform,width,height" }}
       />
 
       {/* True-position dot */}
       <div
         ref={dotRef}
-        className="absolute left-0 top-0 w-[3px] h-[3px] rounded-full bg-[#00D4FF] opacity-0 transition-opacity duration-300"
-        style={{ boxShadow: "0 0 8px rgba(0,212,255,0.9)" }}
+        className="absolute left-0 top-0 w-[3px] h-[3px] rounded-full bg-[#1F6B3B] opacity-0 transition-opacity duration-300"
+        style={{ boxShadow: "0 0 8px rgba(47,139,79,0.9)" }}
       />
 
       {/* Coordinate readout */}
       <div
         ref={readoutRef}
-        className="absolute left-0 top-0 font-mono text-[10px] tracking-wider text-[#00D4FF]/70 opacity-0 transition-opacity duration-300 tabular-nums whitespace-pre"
+        className="absolute left-0 top-0 font-mono text-[10px] tracking-wider text-[#1F6B3B]/70 opacity-0 transition-opacity duration-300 tabular-nums whitespace-pre"
       />
     </div>
   );

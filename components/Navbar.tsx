@@ -45,7 +45,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "glass border-b border-[#00D4FF]/10 shadow-lg shadow-black/30"
+          ? "glass border-b border-[#1F6B3B]/10 shadow-none border-b-2 border-[#3A2E26]"
           : "bg-transparent"
       }`}
     >
@@ -58,10 +58,10 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center shadow-lg neon-cyan">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1F6B3B] to-[#B0512E] flex items-center justify-center shadow-lg neon-cyan">
               <Terminal className="w-4 h-4 text-white" />
             </div>
-            <span className="font-bold text-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent font-mono">
+            <span className="font-bold text-xl bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] bg-clip-text text-transparent font-mono">
               KK
             </span>
           </motion.a>
@@ -80,8 +80,8 @@ export default function Navbar() {
                 onBlur={() => setSwarmTarget(null)}
                 className={`nav-link text-sm font-medium font-mono transition-colors ${
                   activeSection === item.href.slice(1)
-                    ? "text-[#00D4FF] active"
-                    : "text-[#64748B] hover:text-[#00D4FF]"
+                    ? "text-[#1F6B3B] active"
+                    : "text-[#6B5F54] hover:text-[#1F6B3B]"
                 }`}
               >
                 {item.label}
@@ -97,7 +97,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] text-white text-sm font-medium font-mono shadow-md hover:neon-cyan transition-all flex items-center gap-2"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] text-white text-sm font-medium font-mono shadow-md hover:neon-cyan transition-all flex items-center gap-2"
             >
               <span className="text-xs opacity-70">~$</span>
               GitHub
@@ -108,7 +108,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-[#64748B] hover:text-[#00D4FF] hover:bg-[#00D4FF]/5 transition-colors border border-[#00D4FF]/10"
+            className="md:hidden p-2 rounded-lg text-[#6B5F54] hover:text-[#1F6B3B] hover:bg-[#1F6B3B]/5 transition-colors border border-[#1F6B3B]/10"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </motion.button>
@@ -118,7 +118,7 @@ export default function Navbar() {
       {/* Read progress — pure CSS, driven by the scroll timeline on the
           compositor. No scroll listener, no re-render. */}
       <div
-        className="scroll-progress absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981]"
+        className="scroll-progress absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-[#1F6B3B] via-[#B0512E] to-[#1E7A8C]"
         aria-hidden
       />
 
@@ -130,7 +130,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-[#00D4FF]/10"
+            className="md:hidden glass border-t border-[#1F6B3B]/10"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
               {navItems.map((item, i) => (
@@ -141,9 +141,9 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-[#94A3B8] font-medium font-mono py-2 hover:text-[#00D4FF] transition-colors"
+                  className="text-[#6B5F54] font-medium font-mono py-2 hover:text-[#1F6B3B] transition-colors"
                 >
-                  <span className="text-[#00D4FF]/40 mr-2">›</span>
+                  <span className="text-[#1F6B3B]/40 mr-2">›</span>
                   {item.label}
                 </motion.a>
               ))}
@@ -151,7 +151,7 @@ export default function Navbar() {
                 href="https://github.com/kanishkkapoor15"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] text-white text-sm font-medium font-mono text-center"
+                className="mt-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] text-white text-sm font-medium font-mono text-center"
               >
                 View GitHub
               </a>

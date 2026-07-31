@@ -32,8 +32,8 @@ export default function Contact() {
       label: "Email",
       value: "kanishkkapoor15@gmail.com",
       href: "mailto:kanishkkapoor15@gmail.com",
-      color: "from-[#00D4FF] to-[#7C3AED]",
-      glow: "rgba(0,212,255,0.25)",
+      color: "from-[#1F6B3B] to-[#B0512E]",
+      glow: "rgba(47,139,79,0.25)",
       copyable: true,
     },
     {
@@ -41,8 +41,8 @@ export default function Contact() {
       label: "Phone",
       value: "+353 899 595 536",
       href: "tel:+353899595536",
-      color: "from-[#7C3AED] to-[#10B981]",
-      glow: "rgba(124,58,237,0.25)",
+      color: "from-[#B0512E] to-[#1E7A8C]",
+      glow: "rgba(176,81,46,0.25)",
       copyable: true,
     },
     {
@@ -50,8 +50,8 @@ export default function Contact() {
       label: "GitHub",
       value: "kanishkkapoor15",
       href: "https://github.com/kanishkkapoor15",
-      color: "from-[#94A3B8] to-[#64748B]",
-      glow: "rgba(148,163,184,0.2)",
+      color: "from-[#6B5F54] to-[#6B5F54]",
+      glow: "rgba(139,125,111,0.2)",
       copyable: false,
     },
     {
@@ -59,8 +59,8 @@ export default function Contact() {
       label: "LinkedIn",
       value: "in/kanishkapoor",
       href: "https://linkedin.com/in/kanishkapoor",
-      color: "from-[#10B981] to-[#00D4FF]",
-      glow: "rgba(16,185,129,0.25)",
+      color: "from-[#1E7A8C] to-[#1F6B3B]",
+      glow: "rgba(30,122,140,0.25)",
       copyable: false,
     },
     {
@@ -68,8 +68,8 @@ export default function Contact() {
       label: "Location",
       value: "Dublin, Ireland 🇮🇪",
       href: "#",
-      color: "from-[#7C3AED] to-[#00D4FF]",
-      glow: "rgba(124,58,237,0.2)",
+      color: "from-[#B0512E] to-[#1F6B3B]",
+      glow: "rgba(176,81,46,0.2)",
       copyable: false,
     },
   ];
@@ -78,10 +78,10 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#080F1A]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#FDFBF3]"
     >
-      <div className="section-blob w-96 h-96 bg-[#00D4FF] top-0 -left-20" />
-      <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-0 right-0" />
+      <div className="section-blob w-96 h-96 bg-[#1F6B3B] top-0 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#B0512E] bottom-0 right-0" />
       <div className="absolute inset-0 data-grid opacity-40" />
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -92,17 +92,17 @@ export default function Contact() {
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00D4FF]/20 text-[#00D4FF] text-sm font-semibold font-mono mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#1F6B3B]/20 text-[#1F6B3B] text-sm font-semibold font-mono mb-4">
             <MessageSquare className="w-4 h-4" /> Get in Touch
           </span>
           <KineticHeading
-            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            className="display text-5xl sm:text-7xl text-[#3A2E26] mb-5"
             parts={[
               { text: "Let\u2019s " },
-              { text: "Connect", className: "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent" },
+              { text: "Connect", className: "bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] bg-clip-text text-transparent" },
             ]}
           />
-          <p className="text-[#64748B] max-w-xl mx-auto text-lg">
+          <p className="text-[#6B5F54] max-w-xl mx-auto text-lg">
             Open to internships, graduate roles, and exciting project collaborations.
             Let&apos;s build something great together.
           </p>
@@ -116,11 +116,11 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
             className="flex flex-col gap-4"
           >
-            <div className="glass rounded-3xl p-6 border border-[#00D4FF]/12 mb-2">
-              <h3 className="text-lg font-bold text-[#F0F6FF] mb-2 flex items-center gap-2 font-mono">
-                <MessageSquare className="w-4 h-4 text-[#00D4FF]" /> Say Hello
+            <div className="glass rounded-3xl p-6 border border-[#1F6B3B]/12 mb-2">
+              <h3 className="text-lg font-bold text-[#3A2E26] mb-2 flex items-center gap-2 font-mono">
+                <MessageSquare className="w-4 h-4 text-[#1F6B3B]" /> Say Hello
               </h3>
-              <p className="text-[#64748B] text-sm leading-relaxed">
+              <p className="text-[#6B5F54] text-sm leading-relaxed">
                 Whether you&apos;re a recruiter, a fellow developer, or someone with an
                 interesting project — I&apos;d love to hear from you. I typically respond
                 within 24 hours.
@@ -136,7 +136,7 @@ export default function Contact() {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                   whileHover={{ x: 4, scale: 1.01 }}
-                  className="glass rounded-2xl p-4 border border-[#00D4FF]/10 hover:border-[#00D4FF]/30 flex items-center gap-4 transition-all"
+                  className="glass rounded-2xl p-4 border border-[#1F6B3B]/10 hover:border-[#1F6B3B]/30 flex items-center gap-4 transition-all"
                 >
                   <div
                     className={`w-10 h-10 rounded-xl bg-gradient-to-br ${contact.color} flex items-center justify-center flex-shrink-0`}
@@ -145,19 +145,19 @@ export default function Contact() {
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-[#475569] font-medium font-mono">{contact.label}</p>
-                    <p className="text-sm font-semibold text-[#94A3B8] truncate">{contact.value}</p>
+                    <p className="text-xs text-[#776959] font-medium font-mono">{contact.label}</p>
+                    <p className="text-sm font-semibold text-[#6B5F54] truncate">{contact.value}</p>
                   </div>
                   <div className="flex gap-2">
                     {contact.copyable && (
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={() => handleCopy(contact.value, contact.label)}
-                        className="p-1.5 rounded-lg hover:bg-[#00D4FF]/8 text-[#475569] hover:text-[#00D4FF] transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
                         title="Copy"
                       >
                         {copied === contact.label ? (
-                          <CheckCheck className="w-4 h-4 text-[#10B981]" />
+                          <CheckCheck className="w-4 h-4 text-[#1E7A8C]" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -169,7 +169,7 @@ export default function Contact() {
                         target={contact.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
-                        className="p-1.5 rounded-lg hover:bg-[#00D4FF]/8 text-[#475569] hover:text-[#00D4FF] transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
                       >
                         <Send className="w-4 h-4" />
                       </motion.a>
@@ -188,17 +188,17 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-3xl p-5 sm:p-8 border border-[#00D4FF]/12"
+              className="glass rounded-3xl p-5 sm:p-8 border border-[#1F6B3B]/12"
             >
-              <h3 className="text-xl font-bold text-[#F0F6FF] mb-6 flex items-center gap-2 font-mono">
-                <Send className="w-5 h-5 text-[#00D4FF]" />
+              <h3 className="text-xl font-bold text-[#3A2E26] mb-6 flex items-center gap-2 font-mono">
+                <Send className="w-5 h-5 text-[#1F6B3B]" />
                 Send a Message
               </h3>
 
               <div className="flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
+                    <label className="block text-xs font-medium text-[#776959] mb-1.5 font-mono uppercase tracking-wide">
                       Your Name
                     </label>
                     <input
@@ -211,7 +211,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
+                    <label className="block text-xs font-medium text-[#776959] mb-1.5 font-mono uppercase tracking-wide">
                       Email Address
                     </label>
                     <input
@@ -226,7 +226,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
+                  <label className="block text-xs font-medium text-[#776959] mb-1.5 font-mono uppercase tracking-wide">
                     Subject
                   </label>
                   <input
@@ -239,7 +239,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#475569] mb-1.5 font-mono uppercase tracking-wide">
+                  <label className="block text-xs font-medium text-[#776959] mb-1.5 font-mono uppercase tracking-wide">
                     Message
                   </label>
                   <textarea
@@ -258,8 +258,8 @@ export default function Contact() {
                   whileTap={{ scale: 0.98 }}
                   className={`w-full py-3.5 rounded-xl font-semibold text-white shadow-lg transition-all flex items-center justify-center gap-2 font-mono ${
                     sent
-                      ? "bg-[#10B981] shadow-[#10B981]/20"
-                      : "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] neon-cyan hover:opacity-90"
+                      ? "bg-[#1E7A8C] shadow-[#1E7A8C]/20"
+                      : "bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] neon-cyan hover:opacity-90"
                   }`}
                 >
                   {sent ? (

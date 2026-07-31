@@ -9,9 +9,9 @@ const skillCategories = [
   {
     icon: Brain,
     title: "AI & LLMs",
-    color: "from-[#00D4FF] to-[#7C3AED]",
-    glow: "rgba(0,212,255,0.15)",
-    border: "border-[#00D4FF]/15",
+    color: "from-[#1F6B3B] to-[#B0512E]",
+    glow: "rgba(47,139,79,0.15)",
+    border: "border-[#1F6B3B]/15",
     skills: [
       "OpenAI API (GPT-4)", "HuggingFace Transformers", "LangChain", "MCP Agents",
       "Agentic AI", "Prompt Engineering", "DistilBART / BERT", "RAG Pipelines",
@@ -20,9 +20,9 @@ const skillCategories = [
   {
     icon: BarChart3,
     title: "ML & Deep Learning",
-    color: "from-[#7C3AED] to-[#10B981]",
-    glow: "rgba(124,58,237,0.15)",
-    border: "border-[#7C3AED]/15",
+    color: "from-[#B0512E] to-[#1E7A8C]",
+    glow: "rgba(176,81,46,0.15)",
+    border: "border-[#B0512E]/15",
     skills: [
       "Scikit-learn", "XGBoost", "LSTM (TensorFlow/Keras)", "SARIMA / TBATS / ETS",
       "SHAP", "Random Forest", "Logistic Regression", "A/B Testing",
@@ -31,17 +31,17 @@ const skillCategories = [
   {
     icon: Code2,
     title: "Languages",
-    color: "from-[#10B981] to-[#00D4FF]",
-    glow: "rgba(16,185,129,0.15)",
-    border: "border-[#10B981]/15",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
+    glow: "rgba(30,122,140,0.15)",
+    border: "border-[#1E7A8C]/15",
     skills: ["Python (Expert)", "SQL", "JavaScript", "Java", "C", "R", "TypeScript", "Bash"],
   },
   {
     icon: Database,
     title: "Data & Pipelines",
-    color: "from-[#00D4FF] to-[#7C3AED]",
-    glow: "rgba(0,212,255,0.15)",
-    border: "border-[#00D4FF]/15",
+    color: "from-[#1F6B3B] to-[#B0512E]",
+    glow: "rgba(47,139,79,0.15)",
+    border: "border-[#1F6B3B]/15",
     skills: [
       "Apache Kafka", "Apache Spark", "Apache Airflow", "Snowflake",
       "Delta Lake", "ETL / ELT", "Pandas / NumPy", "PostgreSQL / MongoDB",
@@ -50,9 +50,9 @@ const skillCategories = [
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    color: "from-[#7C3AED] to-[#10B981]",
-    glow: "rgba(124,58,237,0.15)",
-    border: "border-[#7C3AED]/15",
+    color: "from-[#B0512E] to-[#1E7A8C]",
+    glow: "rgba(176,81,46,0.15)",
+    border: "border-[#B0512E]/15",
     skills: [
       "Azure (ADF, Databricks)", "AWS (S3, Lambda)", "Docker", "FastAPI",
       "CI/CD", "Git / GitHub", "REST APIs", "Linux",
@@ -61,9 +61,9 @@ const skillCategories = [
   {
     icon: Wrench,
     title: "Visualisation & BI",
-    color: "from-[#10B981] to-[#00D4FF]",
-    glow: "rgba(16,185,129,0.15)",
-    border: "border-[#10B981]/15",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
+    glow: "rgba(30,122,140,0.15)",
+    border: "border-[#1E7A8C]/15",
     skills: [
       "Power BI (DAX)", "Streamlit", "Snowsight", "Matplotlib / Seaborn",
       "Plotly", "Excel (Power Query)", "MERN Stack", "React",
@@ -72,12 +72,12 @@ const skillCategories = [
 ];
 
 const proficiency = [
-  { lang: "Python",       pct: 95, color: "from-[#00D4FF] to-[#7C3AED]" },
-  { lang: "SQL",          pct: 88, color: "from-[#7C3AED] to-[#10B981]" },
-  { lang: "R",            pct: 82, color: "from-[#10B981] to-[#00D4FF]" },
-  { lang: "JavaScript",  pct: 75, color: "from-[#00D4FF] to-[#7C3AED]" },
-  { lang: "Java",         pct: 70, color: "from-[#7C3AED] to-[#10B981]" },
-  { lang: "Bash / Linux", pct: 72, color: "from-[#10B981] to-[#00D4FF]" },
+  { lang: "Python",       pct: 95, color: "from-[#1F6B3B] to-[#B0512E]" },
+  { lang: "SQL",          pct: 88, color: "from-[#B0512E] to-[#1E7A8C]" },
+  { lang: "R",            pct: 82, color: "from-[#1E7A8C] to-[#1F6B3B]" },
+  { lang: "JavaScript",  pct: 75, color: "from-[#1F6B3B] to-[#B0512E]" },
+  { lang: "Java",         pct: 70, color: "from-[#B0512E] to-[#1E7A8C]" },
+  { lang: "Bash / Linux", pct: 72, color: "from-[#1E7A8C] to-[#1F6B3B]" },
 ];
 
 export default function Skills() {
@@ -88,10 +88,10 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#F6F4EC]"
     >
-      <div className="section-blob w-80 h-80 bg-[#00D4FF] top-10 -left-20" />
-      <div className="section-blob w-80 h-80 bg-[#7C3AED] bottom-10 -right-20" />
+      <div className="section-blob w-80 h-80 bg-[#1F6B3B] top-10 -left-20" />
+      <div className="section-blob w-80 h-80 bg-[#B0512E] bottom-10 -right-20" />
       <div className="absolute inset-0 data-grid opacity-50" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -102,17 +102,17 @@ export default function Skills() {
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#10B981]/25 text-[#10B981] text-sm font-semibold font-mono mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#1E7A8C]/25 text-[#1E7A8C] text-sm font-semibold font-mono mb-4">
             <Code2 className="w-4 h-4" /> Technical Skills
           </span>
           <KineticHeading
-            className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4"
+            className="display text-5xl sm:text-7xl text-[#3A2E26] mb-5"
             parts={[
               { text: "My " },
-              { text: "Toolkit", className: "bg-gradient-to-r from-[#10B981] to-[#00D4FF] bg-clip-text text-transparent" },
+              { text: "Toolkit", className: "bg-gradient-to-r from-[#1E7A8C] to-[#1F6B3B] bg-clip-text text-transparent" },
             ]}
           />
-          <p className="text-[#64748B] max-w-xl mx-auto text-lg">
+          <p className="text-[#6B5F54] max-w-xl mx-auto text-lg">
             A comprehensive stack spanning AI, data engineering, cloud, and full-stack development.
           </p>
         </motion.div>
@@ -139,7 +139,7 @@ export default function Skills() {
                   >
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-bold text-[#F0F6FF] text-lg">{category.title}</h3>
+                  <h3 className="font-bold text-[#3A2E26] text-lg">{category.title}</h3>
                 </div>
 
                 {/* Skills */}
@@ -165,22 +165,22 @@ export default function Skills() {
           initial={{ opacity: 0, y: 40 }}
           animate={barsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
-          className="mt-12 glass rounded-3xl p-5 sm:p-8 border border-[#00D4FF]/10"
+          className="mt-12 glass rounded-3xl p-5 sm:p-8 border border-[#1F6B3B]/10"
         >
-          <h3 className="text-xl font-bold text-[#F0F6FF] mb-2 text-center font-mono">
+          <h3 className="text-xl font-bold text-[#3A2E26] mb-2 text-center font-mono">
             Core Language Proficiency
           </h3>
-          <p className="text-center text-[#475569] text-sm mb-8 font-mono">
+          <p className="text-center text-[#776959] text-sm mb-8 font-mono">
             {"// self-assessed skill levels"}
           </p>
           <div className="grid sm:grid-cols-2 gap-x-8 sm:gap-x-14 gap-y-6">
             {proficiency.map(({ lang, pct, color }) => (
               <div key={lang}>
                 <div className="flex justify-between mb-2">
-                  <span className="text-sm font-semibold text-[#94A3B8] font-mono">{lang}</span>
-                  <span className="text-sm text-[#00D4FF] font-mono font-bold">{pct}%</span>
+                  <span className="text-sm font-semibold text-[#6B5F54] font-mono">{lang}</span>
+                  <span className="text-sm text-[#1F6B3B] font-mono font-bold">{pct}%</span>
                 </div>
-                <div className="h-2 bg-[#111D2E] rounded-full overflow-visible relative">
+                <div className="h-2 bg-[#EDE9DB] rounded-full overflow-visible relative">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={barsInView ? { width: `${pct}%` } : {}}

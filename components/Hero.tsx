@@ -19,17 +19,17 @@ const STREAM_TEXT =
   "Building production LLM pipelines, agentic AI systems, and real-time data infrastructure at scale.";
 
 const metrics = [
-  { label: "Model",       value: "GPT-4o",  color: "text-[#00D4FF]", pulse: false, delay: 1.6 },
-  { label: "Pipeline",    value: "LIVE",    color: "text-[#10B981]", pulse: true,  delay: 1.9 },
-  { label: "Records/day", value: "5M+",     color: "text-[#7C3AED]", pulse: false, delay: 2.2 },
-  { label: "Uptime",      value: "99.9%",   color: "text-[#00D4FF]", pulse: false, delay: 2.5 },
+  { label: "Model",       value: "GPT-4o",  color: "text-[#1F6B3B]", pulse: false, delay: 1.6 },
+  { label: "Pipeline",    value: "LIVE",    color: "text-[#1E7A8C]", pulse: true,  delay: 1.9 },
+  { label: "Records/day", value: "5M+",     color: "text-[#B0512E]", pulse: false, delay: 2.2 },
+  { label: "Uptime",      value: "99.9%",   color: "text-[#1F6B3B]", pulse: false, delay: 2.5 },
 ];
 
 const stats = [
-  { value: "30+", label: "Projects",         color: "text-[#00D4FF]" },
-  { value: "2",   label: "Internships",       color: "text-[#7C3AED]" },
-  { value: "5M+", label: "Records Processed", color: "text-[#10B981]" },
-  { value: "1:1", label: "Expected MSc",      color: "text-[#00D4FF]" },
+  { value: "30+", label: "Projects",         color: "text-[#1F6B3B]" },
+  { value: "2",   label: "Internships",       color: "text-[#B0512E]" },
+  { value: "5M+", label: "Records Processed", color: "text-[#1E7A8C]" },
+  { value: "1:1", label: "Expected MSc",      color: "text-[#1F6B3B]" },
 ];
 
 /* ─── Component ──────────────────────────────────────────────── */
@@ -84,7 +84,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050A14]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F6F4EC]"
     >
       {/* ── Agent swarm over a procedural floor plan ── */}
       <motion.div
@@ -102,14 +102,14 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 45%, rgba(5,10,20,0.92) 0%, rgba(5,10,20,0.65) 45%, rgba(5,10,20,0) 100%)",
+            "radial-gradient(ellipse 62% 52% at 50% 45%, rgba(246,244,236,0.94) 0%, rgba(246,244,236,0.72) 46%, rgba(246,244,236,0) 100%)",
         }}
       />
 
       {/* ── Ambient glow blobs (show through transparent canvas) ── */}
-      <div className="section-blob w-[700px] h-[700px] bg-[#00D4FF] -top-60 -left-60 opacity-[0.05]" />
-      <div className="section-blob w-[600px] h-[600px] bg-[#7C3AED] -top-20 -right-40 opacity-[0.05]" />
-      <div className="section-blob w-[500px] h-[500px] bg-[#10B981] bottom-0 left-1/3 opacity-[0.04]" />
+      <div className="section-blob w-[700px] h-[700px] bg-[#1F6B3B] -top-60 -left-60 opacity-[0.05]" />
+      <div className="section-blob w-[600px] h-[600px] bg-[#B0512E] -top-20 -right-40 opacity-[0.05]" />
+      <div className="section-blob w-[500px] h-[500px] bg-[#1E7A8C] bottom-0 left-1/3 opacity-[0.04]" />
 
       {/* ── Floating metric cards ── */}
       {metrics.map((m, i) => (
@@ -118,7 +118,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: m.delay, duration: 0.5, type: "spring" }}
-          className="hidden lg:flex absolute items-center gap-2 px-3 py-2 rounded-xl glass border border-[#00D4FF]/15 text-xs font-mono shadow-lg animate-float"
+          className="hidden lg:flex absolute items-center gap-2 px-3 py-2 rounded-xl glass border border-[#1F6B3B]/15 text-xs font-mono shadow-lg animate-float"
           style={{
             animationDelay: `${i * 0.9}s`,
             ...(i === 0 ? { left: "4%",  top: "22%" }
@@ -127,12 +127,12 @@ export default function Hero() {
               : { right: "3%",           bottom: "26%" }),
           }}
         >
-          <Activity className="w-3 h-3 text-[#00D4FF]" />
-          <span className="text-[#475569]">{m.label}:</span>
+          <Activity className="w-3 h-3 text-[#1F6B3B]" />
+          <span className="text-[#776959]">{m.label}:</span>
           <span className={`font-bold ${m.color}`}>
             {m.value}
             {m.pulse && (
-              <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+              <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-[#1E7A8C] animate-pulse" />
             )}
           </span>
         </motion.div>
@@ -148,13 +148,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#00D4FF]/20 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1F6B3B]/20 mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-          <span className="text-sm text-[#94A3B8] font-medium font-mono">
+          <span className="w-2 h-2 rounded-full bg-[#1E7A8C] animate-pulse" />
+          <span className="text-sm text-[#6B5F54] font-medium font-mono">
             Available for opportunities · Dublin, Ireland
           </span>
-          <MapPin className="w-3.5 h-3.5 text-[#475569]" />
+          <MapPin className="w-3.5 h-3.5 text-[#776959]" />
         </motion.div>
 
         {/* Name */}
@@ -162,7 +162,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight tracking-tight text-[#F0F6FF]"
+          className="display text-5xl sm:text-7xl lg:text-8xl mb-5 text-[#3A2E26]"
         >
           Hi, I&apos;m{" "}
           <span className="shimmer-text">Kanishk Kapoor</span>
@@ -175,7 +175,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.35 }}
           className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 h-10 sm:h-12 flex items-center justify-center font-mono"
         >
-          <span className="text-[#00D4FF]/50 mr-2">$</span>
+          <span className="text-[#1F6B3B]/50 mr-2">$</span>
           <TypeAnimation
             sequence={[
               "AI Developer",              2000,
@@ -187,9 +187,9 @@ export default function Hero() {
             wrapper="span"
             speed={55}
             repeat={Infinity}
-            className="bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981] bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-[#1F6B3B] via-[#B0512E] to-[#1E7A8C] bg-clip-text text-transparent"
           />
-          <span className="ml-1 inline-block w-0.5 h-7 bg-[#00D4FF] animate-pulse" />
+          <span className="ml-1 inline-block w-0.5 h-7 bg-[#1F6B3B] animate-pulse" />
         </motion.div>
 
         {/* Streaming bio */}
@@ -197,12 +197,12 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto mb-10 leading-relaxed min-h-[3rem] font-mono"
+          className="text-base sm:text-lg text-[#6B5F54] max-w-2xl mx-auto mb-10 leading-relaxed min-h-[3rem] font-mono"
         >
-          <span className="text-[#00D4FF]/50 mr-1">{"// "}</span>
-          <span className="text-[#94A3B8]">{displayed}</span>
+          <span className="text-[#1F6B3B]/50 mr-1">{"// "}</span>
+          <span className="text-[#6B5F54]">{displayed}</span>
           {!streamDone && (
-            <span className="inline-block w-0.5 h-4 bg-[#00D4FF] animate-pulse ml-0.5 translate-y-0.5" />
+            <span className="inline-block w-0.5 h-4 bg-[#1F6B3B] animate-pulse ml-0.5 translate-y-0.5" />
           )}
         </motion.div>
 
@@ -217,7 +217,7 @@ export default function Hero() {
             href="#projects"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#00D4FF] via-[#7C3AED] to-[#10B981] text-white font-semibold shadow-xl neon-cyan animate-gradient text-sm sm:text-base"
+            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#1F6B3B] via-[#B0512E] to-[#1E7A8C] text-white font-semibold shadow-xl neon-cyan animate-gradient text-sm sm:text-base"
           >
             View My Work
           </motion.a>
@@ -225,7 +225,7 @@ export default function Hero() {
             href="#contact"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl glass border border-[#00D4FF]/30 text-[#00D4FF] font-semibold hover:border-[#00D4FF]/60 hover:bg-[#00D4FF]/5 transition-all text-sm sm:text-base"
+            className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl glass border border-[#1F6B3B]/30 text-[#1F6B3B] font-semibold hover:border-[#1F6B3B]/60 hover:bg-[#1F6B3B]/5 transition-all text-sm sm:text-base"
           >
             Get in Touch
           </motion.a>
@@ -250,7 +250,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.12, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="p-3 rounded-xl glass border border-[#00D4FF]/15 text-[#64748B] hover:text-[#00D4FF] hover:border-[#00D4FF]/45 transition-all"
+              className="p-3 rounded-xl glass border border-[#1F6B3B]/15 text-[#6B5F54] hover:text-[#1F6B3B] hover:border-[#1F6B3B]/45 transition-all"
               aria-label={label}
             >
               <Icon className="w-5 h-5" />
@@ -269,12 +269,12 @@ export default function Hero() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.06, y: -4 }}
-              className="glass rounded-2xl p-4 border border-[#00D4FF]/10 hover:border-[#00D4FF]/35 transition-all cursor-default"
+              className="glass rounded-2xl p-4 border border-[#1F6B3B]/10 hover:border-[#1F6B3B]/35 transition-all cursor-default"
             >
               <div className={`text-2xl font-extrabold font-mono ${stat.color}`}>
                 {stat.value}
               </div>
-              <div className="text-xs text-[#475569] mt-1 font-medium">{stat.label}</div>
+              <div className="text-xs text-[#776959] mt-1 font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -290,7 +290,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-1 text-[#475569]"
+          className="flex flex-col items-center gap-1 text-[#776959]"
         >
           <span className="text-xs font-mono">scroll</span>
           <ArrowDown className="w-4 h-4" />

@@ -60,11 +60,11 @@ const PREFIX: Record<Kind, string> = {
 };
 
 const STYLE: Record<Kind, string> = {
-  agent: "text-[#00D4FF] font-semibold",
-  call: "text-[#7C3AED]",
-  ret: "text-[#64748B]",
-  ok: "text-[#10B981]",
-  warn: "text-[#D9A441]",
+  agent: "text-[#1F6B3B] font-semibold",
+  call: "text-[#B0512E]",
+  ret: "text-[#6B5F54]",
+  ok: "text-[#1E7A8C]",
+  warn: "text-[#8A6A15]",
 };
 
 const MAX_LINES = 9;
@@ -137,13 +137,13 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`glass rounded-2xl border border-[#00D4FF]/12 overflow-hidden flex flex-col ${className}`}
+      className={`glass rounded-2xl border border-[#1F6B3B]/12 overflow-hidden flex flex-col ${className}`}
     >
       {/* Title bar */}
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#00D4FF]/10 bg-[#0D1421]/60">
-        <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-        <span className="text-xs font-mono text-[#94A3B8]">agent-runtime</span>
-        <span className="text-xs font-mono text-[#334155] ml-auto tabular-nums">
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#1F6B3B]/10 bg-[#EDE9DB]">
+        <span className="w-2 h-2 rounded-full bg-[#1E7A8C] animate-pulse" />
+        <span className="text-xs font-mono text-[#6B5F54]">agent-runtime</span>
+        <span className="text-xs font-mono text-[#776959] ml-auto tabular-nums">
           ie-dub-1 · 5 agents
         </span>
       </div>
@@ -168,7 +168,7 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
           <div className={`${STYLE[shownPartial.kind]} whitespace-pre-wrap break-words`}>
             {PREFIX[shownPartial.kind]}
             {shownPartial.text}
-            <span className="inline-block w-1.5 h-3 bg-[#00D4FF] ml-0.5 translate-y-0.5 animate-pulse" />
+            <span className="inline-block w-1.5 h-3 bg-[#1F6B3B] ml-0.5 translate-y-0.5 animate-pulse" />
           </div>
         )}
       </div>

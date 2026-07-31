@@ -14,6 +14,13 @@ export type PointCloud = {
   /** 0 = slab, 1 = column, 2 = facade, 3 = services/scatter */
   kinds: Float32Array;
   sizes: Float32Array;
+  /**
+   * Synthetic heat-loss value, 0 (well insulated) → 1 (losing heat). Loosely
+   * modelled on where a real thermographic survey finds problems: the
+   * envelope, the roof, slab-to-facade junctions and corners — i.e. thermal
+   * bridging rather than random noise.
+   */
+  thermals: Float32Array;
   count: number;
 };
 
@@ -40,6 +47,7 @@ export function generateBuilding(spec: BuildingSpec = DEFAULT_BUILDING): PointCl
   const pos: number[] = [];
   const kind: number[] = [];
   const size: number[] = [];
+  const thermal: number[] = [];
 
   const hw = width / 2;
   const hd = depth / 2;
@@ -47,10 +55,27 @@ export function generateBuilding(spec: BuildingSpec = DEFAULT_BUILDING): PointCl
   // Centre the building vertically on the origin.
   const y0 = -totalH / 2;
 
+  const roofY = -((floors * floorHeight) / 2) + floors * floorHeight;
+
+  const heatLoss = (x: number, y: number, z: number, k: number) => {
+    let t = 0.08 + rand() * 0.1;
+    // The envelope is where the heat goes.
+    if (k === 2) t += 0.34;
+    // Slab-to-facade junctions bridge.
+    const nearJunction = Math.abs(((y + (floors * floorHeight) / 2) % floorHeight)) < 0.28;
+    if (k === 2 && nearJunction) t += 0.24;
+    // Corners are worst — two envelope planes meeting.
+    if (Math.abs(x) > width / 2 - 0.6 && Math.abs(z) > depth / 2 - 0.6) t += 0.2;
+    // Roof.
+    if (y > roofY - 0.4) t += 0.28;
+    return Math.min(1, t);
+  };
+
   const push = (x: number, y: number, z: number, k: number, s: number) => {
     pos.push(x, y, z);
     kind.push(k);
     size.push(s);
+    thermal.push(heatLoss(x, y, z, k));
   };
 
   // Scanner noise — real captures are never perfectly planar.
@@ -113,6 +138,7 @@ export function generateBuilding(spec: BuildingSpec = DEFAULT_BUILDING): PointCl
     positions: new Float32Array(pos),
     kinds: new Float32Array(kind),
     sizes: new Float32Array(size),
+    thermals: new Float32Array(thermal),
     count: kind.length,
   };
 }

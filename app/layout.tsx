@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -88,6 +88,12 @@ const jsonLd = {
       mainEntity: { "@id": "https://kanishkkapoor.com/#person" },
     },
   ],
+};
+
+/* ─── Viewport ───────────────────────────────────────────────── */
+export const viewport: Viewport = {
+  themeColor: "#2E8B4F",
+  colorScheme: "light",
 };
 
 /* ─── Next.js Metadata ───────────────────────────────────────── */

@@ -18,12 +18,18 @@ import { getSwarmTarget, subscribeSwarmTarget } from "@/lib/swarmTarget";
 const GRID_W = 72;
 const GRID_H = 40;
 
-/** Agent classes mirror the roles in the live trace panel. */
-const AGENT_COLOURS = [
-  new THREE.Color("#00D4FF"), // building analytics
-  new THREE.Color("#7C3AED"), // document intelligence
-  new THREE.Color("#10B981"), // clash / compliance review
+/* Each agent class stamps into its own density channel; the display pass maps
+   channels to inks. Keeping colour out of the accumulation buffer means trails
+   from different agents overlap as ink does rather than washing to white. */
+const CHANNEL_BASIS = [
+  new THREE.Color(1, 0, 0), // R — growth / building analytics
+  new THREE.Color(0, 1, 0), // G — brass / document intelligence
+  new THREE.Color(0, 0, 1), // B — clay / clash + compliance
 ];
+
+const INK_GROWTH = new THREE.Color("#2E8B4F");
+const INK_BRASS  = new THREE.Color("#C99A2E");
+const INK_CLAY   = new THREE.Color("#D06A45");
 
 /* ─── Trail field ────────────────────────────────────────────────
    Agent positions are stamped into a render target that is fed back into
@@ -84,11 +90,20 @@ const DISPLAY_VERT = /* glsl */ `
 const DISPLAY_FRAG = /* glsl */ `
   uniform sampler2D uTrail;
   uniform float uOpacity;
+  uniform vec3 uInkR;
+  uniform vec3 uInkG;
+  uniform vec3 uInkB;
   varying vec2 vUv;
   void main() {
-    vec3 c = texture2D(uTrail, vUv).rgb;
-    float a = clamp(max(max(c.r, c.g), c.b), 0.0, 1.0);
-    gl_FragColor = vec4(c, a * uOpacity);
+    vec3 d = texture2D(uTrail, vUv).rgb;
+    float total = d.r + d.g + d.b;
+    if (total < 0.002) discard;
+
+    // Weighted ink mix, then coverage as alpha — laying pigment onto the
+    // page rather than adding light to a void.
+    vec3 ink = (uInkR * d.r + uInkG * d.g + uInkB * d.b) / total;
+    float coverage = clamp(total * 0.9, 0.0, 1.0);
+    gl_FragColor = vec4(ink, coverage * uOpacity);
   }
 `;
 
@@ -137,7 +152,9 @@ function SwarmField({
     const fadeMat = new THREE.ShaderMaterial({
       vertexShader: FADE_VERT,
       fragmentShader: FADE_FRAG,
-      uniforms: { uPrev: { value: rtA.texture }, uDecay: { value: 0.962 } },
+      // Slow decay: paths accumulate like ivy spreading over the plan rather
+      // than flashing past. The subtractive floor still lets them clear.
+      uniforms: { uPrev: { value: rtA.texture }, uDecay: { value: 0.988 } },
       depthTest: false,
       depthWrite: false,
       blending: THREE.NoBlending,
@@ -152,7 +169,7 @@ function SwarmField({
     const sizes = new Float32Array(agentCount);
 
     sim.agents.forEach((a, i) => {
-      const c = AGENT_COLOURS[a.cls % AGENT_COLOURS.length];
+      const c = CHANNEL_BASIS[a.cls % CHANNEL_BASIS.length];
       colours[i * 3] = c.r;
       colours[i * 3 + 1] = c.g;
       colours[i * 3 + 2] = c.b;
@@ -181,10 +198,17 @@ function SwarmField({
     const displayMat = new THREE.ShaderMaterial({
       vertexShader: DISPLAY_VERT,
       fragmentShader: DISPLAY_FRAG,
-      uniforms: { uTrail: { value: rtA.texture }, uOpacity: { value: opacity } },
+      uniforms: {
+        uTrail: { value: rtA.texture },
+        uOpacity: { value: opacity },
+        uInkR: { value: INK_GROWTH },
+        uInkG: { value: INK_BRASS },
+        uInkB: { value: INK_CLAY },
+      },
       transparent: true,
       depthWrite: false,
-      blending: THREE.AdditiveBlending,
+      // Pigment onto paper, not light into a void.
+      blending: THREE.NormalBlending,
     });
 
     return { rtA, rtB, scene, camera, fadeMat, agentMat, agentGeo, positions, fadeQuad, displayMat };
@@ -277,7 +301,7 @@ function SwarmField({
         <planeGeometry args={[GRID_W, GRID_H]} />
       </mesh>
       <lineSegments geometry={wallGeo}>
-        <lineBasicMaterial color="#00D4FF" transparent opacity={0.13} toneMapped={false} />
+        <lineBasicMaterial color="#3A2E26" transparent opacity={0.34} toneMapped={false} />
       </lineSegments>
     </group>
   );

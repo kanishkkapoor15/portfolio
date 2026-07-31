@@ -20,12 +20,13 @@ const VERT = /* glsl */ `
 
   attribute float aKind;
   attribute float aSize;
+  attribute float aThermal;
 
   varying float vLit;
-  varying float vKind;
+  varying float vThermal;
 
   void main() {
-    vKind = aKind;
+    vThermal = aThermal;
 
     vec4 mv   = modelViewMatrix * vec4(position, 1.0);
     vec4 clip = projectionMatrix * mv;
@@ -55,13 +56,20 @@ const VERT = /* glsl */ `
 const FRAG = /* glsl */ `
   precision mediump float;
 
-  uniform vec3 uSlab;
-  uniform vec3 uColumn;
-  uniform vec3 uFacade;
-  uniform vec3 uServices;
+  uniform vec3 uCool;    // well insulated
+  uniform vec3 uGood;
+  uniform vec3 uWarn;
+  uniform vec3 uHot;     // losing heat
+  uniform vec3 uGhost;   // unscanned, barely there on the page
 
   varying float vLit;
-  varying float vKind;
+  varying float vThermal;
+
+  vec3 thermalRamp(float t) {
+    if (t < 0.34) return mix(uCool, uGood, t / 0.34);
+    if (t < 0.67) return mix(uGood, uWarn, (t - 0.34) / 0.33);
+    return mix(uWarn, uHot, (t - 0.67) / 0.33);
+  }
 
   void main() {
     vec2 d = gl_PointCoord - 0.5;
@@ -69,17 +77,13 @@ const FRAG = /* glsl */ `
     if (r > 0.5) discard;
     float falloff = smoothstep(0.5, 0.05, r);
 
-    vec3 col = uSlab;
-    if (vKind > 2.5)      col = uServices;
-    else if (vKind > 1.5) col = uFacade;
-    else if (vKind > 0.5) col = uColumn;
+    // The scan does not reveal geometry — it reveals performance. Points sit
+    // as faint graphite until the beam crosses them, then resolve into their
+    // heat-loss colour.
+    vec3 col = mix(uGhost, thermalRamp(vThermal), smoothstep(0.05, 0.7, vLit));
 
-    // Freshly scanned points bloom toward white before settling into their
-    // channel colour, which is what sells the "just hit by the beam" read.
-    vec3 hot = mix(col, vec3(1.0), smoothstep(0.55, 1.0, vLit) * 0.7);
-
-    float a = falloff * vLit;
-    gl_FragColor = vec4(hot * a, a);
+    float a = falloff * mix(0.16, 1.0, vLit);
+    gl_FragColor = vec4(col, a);
   }
 `;
 
@@ -94,6 +98,7 @@ function Cloud({ paused, sizeScale }: { paused: boolean; sizeScale: number }) {
     g.setAttribute("position", new THREE.BufferAttribute(cloud.positions, 3));
     g.setAttribute("aKind", new THREE.BufferAttribute(cloud.kinds, 1));
     g.setAttribute("aSize", new THREE.BufferAttribute(cloud.sizes, 1));
+    g.setAttribute("aThermal", new THREE.BufferAttribute(cloud.thermals, 1));
     g.computeBoundingSphere();
     return g;
   }, [cloud]);
@@ -113,10 +118,11 @@ function Cloud({ paused, sizeScale }: { paused: boolean; sizeScale: number }) {
       uSweepY: { value: 0 },
       uReveal: { value: 0 },
       uSizeScale: { value: 1 },
-      uSlab: { value: new THREE.Color("#00D4FF") },
-      uColumn: { value: new THREE.Color("#F0F6FF") },
-      uFacade: { value: new THREE.Color("#7C3AED") },
-      uServices: { value: new THREE.Color("#10B981") },
+      uCool: { value: new THREE.Color("#4FA3C7") },
+      uGood: { value: new THREE.Color("#2E8B4F") },
+      uWarn: { value: new THREE.Color("#C99A2E") },
+      uHot: { value: new THREE.Color("#D0492B") },
+      uGhost: { value: new THREE.Color("#B9AE9B") },
     }),
     [],
   );
@@ -191,7 +197,7 @@ function Cloud({ paused, sizeScale }: { paused: boolean; sizeScale: number }) {
           uniforms={uniforms}
           transparent
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
+          blending={THREE.NormalBlending}
         />
       </points>
     </group>

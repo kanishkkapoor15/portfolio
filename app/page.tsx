@@ -12,7 +12,7 @@ import SurveyCursor from "@/components/SurveyCursor";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050A14]">
+    <main className="min-h-screen bg-[#F6F4EC]">
       <SurveyCursor />
       <Navbar />
       <Hero />

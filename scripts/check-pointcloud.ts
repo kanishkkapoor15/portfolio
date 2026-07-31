@@ -45,6 +45,26 @@ test("geometry is finite and inside the declared envelope", () => {
   for (const s of c.sizes) assert.ok(s > 0 && s < 5, `implausible point size ${s}`);
 });
 
+test("thermal channel is in range and models envelope loss", () => {
+  const c = generateBuilding();
+  assert.equal(c.thermals.length, c.count);
+
+  let facadeSum = 0, facadeN = 0, coreSum = 0, coreN = 0;
+  for (let i = 0; i < c.count; i++) {
+    const t = c.thermals[i];
+    assert.ok(t >= 0 && t <= 1, `thermal out of range: ${t}`);
+    if (c.kinds[i] === 2) { facadeSum += t; facadeN++; }
+    if (c.kinds[i] === 3) { coreSum += t; coreN++; }
+  }
+
+  const facade = facadeSum / facadeN;
+  const core = coreSum / coreN;
+  assert.ok(
+    facade > core * 1.8,
+    `envelope should lose far more heat than interior scatter: ${facade.toFixed(2)} vs ${core.toFixed(2)}`,
+  );
+});
+
 test("generation is deterministic for a given seed", () => {
   const a = generateBuilding({ ...DEFAULT_BUILDING, seed: 42 });
   const b = generateBuilding({ ...DEFAULT_BUILDING, seed: 42 });
