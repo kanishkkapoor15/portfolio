@@ -98,38 +98,38 @@ function Cloud({ paused, sizeScale }: { paused: boolean; sizeScale: number }) {
     return g;
   }, [cloud]);
 
-  const material = useMemo(
-    () =>
-      new THREE.ShaderMaterial({
-        vertexShader: VERT,
-        fragmentShader: FRAG,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        uniforms: {
-          uTrail: { value: Array.from({ length: TRAIL }, () => new THREE.Vector3(9, 9, 0)) },
-          uAspect: { value: 1 },
-          uRadius: { value: 0.34 },
-          uSweepY: { value: 0 },
-          uReveal: { value: 0 },
-          uSizeScale: { value: sizeScale },
-          uSlab: { value: new THREE.Color("#00D4FF") },
-          uColumn: { value: new THREE.Color("#F0F6FF") },
-          uFacade: { value: new THREE.Color("#7C3AED") },
-          uServices: { value: new THREE.Color("#10B981") },
-        },
-      }),
-    [sizeScale],
+  /* The material is declared in JSX and only ever touched through its ref
+     inside the frame loop. Uniform objects are long-lived and mutable by
+     design, which is exactly what the compiler's immutability rules forbid for
+     a value returned from useMemo — going through the ref keeps both the
+     renderer and the linter happy, and lets R3F own disposal. */
+  const matRef = useRef<THREE.ShaderMaterial>(null);
+
+  const uniforms = useMemo(
+    () => ({
+      uTrail: { value: Array.from({ length: TRAIL }, () => new THREE.Vector3(9, 9, 0)) },
+      uAspect: { value: 1 },
+      uRadius: { value: 0.34 },
+      uSweepY: { value: 0 },
+      uReveal: { value: 0 },
+      uSizeScale: { value: 1 },
+      uSlab: { value: new THREE.Color("#00D4FF") },
+      uColumn: { value: new THREE.Color("#F0F6FF") },
+      uFacade: { value: new THREE.Color("#7C3AED") },
+      uServices: { value: new THREE.Color("#10B981") },
+    }),
+    [],
   );
 
-  useEffect(() => () => { geometry.dispose(); material.dispose(); }, [geometry, material]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
 
   const lastPointer = useRef(new THREE.Vector2(0, 0));
   const idleFor = useRef(0);
 
   useFrame(({ clock }, delta) => {
     const dt = Math.min(delta, 1 / 30);
-    const u = material.uniforms;
+    const u = matRef.current?.uniforms;
+    if (!u) return;
 
     u.uAspect.value = size.width / Math.max(size.height, 1);
     u.uSizeScale.value = sizeScale;
@@ -183,16 +183,29 @@ function Cloud({ paused, sizeScale }: { paused: boolean; sizeScale: number }) {
 
   return (
     <group ref={groupRef} scale={fit}>
-      <points geometry={geometry} material={material} />
+      <points geometry={geometry}>
+        <shaderMaterial
+          ref={matRef}
+          vertexShader={VERT}
+          fragmentShader={FRAG}
+          uniforms={uniforms}
+          transparent
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </points>
     </group>
   );
 }
 
 export default function LidarScan({
   paused = false,
+  active = true,
   className = "absolute inset-0",
 }: {
   paused?: boolean;
+  /** When false the render loop stops entirely rather than idling. */
+  active?: boolean;
   className?: string;
 }) {
   const [sizeScale] = useState(() =>
@@ -205,6 +218,7 @@ export default function LidarScan({
         camera={{ position: [0, 1.5, 22], fov: 42 }}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, 1.5]}
+        frameloop={active ? "always" : "never"}
         style={{ background: "transparent", width: "100%", height: "100%" }}
       >
         <Cloud paused={paused} sizeScale={sizeScale} />

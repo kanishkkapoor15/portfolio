@@ -286,10 +286,13 @@ function SwarmField({
 /* ─── Exported canvas wrapper ────────────────────────────────── */
 export default function AgentSwarm({
   paused = false,
+  active = true,
   opacity = 1,
   className = "absolute inset-0",
 }: {
   paused?: boolean;
+  /** When false the render loop stops entirely rather than idling. */
+  active?: boolean;
   opacity?: number;
   className?: string;
 }) {
@@ -308,6 +311,7 @@ export default function AgentSwarm({
         camera={{ position: [0, 0, 10], zoom: 1 }}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, profile.dpr]}
+        frameloop={active && !paused ? "always" : "never"}
         style={{ background: "transparent", width: "100%", height: "100%" }}
       >
         <SwarmField

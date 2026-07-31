@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Radar, Building2, Cpu, MousePointer2 } from "lucide-react";
 import AgentTrace from "./twin/AgentTrace";
 import KineticHeading from "./KineticHeading";
+import { useRenderActive } from "@/lib/useRenderActive";
 
 const LidarScan = dynamic(() => import("./twin/LidarScan"), { ssr: false, loading: () => null });
 
@@ -20,12 +20,10 @@ const readouts = [
 export default function DigitalTwin() {
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
   const reduceMotion = useReducedMotion();
-  const [mountScan, setMountScan] = useState(false);
-
-  // Only build the second WebGL context once the section is actually approached.
-  useEffect(() => {
-    if (inView) setMountScan(true);
-  }, [inView]);
+  const { ref: activeRef, active } = useRenderActive<HTMLDivElement>();
+  // `triggerOnce` latches inView, so it already means "has been approached" —
+  // the second WebGL context is never built until the section is reached.
+  const mountScan = inView;
 
   return (
     <section
@@ -69,7 +67,9 @@ export default function DigitalTwin() {
             transition={{ duration: 0.7, delay: 0.15, type: "spring", stiffness: 70 }}
             className="lg:col-span-3 relative rounded-2xl overflow-hidden glass border border-[#00D4FF]/12 min-h-[24rem] h-[24rem] sm:h-[30rem]"
           >
-            {mountScan && <LidarScan paused={!!reduceMotion} />}
+            <div ref={activeRef} className="absolute inset-0">
+              {mountScan && <LidarScan paused={!!reduceMotion} active={active} />}
+            </div>
 
             {/* Corner brackets — survey framing */}
             {[

@@ -80,11 +80,7 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (reduceMotion) {
-      setLines(SCENARIOS[0]);
-      setPartial(null);
-      return;
-    }
+    if (reduceMotion) return;
 
     let cancelled = false;
     const timers: ReturnType<typeof setTimeout>[] = [];
@@ -135,6 +131,10 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
     if (el) el.scrollTop = el.scrollHeight;
   }, [lines, partial]);
 
+  // Reduced motion gets the finished trace, no streaming.
+  const shownLines = reduceMotion ? SCENARIOS[0] : lines;
+  const shownPartial = reduceMotion ? null : partial;
+
   return (
     <div
       className={`glass rounded-2xl border border-[#00D4FF]/12 overflow-hidden flex flex-col ${className}`}
@@ -154,7 +154,7 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
         className="flex-1 min-h-[15rem] max-h-[15rem] overflow-hidden px-4 py-3 font-mono text-[11px] sm:text-xs leading-relaxed"
         aria-hidden
       >
-        {lines.map((line, i) => (
+        {shownLines.map((line, i) => (
           <div
             key={`${i}-${line.text}`}
             className={`${STYLE[line.kind]} whitespace-pre-wrap break-words animate-slide-up`}
@@ -164,10 +164,10 @@ export default function AgentTrace({ className = "" }: { className?: string }) {
           </div>
         ))}
 
-        {partial && (
-          <div className={`${STYLE[partial.kind]} whitespace-pre-wrap break-words`}>
-            {PREFIX[partial.kind]}
-            {partial.text}
+        {shownPartial && (
+          <div className={`${STYLE[shownPartial.kind]} whitespace-pre-wrap break-words`}>
+            {PREFIX[shownPartial.kind]}
+            {shownPartial.text}
             <span className="inline-block w-1.5 h-3 bg-[#00D4FF] ml-0.5 translate-y-0.5 animate-pulse" />
           </div>
         )}

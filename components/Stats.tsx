@@ -108,7 +108,7 @@ export default function Stats() {
             Impact by the Numbers
           </h2>
           <p className="text-[#64748B] text-lg font-mono">
-            // real results from real production systems
+            {"// real results from real production systems"}
           </p>
         </motion.div>
 

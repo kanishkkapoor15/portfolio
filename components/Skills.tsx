@@ -171,7 +171,7 @@ export default function Skills() {
             Core Language Proficiency
           </h3>
           <p className="text-center text-[#475569] text-sm mb-8 font-mono">
-            // self-assessed skill levels
+            {"// self-assessed skill levels"}
           </p>
           <div className="grid sm:grid-cols-2 gap-x-8 sm:gap-x-14 gap-y-6">
             {proficiency.map(({ lang, pct, color }) => (

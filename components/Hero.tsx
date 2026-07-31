@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Activity } from "lucide-react";
+import { useRenderActive } from "@/lib/useRenderActive";
 
 /* Load the WebGL swarm only on the client, and only after the headline has
    painted — the hero text is the LCP and must never wait on a shader. */
@@ -38,6 +39,8 @@ export default function Hero() {
   const [swarmReady, setSwarmReady] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  // Stop producing frames once the hero has scrolled away.
+  const { ref: activeRef, active } = useRenderActive<HTMLDivElement>();
 
   /* Cinematic parallax on scroll */
   const { scrollYProgress } = useScroll({
@@ -89,7 +92,9 @@ export default function Hero() {
         className="absolute inset-0"
         aria-hidden
       >
-        {swarmReady && <AgentSwarm paused={!!reduceMotion} />}
+        <div ref={activeRef} className="absolute inset-0">
+          {swarmReady && <AgentSwarm paused={!!reduceMotion} active={active} />}
+        </div>
       </motion.div>
 
       {/* Vignette so the headline always wins against the trails behind it */}
