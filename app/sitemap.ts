@@ -1,29 +1,26 @@
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/research";
 
+/**
+ * Only real, separately-addressable pages belong here.
+ *
+ * The previous version listed #about, #skills, #projects and so on. Google
+ * does not treat a fragment as its own page: every one of them canonicalises
+ * back to the homepage, so six "discovered pages" was really one. Listing them
+ * adds no coverage and dilutes the signal.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://kanishkkapoor.com";
   const now = new Date();
 
-  const sections: MetadataRoute.Sitemap = [
-    { url: base, lastModified: now, changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/#about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/#twin`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/#skills`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/#experience`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/#projects`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/#contact`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
-  ];
-
-  const research: MetadataRoute.Sitemap = [
-    { url: `${base}/research`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+  return [
+    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/research`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     ...ARTICLES.map((a) => ({
       url: `${base}/research/${a.slug}`,
       lastModified: new Date(a.date),
       changeFrequency: "monthly" as const,
-      priority: 0.85,
+      priority: 0.8,
     })),
   ];
-
-  return [...sections, ...research];
 }
