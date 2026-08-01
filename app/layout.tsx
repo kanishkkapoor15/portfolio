@@ -2,9 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+/** Google Analytics 4 measurement ID. */
+const GA_ID = "G-18BEQKR6QD";
 
 /* ─── Structured Data (JSON-LD) ──────────────────────────────── */
 const jsonLd = {
@@ -225,6 +229,28 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+
+        {/* Google Analytics 4.
+            next/script rather than a raw tag in <head>: the App Router owns
+            the document head, and afterInteractive lets Next inject and order
+            the load without blocking first paint.
+            Production only, so local development never pollutes the property. */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
