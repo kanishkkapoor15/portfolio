@@ -13,14 +13,14 @@ const highlights = [
   {
     icon: Building2,
     title: "Technical Accounts Manager",
-    subtitle: "AI Institute · Dublin · Full-time · 2026–Present",
+    subtitle: "AI Institute · Dublin · Full-time · Jun 2026–Present",
     color: "from-[#1F6B3B] to-[#B0512E]",
     glow: "rgba(47,139,79,0.2)",
   },
   {
     icon: Bot,
     title: "Agentic AI Engineer (Contract)",
-    subtitle: "Medicidiom, Spain (Remote) · Feb 2026–Present",
+    subtitle: "Medicidiom, Spain (Remote) · Feb–Jun 2026",
     color: "from-[#1E7A8C] to-[#1F6B3B]",
     glow: "rgba(30,122,140,0.2)",
   },
@@ -124,10 +124,10 @@ export default function About() {
                 <p className="text-[#6B5F54] leading-relaxed text-base sm:text-lg">
                   I graduated with an{" "}
                   <span className="font-semibold text-[#3A2E26]">MSc in Computing (Data Analytics)
-                  from Dublin City University</span>, and alongside my role at AI Institute I
-                  work on contract as an Agentic AI Engineer with Medicidiom (Spain, Remote),
-                  building production automation that processes 1,000+ documents with 25%
-                  accuracy gains and a 35% reduction in manual review.
+                  from Dublin City University</span>. Before joining AI Institute I worked on
+                  contract as an Agentic AI Engineer with Medicidiom (Spain, Remote), building
+                  production automation that processed 1,000+ documents with 25% accuracy gains
+                  and a 35% reduction in manual review.
                 </p>
 
                 {/* Interests */}
