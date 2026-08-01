@@ -1,51 +1,72 @@
 @import "tailwindcss";
 
-/* ─── Palette ──────────────────────────────────────────────────
-   Deep Navy    #050A14
-   Surface      #0D1421
-   Surface 2    #111D2E
-   Cyan         #00D4FF
-   Purple       #7C3AED
-   Emerald      #10B981
-   Text         #F0F6FF
-   Muted        #94A3B8
-──────────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   RETROFIT — solarpunk × fabric-first
+   Bright, warm, optimistic. Every surface is a material: lime-washed
+   plaster, clay, brass, planting. Nothing glows; things cast shadows.
+
+   Colour discipline (light background, so contrast is the risk):
+     SOIL / MUD          body + heading text
+     VERDANT-DEEP        accent text, borders, primary fills
+     CLAY-DEEP           secondary accent text and fills
+     SLATE-BLUE          tertiary accent text and fills
+     BRASS / SKY / LEAF  decorative only — rules, fills, large display.
+                         Never small text.
+═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --bg:        #050A14;
-  --surface:   #0D1421;
-  --surface-2: #111D2E;
-  --cyan:      #00D4FF;
-  --purple:    #7C3AED;
-  --emerald:   #10B981;
-  --text:      #F0F6FF;
-  --muted:     #94A3B8;
+  /* Grounds */
+  --lime-wash:  #F6F4EC;  /* page base */
+  --plaster:    #FDFBF3;  /* raised surface */
+  --linen:      #EDE9DB;  /* sunken surface, hairlines */
+
+  /* Ink */
+  --soil:       #3A2E26;  /* headings */
+  --mud:        #6B5F54;  /* body */
+  --silt:       #776959;  /* muted — 4.9:1 on lime wash */
+  --dust:       #877866;  /* decorative rules only, never small text */
+
+  /* Growth */
+  --verdant:      #2E8B4F;  /* bright green — fills, large */
+  --verdant-deep: #1F6B3B;  /* green that is safe as text */
+  --leaf:         #7FBF6A;  /* light green fill */
+
+  /* Clay */
+  --terracotta: #D06A45;
+  --clay-deep:  #B0512E;
+
+  /* Metal + air */
+  --brass:      #C99A2E;
+  --brass-deep: #8A6A15;
+  --sky:        #7FC5E3;
+  --slate-blue: #1E7A8C;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--lime-wash);
+  color: var(--mud);
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0D1421; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00D4FF, #7C3AED); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #7C3AED, #10B981); }
+::selection { background: var(--leaf); color: var(--soil); }
+
+/* Scrollbar — a brass rule down the edge */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--linen); }
+::-webkit-scrollbar-thumb {
+  background: var(--verdant);
+  border: 2px solid var(--linen);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--clay-deep); }
 
 /* ─── Animations ─────────────────────────────────────────────── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
-}
-
-@keyframes neon-pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(0,212,255,0.3), 0 0 30px rgba(0,212,255,0.08); }
-  50%       { box-shadow: 0 0 25px rgba(0,212,255,0.6), 0 0 60px rgba(0,212,255,0.2), 0 0 100px rgba(124,58,237,0.12); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(-0.6deg); }
 }
 
 @keyframes shimmer {
@@ -60,13 +81,14 @@ body {
 }
 
 @keyframes glow-breathe {
-  0%, 100% { opacity: 0.35; }
-  50%       { opacity: 0.75; }
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.9; }
 }
 
+/* Growth ring — a shoot spreading from a node */
 @keyframes radar-ping {
-  0%   { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(3.5); opacity: 0; }
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(3.2); opacity: 0; }
 }
 
 @keyframes spin-slow {
@@ -75,163 +97,260 @@ body {
 }
 
 @keyframes slide-up {
-  from { transform: translateY(20px); opacity: 0; }
+  from { transform: translateY(14px); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }
 }
 
-@keyframes bar-fill {
-  from { width: 0%; }
+@keyframes scan {
+  0%   { transform: translateY(-42vh); opacity: 0; }
+  12%  { opacity: 0.8; }
+  88%  { opacity: 0.8; }
+  100% { transform: translateY(42vh); opacity: 0; }
 }
 
-.animate-float       { animation: float 5s ease-in-out infinite; }
-.animate-neon-pulse  { animation: neon-pulse 2.5s ease-in-out infinite; }
-.animate-gradient    { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
-.animate-glow        { animation: glow-breathe 3s ease-in-out infinite; }
-.animate-spin-slow   { animation: spin-slow 20s linear infinite; }
-.animate-slide-up    { animation: slide-up 0.5s ease forwards; }
+/* Vine creeping along a rule */
+@keyframes creep {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
 
-/* ─── Shimmer heading ──────────────────────────────────────── */
+@keyframes sway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%      { transform: rotate(1.5deg); }
+}
+
+.animate-float     { animation: float 6s ease-in-out infinite; }
+.animate-gradient  { background-size: 200% 200%; animation: gradient-shift 5s ease infinite; }
+.animate-glow      { animation: glow-breathe 3.5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 24s linear infinite; }
+.animate-slide-up  { animation: slide-up 0.45s cubic-bezier(0.2,0.9,0.3,1) forwards; }
+.animate-sway      { animation: sway 7s ease-in-out infinite; transform-origin: bottom center; }
+
+/* Legacy name kept so existing markup keeps working. */
+.animate-neon-pulse { animation: glow-breathe 3s ease-in-out infinite; }
+
+/* ─── Display type ───────────────────────────────────────────── */
 .shimmer-text {
-  background: linear-gradient(90deg, #00D4FF, #7C3AED, #10B981, #00D4FF, #7C3AED);
+  /* brass-deep, not brass: the bright metal is 2.3:1 on lime wash and fails
+     even the large-text threshold. Reserved for fills and rules only. */
+  background: linear-gradient(90deg, var(--verdant-deep), var(--brass-deep), var(--clay-deep), var(--verdant-deep));
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 5s linear infinite;
+  animation: shimmer 6s linear infinite;
 }
 
-/* ─── Dark Glass ───────────────────────────────────────────── */
+/* Editorial display scale — tight, confident, large. */
+.display {
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  font-weight: 800;
+}
+
+/* ─── Paper cards ────────────────────────────────────────────────
+   The old .glass names are retained so markup did not have to churn,
+   but nothing here is glass any more: these are solid printed cards
+   with a hard offset shadow and no blur.
+──────────────────────────────────────────────────────────────── */
 .glass {
-  background: rgba(13, 20, 33, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: var(--plaster);
+  border: 1.5px solid var(--soil);
+  box-shadow: 4px 4px 0 rgba(58, 46, 38, 0.13);
 }
 
 .glass-light {
-  background: rgba(17, 29, 46, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 212, 255, 0.08);
+  background: var(--lime-wash);
+  border: 1.5px solid var(--linen);
 }
 
-/* ─── Neon utilities ───────────────────────────────────────── */
-.neon-cyan   { box-shadow: 0 0 20px rgba(0,212,255,0.35), 0 0 60px rgba(0,212,255,0.1); }
-.neon-purple { box-shadow: 0 0 20px rgba(124,58,237,0.35), 0 0 60px rgba(124,58,237,0.1); }
+/* Hard-offset lift, the editorial signature. */
+.neon-cyan   { box-shadow: 5px 5px 0 var(--verdant-deep); }
+.neon-purple { box-shadow: 5px 5px 0 var(--clay-deep); }
+.lift-brass  { box-shadow: 5px 5px 0 var(--brass); }
 
-/* ─── Data grid background ─────────────────────────────────── */
+.card-hover { transition: transform 0.22s cubic-bezier(0.2,0.9,0.3,1), box-shadow 0.22s ease; }
+.card-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--verdant-deep);
+  border-color: var(--soil) !important;
+}
+
+/* ─── Ground textures ────────────────────────────────────────── */
+/* Surveyor's grid, warm and faint. */
 .data-grid {
   background-image:
-    linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(58,46,38,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,46,38,0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
-/* ─── Card hover ───────────────────────────────────────────── */
-.card-hover { transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(0, 212, 255, 0.35) !important;
-  box-shadow: 0 0 30px rgba(0,212,255,0.12), 0 24px 60px rgba(0,0,0,0.5);
+/* Plaster tooth — keeps large flat colour from looking digital. */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(rgba(58,46,38,0.5) 0.5px, transparent 0.5px);
+  background-size: 4px 4px;
 }
 
-/* ─── Skill tag ────────────────────────────────────────────── */
+/* Dot lattice for full-bleed colour blocks. */
+.lattice {
+  background-image: radial-gradient(rgba(253,251,243,0.28) 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+}
+
+/* ─── Full-bleed colour blocks ───────────────────────────────── */
+.block-verdant { background: var(--verdant); color: var(--plaster); }
+.block-clay    { background: var(--terracotta); color: var(--plaster); }
+.block-soil    { background: var(--soil); color: var(--lime-wash); }
+
+/* ─── Tags ───────────────────────────────────────────────────── */
 .skill-tag {
-  background: rgba(0,212,255,0.05);
-  border: 1px solid rgba(0,212,255,0.12);
-  color: #94A3B8;
-  transition: all 0.2s ease;
+  background: var(--lime-wash);
+  border: 1.5px solid var(--soil);
+  color: var(--mud);
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
 }
 .skill-tag:hover {
-  background: rgba(0,212,255,0.1);
-  border-color: rgba(0,212,255,0.4);
-  color: #00D4FF;
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(0,212,255,0.2);
+  background: var(--leaf);
+  color: var(--soil);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 var(--verdant-deep);
 }
 
-/* ─── Nav link underline ───────────────────────────────────── */
-.nav-link { position: relative; transition: color 0.3s ease; }
+/* ─── Nav ────────────────────────────────────────────────────── */
+.nav-link { position: relative; transition: color 0.25s ease; }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: linear-gradient(90deg, #00D4FF, #7C3AED);
-  transition: width 0.3s ease;
-  border-radius: 1px;
+  bottom: -6px; left: 0;
+  width: 0; height: 3px;
+  background: var(--verdant);
+  transition: width 0.28s cubic-bezier(0.2,0.9,0.3,1);
 }
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 
-/* ─── Section blob (subtle dark glow) ─────────────────────── */
+/* ─── Ambient wash ───────────────────────────────────────────── */
 .section-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.07;
+  filter: blur(90px);
+  opacity: 0.13;
   pointer-events: none;
 }
 
-/* ─── Gradient border card ─────────────────────────────────── */
-.gradient-border { position: relative; }
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #00D4FF, #7C3AED, #10B981);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.gradient-border:hover::before { opacity: 0.5; }
+/* ─── Bordered card that gains a coloured edge on hover ──────── */
+.gradient-border { position: relative; transition: border-color 0.25s ease; }
+.gradient-border:hover { border-color: var(--verdant) !important; }
 
-/* ─── Timeline ─────────────────────────────────────────────── */
-.timeline-line {
-  background: linear-gradient(180deg, #00D4FF, #7C3AED, #10B981);
-}
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline-line { background: var(--verdant); width: 3px; }
 
-/* ─── Radar ping (timeline dot) ────────────────────────────── */
 .radar-ping::before {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
   background: inherit;
-  animation: radar-ping 2s ease-out infinite;
+  animation: radar-ping 2.4s ease-out infinite;
 }
 
-/* ─── Dark inputs ──────────────────────────────────────────── */
+/* ─── Inputs ─────────────────────────────────────────────────── */
 .input-dark {
-  background: rgba(13, 20, 33, 0.8);
-  border: 1px solid rgba(0, 212, 255, 0.12);
-  color: #F0F6FF;
-  transition: all 0.2s ease;
+  background: var(--plaster);
+  border: 1.5px solid var(--soil);
+  color: var(--soil);
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
 }
-.input-dark::placeholder { color: #475569; }
+.input-dark::placeholder { color: var(--silt); }
 .input-dark:focus {
   outline: none;
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(0,212,255,0.07), 0 0 20px rgba(0,212,255,0.08);
+  border-color: var(--verdant-deep);
+  box-shadow: 3px 3px 0 var(--verdant);
 }
 
-/* ─── Neon progress bar ────────────────────────────────────── */
-.progress-bar-glow {
-  position: relative;
-  overflow: visible;
-}
+/* ─── Progress ───────────────────────────────────────────────── */
+.progress-bar-glow { position: relative; }
 .progress-bar-glow::after {
   content: '';
   position: absolute;
-  right: -3px;
-  top: 50%;
+  right: -5px; top: 50%;
   transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
+  width: 10px; height: 10px;
   border-radius: 50%;
-  background: #00D4FF;
-  box-shadow: 0 0 10px #00D4FF, 0 0 20px rgba(0,212,255,0.6);
+  background: var(--brass);
+  border: 2px solid var(--soil);
 }
 
 @media (max-width: 768px) { .section-blob { display: none; } }
+
+/* ─── Native scroll-driven animation ─────────────────────────
+   Compositor-driven, so these stay smooth even while WebGL is
+   mid-frame. Progressive enhancement: unsupported browsers simply
+   never show the element.
+──────────────────────────────────────────────────────────── */
+@keyframes scroll-progress-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.scroll-progress { display: none; }
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    transform-origin: 0 50%;
+    animation: scroll-progress-grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-on-scroll {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 30%;
+    }
+    /* Vines creep along their rule as the section enters. */
+    .creep-on-scroll {
+      transform-origin: 0 50%;
+      animation: creep linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+/* ─── Survey cursor ──────────────────────────────────────────── */
+.survey-cursor-active,
+.survey-cursor-active a,
+.survey-cursor-active button { cursor: none; }
+.survey-cursor-active input,
+.survey-cursor-active textarea { cursor: text; }
+
+/* ─── Reduced motion ─────────────────────────────────────────
+   A blanket stop. Components additionally branch on
+   useReducedMotion so JS loops never start at all.
+──────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .survey-cursor-active,
+  .survey-cursor-active a,
+  .survey-cursor-active button { cursor: auto; }
+}

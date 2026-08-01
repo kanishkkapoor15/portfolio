@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -21,9 +21,9 @@ const jsonLd = {
         width: 512,
         height: 512,
       },
-      jobTitle: "AI Developer & Data Engineer",
+      jobTitle: "Technical Accounts Manager",
       description:
-        "AI Developer and Data Engineer based in Dublin, Ireland. MSc Computing (Data Analytics) at Dublin City University. Specialises in LLM pipelines, agentic AI systems, Apache Kafka, Azure Databricks, and production machine learning.",
+        "Technical Accounts Manager at AI Institute in Dublin, Ireland, building AI agents for built-environment companies across Ireland and the UK. MSc Computing (Data Analytics), Dublin City University. Specialises in agentic AI, LLM pipelines, Apache Kafka, Azure Databricks and production machine learning.",
       email: "kanishkkapoor15@gmail.com",
       address: {
         "@type": "PostalAddress",
@@ -44,7 +44,7 @@ const jsonLd = {
       ],
       worksFor: {
         "@type": "Organization",
-        name: "Medicidiom",
+        name: "AI Institute",
       },
       knowsAbout: [
         "Artificial Intelligence",
@@ -90,6 +90,12 @@ const jsonLd = {
   ],
 };
 
+/* ─── Viewport ───────────────────────────────────────────────── */
+export const viewport: Viewport = {
+  themeColor: "#2E8B4F",
+  colorScheme: "light",
+};
+
 /* ─── Next.js Metadata ───────────────────────────────────────── */
 export const metadata: Metadata = {
   metadataBase: new URL("https://kanishkkapoor.com"),
@@ -100,7 +106,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Kanishk Kapoor — AI Developer & Data Engineer in Dublin, Ireland. MSc Computing (Data Analytics) at DCU. Expert in LLM pipelines, agentic AI, Apache Kafka, Azure Databricks, Snowflake, and production machine learning. 30+ projects · IBM · Medicidiom.",
+    "Kanishk Kapoor — Technical Accounts Manager at AI Institute, Dublin. Builds AI agents for built-environment companies across Ireland and the UK. MSc Computing (Data Analytics), DCU. LLM pipelines, agentic AI, Apache Kafka, Azure Databricks, Snowflake and production machine learning. 30+ projects.",
 
   keywords: [
     "Kanishk Kapoor",
@@ -113,6 +119,10 @@ export const metadata: Metadata = {
     "Python Developer Dublin",
     "AI Engineer portfolio",
     "DCU MSc Data Analytics",
+    "Technical Accounts Manager Dublin",
+    "AI for built environment",
+    "construction AI Ireland",
+    "AI agents AEC",
     "Dublin City University AI",
     "Kafka developer",
     "Azure Databricks engineer",
@@ -138,7 +148,7 @@ export const metadata: Metadata = {
     siteName: "Kanishk Kapoor Portfolio",
     title: "Kanishk Kapoor | AI Developer & Data Engineer — Dublin, Ireland",
     description:
-      "AI Developer & Data Engineer building production LLM pipelines, agentic AI systems, and real-time data infrastructure. 30+ projects · IBM · Medicidiom · DCU MSc.",
+      "Technical Accounts Manager at AI Institute, Dublin. Building AI agents for built-environment companies across Ireland and the UK. 30+ projects · DCU MSc · IBM.",
     images: [
       {
         url: "/opengraph-image.png",
@@ -156,7 +166,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kanishk Kapoor | AI Developer & Data Engineer",
     description:
-      "Building production LLM pipelines, agentic AI systems, and real-time data infrastructure. 30+ projects · IBM · Medicidiom · DCU.",
+      "Building AI agents for built-environment companies across Ireland and the UK. 30+ projects · DCU MSc · IBM.",
     images: ["/opengraph-image.png"],
     creator: "@kanishkkapoor",
   },

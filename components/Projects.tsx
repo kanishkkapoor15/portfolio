@@ -13,6 +13,7 @@ import {
   GitBranch, Wind, TrendingUp, Globe,
   type LucideIcon,
 } from "lucide-react";
+import KineticHeading from "./KineticHeading";
 
 type Project = {
   title: string;
@@ -36,7 +37,7 @@ const projects: Project[] = [
     tags: ["Python", "OpenAI API", "MCP", "Agentic AI", "NLQ", "FastAPI"],
     category: "AI / LLM",
     icon: Bot,
-    color: "from-[#00D4FF] to-[#7C3AED]",
+    color: "from-[#1F6B3B] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/Product-Analytics-MCP-LLM-Agent",
     featured: true,
     highlight: "Pinned",
@@ -49,7 +50,7 @@ const projects: Project[] = [
     tags: ["Python", "GPT-4", "HuggingFace", "Streamlit", "REST API", "DistilBART"],
     category: "AI / LLM",
     icon: Newspaper,
-    color: "from-[#7C3AED] to-[#10B981]",
+    color: "from-[#B0512E] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/news-scrapping-llm",
     featured: true,
     highlight: "Dual-model fallback",
@@ -62,7 +63,7 @@ const projects: Project[] = [
     tags: ["Python", "Kafka", "Azure", "Databricks", "Snowflake", "PySpark"],
     category: "Data Engineering",
     icon: PlaneTakeoff,
-    color: "from-[#10B981] to-[#00D4FF]",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/US-flight-delay-data-pipeline",
     featured: true,
     highlight: "Multi-layer Medallion",
@@ -75,7 +76,7 @@ const projects: Project[] = [
     tags: ["Kafka", "Spark", "AWS S3", "Airflow", "Docker", "FastAPI"],
     category: "Data Engineering",
     icon: ShoppingCart,
-    color: "from-[#00D4FF] to-[#10B981]",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/E-commerce-Sales-Data-Pipeline",
     featured: false,
   },
@@ -87,7 +88,7 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Feature Engineering"],
     category: "Machine Learning",
     icon: Droplets,
-    color: "from-[#7C3AED] to-[#00D4FF]",
+    color: "from-[#B0512E] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/European_Water_Quality_Modelling",
     featured: true,
     highlight: "5M+ records",
@@ -100,7 +101,7 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "ANOVA", "Scikit-learn", "FinTech"],
     category: "Machine Learning",
     icon: ShieldAlert,
-    color: "from-[#10B981] to-[#7C3AED]",
+    color: "from-[#1E7A8C] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/Transaction-Fraud-Analysis",
     featured: false,
   },
@@ -112,7 +113,7 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "Pandas", "Statistical Testing", "Public Health"],
     category: "Machine Learning",
     icon: HeartPulse,
-    color: "from-[#00D4FF] to-[#7C3AED]",
+    color: "from-[#1F6B3B] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/Diabetes_Statistical_Model",
     featured: false,
     highlight: "86% accuracy",
@@ -125,7 +126,7 @@ const projects: Project[] = [
     tags: ["JavaScript", "React", "Node.js", "MongoDB", "TensorFlow", "Express"],
     category: "Full Stack",
     icon: Store,
-    color: "from-[#7C3AED] to-[#10B981]",
+    color: "from-[#B0512E] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/G-G-ECOMMERCE",
     featured: false,
   },
@@ -137,7 +138,7 @@ const projects: Project[] = [
     tags: ["Python", "FastAPI", "Snowflake", "ELT", "Healthcare"],
     category: "Data Engineering",
     icon: Hospital,
-    color: "from-[#10B981] to-[#00D4FF]",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/Healthcare-Data-Snowpipe",
     featured: false,
   },
@@ -149,7 +150,7 @@ const projects: Project[] = [
     tags: ["Python", "XGBoost", "LSTM", "TensorFlow", "Time Series"],
     category: "Machine Learning",
     icon: Zap,
-    color: "from-[#00D4FF] to-[#10B981]",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/Energy-Expenditure-Analysis",
     featured: false,
   },
@@ -161,7 +162,7 @@ const projects: Project[] = [
     tags: ["R", "SARIMA", "TBATS", "ETS", "Time Series", "Environmental"],
     category: "Machine Learning",
     icon: Radiation,
-    color: "from-[#7C3AED] to-[#00D4FF]",
+    color: "from-[#B0512E] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/Radioactivity_Forecasting_Czech_Republic",
     featured: false,
   },
@@ -173,7 +174,7 @@ const projects: Project[] = [
     tags: ["JavaScript", "React", "Data Visualisation", "GIS", "D3.js"],
     category: "Full Stack",
     icon: Map,
-    color: "from-[#10B981] to-[#7C3AED]",
+    color: "from-[#1E7A8C] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/indian-geographical-problems-analyzer",
     featured: false,
   },
@@ -187,7 +188,7 @@ const projects: Project[] = [
     tags: ["TypeScript", "Next.js", "AI", "React", "Tailwind CSS"],
     category: "Full Stack",
     icon: Brain,
-    color: "from-[#00D4FF] to-[#7C3AED]",
+    color: "from-[#1F6B3B] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/solas-app",
     featured: true,
     highlight: "Social Impact",
@@ -200,7 +201,7 @@ const projects: Project[] = [
     tags: ["Python", "Multi-Agent", "LangGraph", "Web Scraping", "PDF Generation"],
     category: "AI / LLM",
     icon: Users,
-    color: "from-[#7C3AED] to-[#10B981]",
+    color: "from-[#B0512E] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/consulting-mas",
     featured: true,
     highlight: "★ 1 Star",
@@ -213,7 +214,7 @@ const projects: Project[] = [
     tags: ["Python", "LangGraph", "FastAPI", "ChromaDB", "RAG", "DeepSeek", "Next.js"],
     category: "AI / LLM",
     icon: Scale,
-    color: "from-[#10B981] to-[#00D4FF]",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/PolicyBridge",
     featured: true,
     highlight: "★ 1 Star",
@@ -226,7 +227,7 @@ const projects: Project[] = [
     tags: ["Azure Data Factory", "Databricks", "Delta Lake", "PySpark", "Azure Data Lake"],
     category: "Data Engineering",
     icon: Car,
-    color: "from-[#00D4FF] to-[#10B981]",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/Taxi-Data-Pipeline-using-Azure-Data-Factory",
     featured: false,
   },
@@ -238,7 +239,7 @@ const projects: Project[] = [
     tags: ["R", "Deep Learning", "Neural Networks", "Classification", "Banking"],
     category: "Machine Learning",
     icon: UserMinus,
-    color: "from-[#7C3AED] to-[#00D4FF]",
+    color: "from-[#B0512E] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/BankChurnPrediction",
     featured: false,
   },
@@ -250,7 +251,7 @@ const projects: Project[] = [
     tags: ["R", "CNN", "Deep Learning", "Medical Imaging", "Healthcare"],
     category: "Machine Learning",
     icon: Scan,
-    color: "from-[#10B981] to-[#7C3AED]",
+    color: "from-[#1E7A8C] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/BreastCancerDetectionModel",
     featured: false,
   },
@@ -262,7 +263,7 @@ const projects: Project[] = [
     tags: ["R", "FNN", "Neural Networks", "Regression", "Healthcare"],
     category: "Machine Learning",
     icon: DollarSign,
-    color: "from-[#00D4FF] to-[#7C3AED]",
+    color: "from-[#1F6B3B] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/Medical-Insurance-Prediction-Model-using-FNN",
     featured: false,
   },
@@ -274,7 +275,7 @@ const projects: Project[] = [
     tags: ["R", "FNN", "Risk Modelling", "Classification", "Banking"],
     category: "Machine Learning",
     icon: CreditCard,
-    color: "from-[#7C3AED] to-[#10B981]",
+    color: "from-[#B0512E] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/loanPredictionNeuralNetworks",
     featured: false,
   },
@@ -286,7 +287,7 @@ const projects: Project[] = [
     tags: ["R", "Survival Analysis", "Classification", "Healthcare", "ML"],
     category: "Machine Learning",
     icon: Activity,
-    color: "from-[#10B981] to-[#00D4FF]",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/cirrhosisSurvivalPrediction",
     featured: false,
   },
@@ -298,7 +299,7 @@ const projects: Project[] = [
     tags: ["R", "XGBoost", "Fraud Detection", "Forecasting", "Classification"],
     category: "Machine Learning",
     icon: AlertTriangle,
-    color: "from-[#00D4FF] to-[#10B981]",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/fraudForecasting",
     featured: false,
   },
@@ -310,7 +311,7 @@ const projects: Project[] = [
     tags: ["R", "K-Means", "Clustering", "Segmentation", "Banking"],
     category: "Machine Learning",
     icon: PieChart,
-    color: "from-[#7C3AED] to-[#00D4FF]",
+    color: "from-[#B0512E] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/bankCustomerSegmentation",
     featured: false,
   },
@@ -322,7 +323,7 @@ const projects: Project[] = [
     tags: ["R", "Logistic Regression", "Risk", "Rebol", "Banking"],
     category: "Machine Learning",
     icon: Landmark,
-    color: "from-[#10B981] to-[#7C3AED]",
+    color: "from-[#1E7A8C] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/bankLoanPredictionAnalysis",
     featured: false,
   },
@@ -334,7 +335,7 @@ const projects: Project[] = [
     tags: ["R", "XGBoost", "Logistics", "Forecasting", "Analytics"],
     category: "Machine Learning",
     icon: Truck,
-    color: "from-[#00D4FF] to-[#7C3AED]",
+    color: "from-[#1F6B3B] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/smartLogisticsDataAnalytics",
     featured: false,
     highlight: "★ 1 Star",
@@ -347,7 +348,7 @@ const projects: Project[] = [
     tags: ["R", "Forecasting", "Sales Analytics", "Time Series", "EDA"],
     category: "Machine Learning",
     icon: ShoppingBag,
-    color: "from-[#7C3AED] to-[#10B981]",
+    color: "from-[#B0512E] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/black-friday-sales-data-analytics",
     featured: false,
     highlight: "★ 1 Star",
@@ -360,7 +361,7 @@ const projects: Project[] = [
     tags: ["R", "Supply Chain", "Retail Analytics", "HTML Report", "EDA"],
     category: "Data Engineering",
     icon: GitBranch,
-    color: "from-[#10B981] to-[#00D4FF]",
+    color: "from-[#1E7A8C] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/supply_chain_analysis",
     featured: false,
     highlight: "★ 1 Star",
@@ -373,7 +374,7 @@ const projects: Project[] = [
     tags: ["Python", "Time Series", "ARIMA", "Forecasting", "Statistics"],
     category: "Machine Learning",
     icon: TrendingUp,
-    color: "from-[#00D4FF] to-[#10B981]",
+    color: "from-[#1F6B3B] to-[#1E7A8C]",
     github: "https://github.com/kanishkkapoor15/sales-forecasting-time-series-model",
     featured: false,
   },
@@ -385,7 +386,7 @@ const projects: Project[] = [
     tags: ["Python", "Forecasting", "Environmental ML", "Regression", "Climate"],
     category: "Machine Learning",
     icon: Wind,
-    color: "from-[#7C3AED] to-[#00D4FF]",
+    color: "from-[#B0512E] to-[#1F6B3B]",
     github: "https://github.com/kanishkkapoor15/EPCM",
     featured: false,
   },
@@ -397,7 +398,7 @@ const projects: Project[] = [
     tags: ["R", "Churn Analysis", "Statistics", "Telecom", "Predictive Modelling"],
     category: "Machine Learning",
     icon: Globe,
-    color: "from-[#10B981] to-[#7C3AED]",
+    color: "from-[#1E7A8C] to-[#B0512E]",
     github: "https://github.com/kanishkkapoor15/churnAnalysis",
     featured: false,
   },
@@ -406,10 +407,10 @@ const projects: Project[] = [
 const categories = ["All", "AI / LLM", "Data Engineering", "Machine Learning", "Full Stack"];
 
 const categoryColors: Record<string, string> = {
-  "AI / LLM":         "from-[#00D4FF] to-[#7C3AED]",
-  "Data Engineering": "from-[#10B981] to-[#00D4FF]",
-  "Machine Learning": "from-[#7C3AED] to-[#10B981]",
-  "Full Stack":       "from-[#00D4FF] to-[#10B981]",
+  "AI / LLM":         "from-[#1F6B3B] to-[#B0512E]",
+  "Data Engineering": "from-[#1E7A8C] to-[#1F6B3B]",
+  "Machine Learning": "from-[#B0512E] to-[#1E7A8C]",
+  "Full Stack":       "from-[#1F6B3B] to-[#1E7A8C]",
 };
 
 export default function Projects() {
@@ -428,10 +429,10 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#050A14]"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-[#F6F4EC]"
     >
-      <div className="section-blob w-80 h-80 bg-[#7C3AED] top-0 -right-10" />
-      <div className="section-blob w-80 h-80 bg-[#00D4FF] bottom-20 -left-10" />
+      <div className="section-blob w-80 h-80 bg-[#B0512E] top-0 -right-10" />
+      <div className="section-blob w-80 h-80 bg-[#1F6B3B] bottom-20 -left-10" />
       <div className="absolute inset-0 data-grid opacity-40" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -442,16 +443,17 @@ export default function Projects() {
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#7C3AED]/25 text-[#7C3AED] text-sm font-semibold font-mono mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#B0512E]/25 text-[#B0512E] text-sm font-semibold font-mono mb-4">
             <Layers className="w-4 h-4" /> Projects
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#F0F6FF] mb-4">
-            What I&apos;ve{" "}
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#00D4FF] bg-clip-text text-transparent">
-              Built
-            </span>
-          </h2>
-          <p className="text-[#64748B] max-w-xl mx-auto text-lg">
+          <KineticHeading
+            className="display text-5xl sm:text-7xl text-[#3A2E26] mb-5"
+            parts={[
+              { text: "What I\u2019ve " },
+              { text: "Built", className: "bg-gradient-to-r from-[#B0512E] to-[#1F6B3B] bg-clip-text text-transparent" },
+            ]}
+          />
+          <p className="text-[#6B5F54] max-w-xl mx-auto text-lg">
             30+ projects spanning AI, data engineering, machine learning, and full-stack development.
           </p>
         </motion.div>
@@ -463,7 +465,7 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-3 mb-10"
         >
-          <Filter className="w-4 h-4 text-[#475569] self-center" />
+          <Filter className="w-4 h-4 text-[#776959] self-center" />
           {categories.map((cat) => (
             <motion.button
               key={cat}
@@ -472,8 +474,8 @@ export default function Projects() {
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-xl text-sm font-semibold font-mono transition-all ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] text-white shadow-lg neon-cyan"
-                  : "glass border border-[#00D4FF]/12 text-[#64748B] hover:border-[#00D4FF]/35 hover:text-[#00D4FF]"
+                  ? "bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] text-white shadow-lg neon-cyan"
+                  : "glass border border-[#1F6B3B]/12 text-[#6B5F54] hover:border-[#1F6B3B]/35 hover:text-[#1F6B3B]"
               }`}
             >
               {cat}
@@ -498,7 +500,7 @@ export default function Projects() {
                   rotateX: 2,
                   rotateY: 2,
                 }}
-                className="gradient-border glass rounded-2xl p-6 border border-[#00D4FF]/10 flex flex-col gap-4 cursor-default group"
+                className="gradient-border glass rounded-2xl p-6 border border-[#1F6B3B]/10 flex flex-col gap-4 cursor-default group"
                 style={{
                   transformStyle: "preserve-3d",
                   perspective: "1000px",
@@ -514,28 +516,28 @@ export default function Projects() {
                   </div>
                   <div className="flex items-center gap-2">
                     {project.highlight && (
-                      <span className="px-2 py-0.5 rounded-full bg-[#00D4FF]/10 text-xs font-bold text-[#00D4FF] border border-[#00D4FF]/20 font-mono">
+                      <span className="px-2 py-0.5 rounded-full bg-[#1F6B3B]/10 text-xs font-bold text-[#1F6B3B] border border-[#1F6B3B]/20 font-mono">
                         {project.highlight}
                       </span>
                     )}
                     {project.featured && (
-                      <Star className="w-4 h-4 text-[#00D4FF] fill-[#00D4FF]/60" />
+                      <Star className="w-4 h-4 text-[#1F6B3B] fill-[#1F6B3B]/60" />
                     )}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="font-bold text-[#F0F6FF] text-lg leading-tight mb-2 group-hover:text-[#00D4FF] transition-colors">
+                  <h3 className="font-bold text-[#3A2E26] text-lg leading-tight mb-2 group-hover:text-[#1F6B3B] transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-[#64748B] mb-3 leading-relaxed">
+                  <p className="text-sm text-[#6B5F54] mb-3 leading-relaxed">
                     {project.longDesc}
                   </p>
 
                   {/* Category badge */}
                   <span
-                    className={`inline-flex px-2.5 py-1 rounded-lg bg-gradient-to-r ${categoryColors[project.category] || "from-[#00D4FF] to-[#7C3AED]"} text-white text-xs font-bold mb-3 font-mono`}
+                    className={`inline-flex px-2.5 py-1 rounded-lg bg-gradient-to-r ${categoryColors[project.category] || "from-[#1F6B3B] to-[#B0512E]"} text-white text-xs font-bold mb-3 font-mono`}
                   >
                     {project.category}
                   </span>
@@ -545,13 +547,13 @@ export default function Projects() {
                     {project.tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-lg bg-[#00D4FF]/5 text-[#64748B] text-xs font-medium border border-[#00D4FF]/10 font-mono"
+                        className="px-2.5 py-1 rounded-lg bg-[#1F6B3B]/5 text-[#6B5F54] text-xs font-medium border border-[#1F6B3B]/10 font-mono"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 4 && (
-                      <span className="px-2.5 py-1 rounded-lg bg-[#00D4FF]/5 text-[#475569] text-xs font-medium font-mono">
+                      <span className="px-2.5 py-1 rounded-lg bg-[#1F6B3B]/5 text-[#776959] text-xs font-medium font-mono">
                         +{project.tags.length - 4}
                       </span>
                     )}
@@ -559,12 +561,12 @@ export default function Projects() {
                 </div>
 
                 {/* Footer */}
-                <div className="pt-3 border-t border-[#00D4FF]/8">
+                <div className="pt-3 border-t border-[#1F6B3B]/8">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-semibold text-[#64748B] hover:text-[#00D4FF] transition-colors group-hover:gap-3 font-mono"
+                    className="flex items-center gap-2 text-sm font-semibold text-[#6B5F54] hover:text-[#1F6B3B] transition-colors group-hover:gap-3 font-mono"
                   >
                     <Github className="w-4 h-4" />
                     View on GitHub
@@ -587,7 +589,7 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3.5 rounded-xl glass border border-[#00D4FF]/25 text-[#00D4FF] font-semibold font-mono hover:border-[#00D4FF]/55 hover:bg-[#00D4FF]/5 transition-all"
+              className="px-8 py-3.5 rounded-xl glass border border-[#1F6B3B]/25 text-[#1F6B3B] font-semibold font-mono hover:border-[#1F6B3B]/55 hover:bg-[#1F6B3B]/5 transition-all"
             >
               {showAll ? "↑ Show Less" : `↓ Show All ${filtered.length} Projects`}
             </motion.button>
@@ -605,7 +607,7 @@ export default function Projects() {
             href="https://github.com/kanishkkapoor15"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-[#00D4FF]/20 text-[#94A3B8] font-semibold font-mono hover:text-[#00D4FF] hover:border-[#00D4FF]/45 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-[#1F6B3B]/20 text-[#6B5F54] font-semibold font-mono hover:text-[#1F6B3B] hover:border-[#1F6B3B]/45 transition-all"
           >
             <Github className="w-5 h-5" />
             View All Repos on GitHub

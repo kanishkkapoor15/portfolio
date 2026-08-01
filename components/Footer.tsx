@@ -7,38 +7,38 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative overflow-hidden bg-[#030810] text-[#F0F6FF] py-12 px-4 sm:px-6">
+    <footer className="relative overflow-hidden block-verdant lattice py-16 px-4 sm:px-6 border-t-4 border-[#3A2E26]">
       {/* Top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF]/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-transparent" />
 
       {/* Subtle data grid */}
-      <div className="absolute inset-0 data-grid opacity-30" />
+      <div className="absolute inset-0 opacity-0" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Logo & credit */}
           <div className="flex flex-col items-center sm:items-start gap-2">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center shadow-lg neon-cyan">
-                <Terminal className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-xl bg-[#FDFBF3] flex items-center justify-center shadow-lg neon-cyan">
+                <Terminal className="w-4 h-4 text-[#2E8B4F]" />
               </div>
-              <span className="font-bold text-lg bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] bg-clip-text text-transparent font-mono">
+              <span className="font-bold text-xl text-[#FDFBF3] font-mono">
                 Kanishk Kapoor
               </span>
             </div>
-            <p className="text-[#475569] text-sm font-mono">
+            <p className="text-[#FDFBF3]/75 text-sm font-mono">
               Built with Next.js · Dublin, Ireland 🇮🇪
             </p>
           </div>
 
           {/* Nav */}
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-[#475569] font-mono">
-            {["#home", "#about", "#skills", "#experience", "#projects", "#contact"].map(
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-[#FDFBF3]/80 font-mono">
+            {["#home", "#about", "#skills", "#experience", "#projects", "#research", "#contact"].map(
               (href) => (
                 <a
                   key={href}
                   href={href}
-                  className="hover:text-[#00D4FF] transition-colors"
+                  className="hover:text-[#C99A2E] transition-colors"
                 >
                   {href.slice(1)}
                 </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -2 }}
-                className="p-2 rounded-xl glass border border-[#00D4FF]/10 text-[#475569] hover:text-[#00D4FF] hover:border-[#00D4FF]/35 transition-all"
+                className="p-2 rounded-none border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
                 aria-label={label}
               >
                 <Icon className="w-4 h-4" />
@@ -69,13 +69,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 pt-6 border-t border-[#00D4FF]/8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#2D3748] font-mono">
+        <div className="mt-10 pt-6 border-t-2 border-[#FDFBF3]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FDFBF3]/70 font-mono">
           <p>© {new Date().getFullYear()} Kanishk Kapoor. All rights reserved.</p>
           <motion.button
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass border border-[#00D4FF]/12 text-[#475569] hover:text-[#00D4FF] hover:border-[#00D4FF]/35 transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
           >
             <ArrowUp className="w-3.5 h-3.5" />
             Back to top
