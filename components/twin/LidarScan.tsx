@@ -214,20 +214,23 @@ export default function LidarScan({
   active?: boolean;
   className?: string;
 }) {
-  const [sizeScale] = useState(() =>
-    typeof window !== "undefined" && window.innerWidth < 768 ? 0.75 : 1,
-  );
+  const [profile] = useState(() => {
+    const mobile = typeof window !== "undefined" && window.innerWidth < 768;
+    // Phones get a smaller point scale and no supersampling: this is a
+    // decorative cloud and the buffer cost is not worth it on battery.
+    return { sizeScale: mobile ? 0.75 : 1, dpr: mobile ? 1 : 1.5 };
+  });
 
   return (
     <div className={className} style={{ width: "100%", height: "100%" }}>
       <Canvas
         camera={{ position: [0, 1.5, 22], fov: 42 }}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
-        dpr={[1, 1.5]}
+        dpr={[1, profile.dpr]}
         frameloop={active ? "always" : "never"}
         style={{ background: "transparent", width: "100%", height: "100%" }}
       >
-        <Cloud paused={paused} sizeScale={sizeScale} />
+        <Cloud paused={paused} sizeScale={profile.sizeScale} />
       </Canvas>
     </div>
   );

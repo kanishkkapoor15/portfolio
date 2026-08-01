@@ -148,7 +148,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1F6B3B]/20 mb-6"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1F6B3B]/20 mb-4 sm:mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-[#1E7A8C] animate-pulse" />
           <span className="text-sm text-[#6B5F54] font-medium font-mono">
@@ -162,7 +162,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="display text-5xl sm:text-6xl lg:text-7xl mb-5 text-[#3A2E26]"
+          className="display text-[2.5rem] sm:text-6xl lg:text-7xl mb-4 sm:mb-5 text-[#3A2E26]"
         >
           Hi, I&apos;m{" "}
           <span className="shimmer-text">Kanishk Kapoor</span>
@@ -173,7 +173,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 h-10 sm:h-12 flex items-center justify-center font-mono"
+          className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 sm:mb-6 h-9 sm:h-12 flex items-center justify-center font-mono"
         >
           <span className="text-[#1F6B3B]/50 mr-2">$</span>
           <TypeAnimation
@@ -197,7 +197,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="text-base sm:text-lg text-[#6B5F54] max-w-2xl mx-auto mb-8 leading-relaxed min-h-[3rem] font-mono"
+          className="text-base sm:text-lg text-[#6B5F54] max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed min-h-[2.5rem] sm:min-h-[3rem] font-mono"
         >
           <span className="text-[#1F6B3B]/50 mr-1">{"// "}</span>
           <span className="text-[#6B5F54]">{displayed}</span>
@@ -211,7 +211,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.75 }}
-          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-9"
         >
           <motion.a
             href="#projects"
@@ -236,7 +236,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.95 }}
-          className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
+          className="flex items-center justify-center gap-4 mb-6 sm:mb-10"
         >
           {[
             { icon: Github,   href: "https://github.com/kanishkkapoor15",   label: "GitHub"   },
@@ -263,7 +263,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.15 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto"
         >
           {stats.map((stat, i) => (
             <motion.div

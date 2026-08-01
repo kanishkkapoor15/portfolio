@@ -332,6 +332,25 @@ body {
   }
 }
 
+/* ─── Touch devices ──────────────────────────────────────────
+   Hover-driven affordances never fire on touch, and the grey tap flash
+   fights the paper palette. Keep the horizontal carousel scrolling
+   smoothly and respect the home indicator inset.
+──────────────────────────────────────────────────────────── */
+@media (hover: none) {
+  * { -webkit-tap-highlight-color: rgba(46, 139, 79, 0.14); }
+  /* Hover lifts would otherwise stick after a tap on iOS. */
+  .card-hover:hover,
+  .skill-tag:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 rgba(58, 46, 38, 0.13);
+  }
+}
+
+@supports (padding: max(0px)) {
+  .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+}
+
 /* ─── Survey cursor ──────────────────────────────────────────── */
 .survey-cursor-active,
 .survey-cursor-active a,

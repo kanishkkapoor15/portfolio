@@ -88,13 +88,13 @@ export default function ResearchPeek() {
           transition={{ duration: 0.45, type: "spring", stiffness: 90, damping: 16 }}
           role="complementary"
           aria-label="Suggested research reading"
-          className="fixed bottom-4 right-4 left-4 z-[90] max-w-sm border-2 border-[#3A2E26] bg-[#FDFBF3] p-5 sm:left-auto sm:bottom-6 sm:right-6"
+          className="safe-bottom fixed bottom-4 right-4 left-4 z-[90] max-w-sm border-2 border-[#3A2E26] bg-[#FDFBF3] p-5 sm:left-auto sm:bottom-6 sm:right-6"
           style={{ boxShadow: `6px 6px 0 ${tone.fill}` }}
         >
           <button
             onClick={dismiss}
             aria-label="Dismiss reading suggestion"
-            className="absolute right-2 top-2 border-2 border-transparent p-1.5 text-[#776959] transition-colors hover:border-[#3A2E26] hover:text-[#3A2E26]"
+            className="absolute right-1 top-1 grid h-11 w-11 place-items-center border-2 border-transparent text-[#776959] transition-colors hover:border-[#3A2E26] hover:text-[#3A2E26]"
           >
             <X className="h-4 w-4" />
           </button>

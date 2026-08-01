@@ -38,7 +38,7 @@ export default function Footer() {
                 <a
                   key={href}
                   href={href}
-                  className="hover:text-[#C99A2E] transition-colors"
+                  className="inline-flex min-h-[44px] items-center px-1 hover:text-[#C99A2E] transition-colors"
                 >
                   {href.slice(1)}
                 </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -2 }}
-                className="p-2 rounded-none border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
+                className="grid h-11 w-11 place-items-center rounded-none border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
                 aria-label={label}
               >
                 <Icon className="w-4 h-4" />
@@ -75,7 +75,7 @@ export default function Footer() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="flex items-center gap-1.5 px-3 py-1.5 border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
+            className="flex min-h-[44px] items-center gap-1.5 px-4 py-2 border-2 border-[#FDFBF3]/60 text-[#FDFBF3] hover:bg-[#FDFBF3] hover:text-[#2E8B4F] transition-all"
           >
             <ArrowUp className="w-3.5 h-3.5" />
             Back to top

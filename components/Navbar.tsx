@@ -57,7 +57,7 @@ export default function Navbar() {
             href="#home"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2"
+            className="flex min-h-[44px] items-center gap-2 py-1"
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1F6B3B] to-[#B0512E] flex items-center justify-center shadow-lg neon-cyan">
               <Terminal className="w-4 h-4 text-white" />
@@ -109,7 +109,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-[#6B5F54] hover:text-[#1F6B3B] hover:bg-[#1F6B3B]/5 transition-colors border border-[#1F6B3B]/10"
+            className="md:hidden p-3 rounded-lg text-[#6B5F54] hover:text-[#1F6B3B] hover:bg-[#1F6B3B]/5 transition-colors border border-[#1F6B3B]/10"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </motion.button>
@@ -142,7 +142,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-[#6B5F54] font-medium font-mono py-2 hover:text-[#1F6B3B] transition-colors"
+                  className="flex min-h-[44px] items-center text-[#6B5F54] font-medium font-mono py-2 hover:text-[#1F6B3B] transition-colors"
                 >
                   <span className="text-[#1F6B3B]/40 mr-2">›</span>
                   {item.label}

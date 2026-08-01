@@ -472,7 +472,7 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold font-mono transition-all ${
+              className={`min-h-[44px] px-4 py-2.5 rounded-xl text-sm font-semibold font-mono transition-all ${
                 activeCategory === cat
                   ? "bg-gradient-to-r from-[#1F6B3B] to-[#B0512E] text-white shadow-lg neon-cyan"
                   : "glass border border-[#1F6B3B]/12 text-[#6B5F54] hover:border-[#1F6B3B]/35 hover:text-[#1F6B3B]"
@@ -566,7 +566,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-semibold text-[#6B5F54] hover:text-[#1F6B3B] transition-colors group-hover:gap-3 font-mono"
+                    className="flex min-h-[44px] items-center gap-2 py-2 text-sm font-semibold text-[#6B5F54] hover:text-[#1F6B3B] transition-colors group-hover:gap-3 font-mono"
                   >
                     <Github className="w-4 h-4" />
                     View on GitHub

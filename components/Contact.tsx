@@ -153,7 +153,7 @@ export default function Contact() {
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={() => handleCopy(contact.value, contact.label)}
-                        className="p-1.5 rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
+                        className="grid h-11 w-11 place-items-center rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
                         title="Copy"
                       >
                         {copied === contact.label ? (
@@ -169,7 +169,7 @@ export default function Contact() {
                         target={contact.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
-                        className="p-1.5 rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
+                        className="grid h-11 w-11 place-items-center rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
                       >
                         <Send className="w-4 h-4" />
                       </motion.a>

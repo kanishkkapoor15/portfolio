@@ -91,7 +91,7 @@ export default function DigitalTwin() {
 
             <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-x-5 gap-y-1 pointer-events-none">
               {readouts.map((r) => (
-                <div key={r.label} className="font-mono text-[10px] leading-tight">
+                <div key={r.label} className="font-mono text-[11px] leading-tight sm:text-[10px]">
                   <span className="text-[#776959]">{r.label} </span>
                   <span className="text-[#6B5F54] tabular-nums">{r.value}</span>
                 </div>
