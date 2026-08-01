@@ -84,7 +84,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F6F4EC]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F6F4EC] pt-16"
     >
       {/* ── Agent swarm over a procedural floor plan ── */}
       <motion.div
@@ -148,7 +148,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1F6B3B]/20 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1F6B3B]/20 mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-[#1E7A8C] animate-pulse" />
           <span className="text-sm text-[#6B5F54] font-medium font-mono">
@@ -162,7 +162,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="display text-5xl sm:text-7xl lg:text-8xl mb-5 text-[#3A2E26]"
+          className="display text-5xl sm:text-6xl lg:text-7xl mb-5 text-[#3A2E26]"
         >
           Hi, I&apos;m{" "}
           <span className="shimmer-text">Kanishk Kapoor</span>
@@ -197,7 +197,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="text-base sm:text-lg text-[#6B5F54] max-w-2xl mx-auto mb-10 leading-relaxed min-h-[3rem] font-mono"
+          className="text-base sm:text-lg text-[#6B5F54] max-w-2xl mx-auto mb-8 leading-relaxed min-h-[3rem] font-mono"
         >
           <span className="text-[#1F6B3B]/50 mr-1">{"// "}</span>
           <span className="text-[#6B5F54]">{displayed}</span>
@@ -211,7 +211,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.75 }}
-          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9"
         >
           <motion.a
             href="#projects"
@@ -236,7 +236,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.95 }}
-          className="flex items-center justify-center gap-4 mb-10 sm:mb-14"
+          className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
         >
           {[
             { icon: Github,   href: "https://github.com/kanishkkapoor15",   label: "GitHub"   },
@@ -285,7 +285,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 [@media(max-height:820px)]:hidden"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

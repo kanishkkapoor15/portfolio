@@ -42,3 +42,10 @@ next-env.d.ts
 
 # claude code local config
 .claude/
+
+# iCloud Drive conflict copies (macOS syncs Desktop by default, and these
+# duplicate source files as "Component 2.tsx")
+* [0-9].ts
+* [0-9].tsx
+* [0-9].css
+* [0-9].json
