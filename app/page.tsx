@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Stats from "@/components/Stats";
 import Projects from "@/components/Projects";
+import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SurveyCursor from "@/components/SurveyCursor";
@@ -22,6 +23,7 @@ export default function Home() {
       <Skills />
       <Experience />
       <Projects />
+      <Research />
       <Contact />
       <Footer />
     </main>
