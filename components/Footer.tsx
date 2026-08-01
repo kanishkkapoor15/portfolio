@@ -27,7 +27,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[#FDFBF3]/75 text-sm font-mono">
-              Built with Next.js · Dublin, Ireland 🇮🇪
+              AI agents for the built environment · Dublin, Ireland 🇮🇪
             </p>
           </div>
 

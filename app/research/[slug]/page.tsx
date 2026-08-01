@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Mail, Info } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, Info, CalendarClock } from "lucide-react";
 import { ARTICLES, getArticle, relatedArticles, DOMAIN_TONE } from "@/lib/research";
 import Viz from "@/components/research/Viz";
 
@@ -208,17 +208,19 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             your assumptions and I will re-run it.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://calendly.com/kanishkkapoor15/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 border-2 border-[#3A2E26] bg-[#C99A2E] px-6 py-3.5 font-mono font-bold text-[#3A2E26] shadow-[5px_5px_0_#F6F4EC] transition-transform hover:-translate-x-1 hover:-translate-y-1"
+            >
+              <CalendarClock className="h-4 w-4" /> Book a 30 min call
+            </a>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 border-2 border-[#3A2E26] bg-[#C99A2E] px-6 py-3.5 font-mono font-bold text-[#3A2E26] shadow-[5px_5px_0_#F6F4EC] transition-transform hover:-translate-x-1 hover:-translate-y-1"
+              className="inline-flex min-h-[44px] items-center gap-2 border-2 border-[#F6F4EC]/70 px-6 py-3.5 font-mono font-bold text-[#F6F4EC] transition-colors hover:bg-[#F6F4EC] hover:text-[#3A2E26]"
             >
-              <Mail className="h-4 w-4" /> Start a conversation
-            </Link>
-            <Link
-              href="/#twin"
-              className="inline-flex items-center gap-2 border-2 border-[#F6F4EC]/70 px-6 py-3.5 font-mono font-bold text-[#F6F4EC] transition-colors hover:bg-[#F6F4EC] hover:text-[#3A2E26]"
-            >
-              See the working systems
+              <Mail className="h-4 w-4" /> Or send an email
             </Link>
           </div>
         </div>

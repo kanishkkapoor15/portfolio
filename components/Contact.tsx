@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, Phone, Copy, CheckCheck } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, CalendarClock, Copy, CheckCheck } from "lucide-react";
 import KineticHeading from "./KineticHeading";
 
 export default function Contact() {
@@ -37,13 +37,13 @@ export default function Contact() {
       copyable: true,
     },
     {
-      icon: Phone,
-      label: "Phone",
-      value: "+353 899 595 536",
-      href: "tel:+353899595536",
+      icon: CalendarClock,
+      label: "Book a call",
+      value: "30 minutes, no charge",
+      href: "https://calendly.com/kanishkkapoor15/30min",
       color: "from-[#B0512E] to-[#1E7A8C]",
       glow: "rgba(176,81,46,0.25)",
-      copyable: true,
+      copyable: false,
     },
     {
       icon: Github,
@@ -121,10 +121,20 @@ export default function Contact() {
                 <MessageSquare className="w-4 h-4 text-[#1F6B3B]" /> Say Hello
               </h3>
               <p className="text-[#6B5F54] text-sm leading-relaxed">
-                Whether you&apos;re a recruiter, a fellow developer, or someone with an
-                interesting project — I&apos;d love to hear from you. I typically respond
-                within 24 hours.
+                If you are working on AI in the built environment, or weighing up whether
+                an agent is worth building at all, a half hour is usually enough to tell.
+                No charge and no pitch. I reply to email within 24 hours.
               </p>
+
+              <a
+                href="https://calendly.com/kanishkkapoor15/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-5 inline-flex min-h-[44px] items-center gap-2 border-2 border-[#3A2E26] bg-[#2E8B4F] px-5 py-3 font-mono text-sm font-bold text-[#FDFBF3] shadow-[4px_4px_0_#3A2E26] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5"
+              >
+                <CalendarClock className="h-4 w-4" />
+                Book a 30 min call
+              </a>
             </div>
 
             {contacts.map((contact, i) => {
@@ -169,6 +179,7 @@ export default function Contact() {
                         target={contact.href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
+                        aria-label={`${contact.label}: ${contact.value}`}
                         className="grid h-11 w-11 place-items-center rounded-lg hover:bg-[#1F6B3B]/8 text-[#776959] hover:text-[#1F6B3B] transition-colors"
                       >
                         <Send className="w-4 h-4" />

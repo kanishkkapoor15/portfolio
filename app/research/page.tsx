@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarClock } from "lucide-react";
 import { ARTICLES, DOMAINS, DOMAIN_TONE } from "@/lib/research";
 
 export const metadata: Metadata = {
@@ -125,12 +125,22 @@ export default function ResearchIndex() {
             Every model on this page is built from stated assumptions and takes an afternoon to
             re-run on a real portfolio, pipeline or project.
           </p>
-          <Link
-            href="/#contact"
-            className="mt-8 inline-flex items-center gap-2 border-2 border-[#3A2E26] bg-[#FDFBF3] px-7 py-3.5 font-mono font-bold text-[#3A2E26] shadow-[5px_5px_0_#3A2E26] transition-transform hover:-translate-x-1 hover:-translate-y-1"
-          >
-            Get in touch <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="https://calendly.com/kanishkkapoor15/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 border-2 border-[#3A2E26] bg-[#FDFBF3] px-7 py-3.5 font-mono font-bold text-[#3A2E26] shadow-[5px_5px_0_#3A2E26] transition-transform hover:-translate-x-1 hover:-translate-y-1"
+            >
+              <CalendarClock className="h-4 w-4" /> Book a 30 min call
+            </a>
+            <Link
+              href="/#contact"
+              className="inline-flex min-h-[44px] items-center gap-2 border-2 border-[#FDFBF3]/80 px-7 py-3.5 font-mono font-bold text-[#FDFBF3] transition-colors hover:bg-[#FDFBF3] hover:text-[#D06A45]"
+            >
+              Send an email <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </main>
