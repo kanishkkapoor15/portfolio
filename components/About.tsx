@@ -8,6 +8,7 @@ import {
   Globe, MapPinned, Code2, Coffee,
 } from "lucide-react";
 import KineticHeading from "./KineticHeading";
+import Portrait from "./Portrait";
 
 const highlights = [
   {
@@ -97,12 +98,23 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left – Bio */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* Portrait plate */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 70 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.15, type: "spring", stiffness: 70 }}
+            className="lg:col-span-3 mx-auto w-full max-w-[280px] lg:max-w-none"
+          >
+            <Portrait />
+          </motion.div>
+
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.28, type: "spring", stiffness: 70 }}
+            className="lg:col-span-5"
           >
             <div className="relative">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-[#1F6B3B]/20 to-[#B0512E]/20" />
@@ -159,7 +171,7 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.4, type: "spring", stiffness: 70 }}
-            className="flex flex-col gap-4"
+            className="lg:col-span-4 flex flex-col gap-4"
           >
             {highlights.map((item, i) => {
               const Icon = item.icon;

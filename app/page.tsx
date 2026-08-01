@@ -10,6 +10,8 @@ import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SurveyCursor from "@/components/SurveyCursor";
+import ResearchHook from "@/components/ResearchHook";
+import ResearchPeek from "@/components/ResearchPeek";
 
 export default function Home() {
   return (
@@ -19,13 +21,24 @@ export default function Home() {
       <Hero />
       <About />
       <DigitalTwin />
+      <ResearchHook
+        slug="agentic-site-selection-due-diligence-ireland-uk"
+        kicker="Field research · Real estate"
+        variant="verdant"
+      />
       <Stats />
       <Skills />
       <Experience />
+      <ResearchHook
+        slug="predictive-design-multi-dimensional-forecasting-embodied-carbon"
+        kicker="Field research · Architecture"
+        variant="clay"
+      />
       <Projects />
       <Research />
       <Contact />
       <Footer />
+      <ResearchPeek />
     </main>
   );
 }
