@@ -135,7 +135,9 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
                   {top.value}%
                 </div>
                 <div style={{ display: "flex", fontSize: 27, color: SOIL, maxWidth: 520, lineHeight: 1.25, paddingTop: 42 }}>
-                  of {top.label.toLowerCase()} can be handed to an agent
+                  {article.cardHook
+                    ? article.cardHook.lead
+                    : `of ${top.label.toLowerCase()} can be handed to an agent`}
                 </div>
               </div>
 
@@ -144,7 +146,9 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
                   {bottom.value}%
                 </div>
                 <div style={{ display: "flex", fontSize: 27, color: SOIL, maxWidth: 520, lineHeight: 1.25, paddingTop: 42 }}>
-                  of {bottom.label.toLowerCase()} can
+                  {article.cardHook
+                    ? article.cardHook.counter
+                    : `of ${bottom.label.toLowerCase()} can`}
                 </div>
               </div>
             </div>

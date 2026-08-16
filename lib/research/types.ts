@@ -47,6 +47,21 @@ export type Block =
   | { t: "viz"; spec: VizSpec }
   | { t: "note"; text: string };
 
+/** A published paper an article analyses. Rendered as a citation and emitted
+ *  into the article's JSON-LD, so the source is structured data rather than a
+ *  link buried in prose. */
+export type SourcePaper = {
+  title: string;
+  authors: string;
+  venue: string;
+  /** Publication or submission date, ISO or human-readable. */
+  date: string;
+  url: string;
+  /** True when the full text is behind a paywall and some detail comes from
+   *  the abstract or a summary rather than the complete paper. */
+  paywalled?: boolean;
+};
+
 export type Article = {
   slug: string;
   domain: Domain;
@@ -61,6 +76,14 @@ export type Article = {
   metrics: { value: string; label: string }[];
   /** Search terms this piece is written to serve. */
   keywords: string[];
+  /** Set when the piece analyses published research rather than my own model. */
+  sourcePaper?: SourcePaper;
+  /**
+   * Explicit two-line hook for the social card. Without it the card builds a
+   * sentence from the chart's own bar labels, which only reads well when those
+   * labels are task names.
+   */
+  cardHook?: { lead: string; counter: string };
   body: Block[];
 };
 

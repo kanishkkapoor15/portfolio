@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Mail, Info, CalendarClock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, Info, CalendarClock, FileText, ExternalLink } from "lucide-react";
 import { ARTICLES, getArticle, relatedArticles, DOMAIN_TONE } from "@/lib/research";
 import Viz from "@/components/research/Viz";
 
@@ -78,6 +78,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     publisher: { "@type": "Person", name: "Kanishk Kapoor", url: SITE },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     isAccessibleForFree: true,
+    ...(article.sourcePaper && {
+      citation: {
+        "@type": "ScholarlyArticle",
+        name: article.sourcePaper.title,
+        author: article.sourcePaper.authors,
+        publisher: article.sourcePaper.venue,
+        datePublished: article.sourcePaper.date,
+        url: article.sourcePaper.url,
+      },
+    }),
   };
 
   const breadcrumb = {
@@ -129,6 +139,44 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
       </div>
+
+      {/* Source paper */}
+      {article.sourcePaper && (
+        <div className="border-b-2 border-[#EDE9DB] bg-[#F6F4EC] px-4 py-8 sm:px-6">
+          <div className="mx-auto max-w-3xl">
+            <div
+              className="border-2 border-[#3A2E26] bg-[#FDFBF3] p-5 sm:p-6"
+              style={{ boxShadow: `5px 5px 0 ${tone.fill}` }}
+            >
+              <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#776959]">
+                <FileText className="h-3.5 w-3.5" /> Analysis of published research
+              </p>
+              <p className="mt-3 text-lg font-bold leading-snug text-[#3A2E26]">
+                {article.sourcePaper.title}
+              </p>
+              <p className="mt-2 text-sm text-[#6B5F54]">
+                {article.sourcePaper.authors} · {article.sourcePaper.venue} ·{" "}
+                {article.sourcePaper.date}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <a
+                  href={article.sourcePaper.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center gap-2 border-2 border-[#3A2E26] px-4 py-2 font-mono text-sm font-bold text-[#3A2E26] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5"
+                >
+                  Read the paper <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+                {article.sourcePaper.paywalled && (
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-[#8A6A15]">
+                    Paywalled · see note in article
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Body */}
       <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
