@@ -5,12 +5,16 @@ import { constructionArticles } from "./construction.ts";
 import { paperArticles1 } from "./papers1.ts";
 import { paperArticles2 } from "./papers2.ts";
 import { paperArticles3 } from "./papers3.ts";
+import { paperArticles4 } from "./papers4.ts";
 
 export * from "./types.ts";
 
 /** Newest first. Order here drives the carousel and the index page. */
 export const ARTICLES: Article[] = [
-  // Paper analyses, newest work
+  // Fortnightly scan, 16 to 30 August 2026
+  ...paperArticles4,
+
+  // Paper analyses
   paperArticles2[0],   // adaptive exploration (TUM)
   paperArticles1[1],   // probabilistic cost estimation
   paperArticles1[0],   // MCP 4D progress monitoring
